@@ -15,14 +15,10 @@ public class PlayerController : MonoBehaviour
     // variable for checking if the player is fishing
     public bool isFishing = false;
 
-    public Collider2D fishCollider;
-    public Collider2D playerCollider;
-
     void Start()
     {
         // getting the rigidbody2D component from gameobject
         rb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -52,18 +48,14 @@ public class PlayerController : MonoBehaviour
         } else {
             rb.velocity = Vector2.zero;
         }
-
-        // calling the function to check if the player is overlapping the fish gameobject
-        isOverlapping();
     }
 
-    private void isOverlapping() {
-        // checking if the fish's collider is colliding with the player's colliding
-        // I don't fucking know why it's like this.
-        // To be honest, I don't what the fuck I'm doing at all. I hate myself.
-        if (fishCollider.IsTouching(playerCollider)) {
+    private void OnTriggerStay2D(UnityEngine.Collider2D collision)
+    {
+        // Checking if the player is colliding with a gameobject with the tag Fish
+        if (collision.gameObject.tag == "Fish") {
             if (Input.GetKeyDown(KeyCode.Space)) {
-                Debug.Log("Fuck");
+                Debug.Log("Fish");
             }
         }
     }
