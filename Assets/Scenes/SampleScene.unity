@@ -271,6 +271,8 @@ MonoBehaviour:
   forceToApply: {x: 0, y: 0}
   forceDamping: 1.2
   isFishing: 0
+  fishCollider: {fileID: 167355872}
+  playerCollider: {fileID: 0}
 --- !u!212 &195053764
 SpriteRenderer:
   m_ObjectHideFlags: 0
