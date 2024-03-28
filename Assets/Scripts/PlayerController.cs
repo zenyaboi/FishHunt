@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public Collider2D fishCollider;
     public Collider2D playerCollider;
 
+    public GameObject fishingMinigame;
+
     void Start()
     {
         // getting the rigidbody2D component from gameobject
@@ -65,6 +67,13 @@ public class PlayerController : MonoBehaviour
         if (fishCollider.IsTouching(playerCollider)) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 Debug.Log("Fuck");
+
+                // checking if the fishing minigame object is active
+                // if it's not active, then activate it
+                if (!fishingMinigame.activeSelf) 
+                    fishingMinigame.SetActive(true);
+                else  
+                    fishingMinigame.SetActive(false);
             }
         }
     }

@@ -349,6 +349,7 @@ MonoBehaviour:
   isFishing: 0
   fishCollider: {fileID: 167355872}
   playerCollider: {fileID: 0}
+  fishingMinigame: {fileID: 1965284514}
 --- !u!212 &195053764
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1144,7 +1145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1965284515
 RectTransform:
   m_ObjectHideFlags: 0
