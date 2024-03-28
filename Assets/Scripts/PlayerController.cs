@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
         }
 
         isOverlapping();
+
+        fishingMinigame.SetActive(isFishing);
     }
 
     private void isOverlapping() {
@@ -67,13 +69,7 @@ public class PlayerController : MonoBehaviour
         if (fishCollider.IsTouching(playerCollider)) {
             if (Input.GetKeyDown(KeyCode.Space)) {
                 Debug.Log("Fuck");
-
-                // checking if the fishing minigame object is active
-                // if it's not active, then activate it
-                if (!fishingMinigame.activeSelf) 
-                    fishingMinigame.SetActive(true);
-                else  
-                    fishingMinigame.SetActive(false);
+                isFishing = !isFishing;
             }
         }
     }
