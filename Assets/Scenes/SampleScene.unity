@@ -1230,6 +1230,12 @@ MonoBehaviour:
   fish: {fileID: 1257617997}
   timerMultiplicator: 3
   smoothMotion: 1
+  hook: {fileID: 1189843583}
+  hookSize: 0.1
+  hookPower: 5
+  hookPullPower: 0.01
+  hookGravityPower: 0.005
+  hookProgressDegradation: 1
 --- !u!1 &2030100856
 GameObject:
   m_ObjectHideFlags: 0

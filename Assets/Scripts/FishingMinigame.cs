@@ -30,8 +30,21 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] float hookGravityPower = 0.005f;
     [SerializeField] float hookProgressDegradation = 1f;
     #endregion
-    
+
     private void Update() 
+    {
+        Fish();
+        Hook();
+    }
+
+    void Hook()
+    {
+        if (Input.GetKey(KeyCode.Space)) {
+            if (fishing.activeSelf) Debug.Log("I'm doing it");
+        }
+    }
+
+    void Fish() 
     {
         if (fishing.activeSelf) {
             fishTimer -= Time.deltaTime;
@@ -45,7 +58,7 @@ public class FishingMinigame : MonoBehaviour
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
         } else {
             // Change later the random value of the fish
-            Debug.Log("to desativado bro");
+            // Debug.Log("to desativado bro");
             fishTimer = 0f;
             fishPosition = UnityEngine.Random.value;
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);

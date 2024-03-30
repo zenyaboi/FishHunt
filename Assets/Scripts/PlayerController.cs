@@ -67,9 +67,11 @@ public class PlayerController : MonoBehaviour
         // To be honest, I don't what the fuck I'm doing at all. I hate myself.
         // And also, need to make the fish gameobject a prefab because it will break if it is not a prefab.
         if (fishCollider.IsTouching(playerCollider)) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                Debug.Log("Fuck");
-                isFishing = !isFishing;
+            if (!isFishing) {
+                if (Input.GetKeyDown(KeyCode.Space)) {
+                    Debug.Log("Fuck");
+                    isFishing = !isFishing;
+                }
             }
         }
     }
