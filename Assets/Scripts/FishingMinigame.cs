@@ -33,29 +33,9 @@ public class FishingMinigame : MonoBehaviour
 
     private void Update() 
     {
-        Fish();
-        Hook();
-    }
-
-    void Hook()
-    {
-        if (Input.GetKey(KeyCode.Space)) {
-            if (fishing.activeSelf) Debug.Log("I'm doing it");
-        }
-    }
-
-    void Fish() 
-    {
         if (fishing.activeSelf) {
-            fishTimer -= Time.deltaTime;
-
-            if (fishTimer <= 0f) {
-                fishTimer = UnityEngine.Random.value * timerMultiplicator;
-                fishDestination = UnityEngine.Random.value;
-            }
-
-            fishPosition = Mathf.SmoothDamp(fishPosition, fishDestination, ref fishSpeed, smoothMotion);
-            fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
+            Fish();
+            Hook();
         } else {
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
@@ -63,5 +43,30 @@ public class FishingMinigame : MonoBehaviour
             fishPosition = UnityEngine.Random.value;
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
         }
+    }
+
+    void Hook()
+    {
+        if (Input.GetKey(KeyCode.Space)) {
+            hookPullVelocity += hookPullPower * Time.deltaTime;
+        }
+        hookPullVelocity -= hookGravityPower * Time.deltaTime;
+
+        hookPosition += hookPullVelocity;
+        hookPosition = Mathf.Clamp(hookPosition, hookSize / 2, 1 - hookSize / 2);
+        hook.position = Vector3.Lerp(bottomPivot.position, topPivot.position, hookPosition);
+    }
+
+    void Fish() 
+    {
+        fishTimer -= Time.deltaTime;
+
+        if (fishTimer <= 0f) {
+            fishTimer = UnityEngine.Random.value * timerMultiplicator;
+            fishDestination = UnityEngine.Random.value;
+        }
+
+        fishPosition = Mathf.SmoothDamp(fishPosition, fishDestination, ref fishSpeed, smoothMotion);
+        fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
     }
 }
