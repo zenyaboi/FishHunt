@@ -47,9 +47,9 @@ public class FishingMinigame : MonoBehaviour
 
     void Hook()
     {
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKey(KeyCode.Space)) 
             hookPullVelocity += hookPullPower * Time.deltaTime;
-        }
+
         hookPullVelocity -= hookGravityPower * Time.deltaTime;
 
         hookPosition += hookPullVelocity;

@@ -46,9 +46,7 @@ public class PlayerController : MonoBehaviour
             moveForce += forceToApply;
             forceToApply /= forceDamping;
             if (Mathf.Abs(forceToApply.x) <= 0.01f && Mathf.Abs(forceToApply.y) <= 0.01f)
-            {
                 forceToApply = Vector2.zero;
-            }
 
             // applying the movement force to rigidbody's velocity
             rb.velocity = moveForce;
@@ -61,7 +59,8 @@ public class PlayerController : MonoBehaviour
         fishingMinigame.SetActive(isFishing);
     }
 
-    private void isOverlapping() {
+    private void isOverlapping() 
+    {
         // checking if the fish's collider is colliding with the player's colliding
         // I don't fucking know why it's like this.
         // To be honest, I don't what the fuck I'm doing at all. I hate myself.
