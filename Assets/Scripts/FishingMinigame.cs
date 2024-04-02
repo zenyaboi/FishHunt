@@ -50,7 +50,6 @@ public class FishingMinigame : MonoBehaviour
         if (!fishing.activeSelf) {
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
-            endedMinigame = false;
             fishTimer = 0f;
             failTimer = 10f;
             fishPosition = UnityEngine.Random.value;
