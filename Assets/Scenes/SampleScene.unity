@@ -285,7 +285,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.11792451, g: 0.19884917, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1233,9 +1233,10 @@ MonoBehaviour:
   hook: {fileID: 1189843583}
   hookSize: 0.1
   hookPower: 5
-  hookPullPower: 0.01
-  hookGravityPower: 0.005
+  hookPullPower: 0.005
+  hookGravityPower: 0.0025
   hookProgressDegradation: 1
+  hookSpriteRenderer: {fileID: 1189843584}
 --- !u!1 &2030100856
 GameObject:
   m_ObjectHideFlags: 0

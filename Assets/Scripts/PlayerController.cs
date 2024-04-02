@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (fishCollider.IsTouching(playerCollider)) {
             if (!isFishing) {
                 if (Input.GetKeyDown(KeyCode.Space)) {
-                    Debug.Log("Fuck");
+                    //Debug.Log("Fuck");
                     isFishing = !isFishing;
                 }
             }
