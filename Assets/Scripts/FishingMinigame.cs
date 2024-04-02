@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FishingMinigame : MonoBehaviour
 {
+    public GameObject fishPool;
+
     #region Fish variables
     public GameObject fishing;
 
@@ -30,22 +33,33 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] float hookPullPower = 0.005f;
     [SerializeField] float hookGravityPower = 0.0025f;
     [SerializeField] float hookProgressDegradation = 1f;
+    #endregion
 
-    [SerializeField] Image hookSpriteRenderer;
+    #region Progress Bar variables
+    [SerializeField] Transform progressBarContainer;
+
+    bool pause = false;
+
+    [SerializeField] float failTimer = 10f;
     #endregion
 
     private void Update() 
     {
+        if (pause) return;
+
         if (!fishing.activeSelf) {
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
+            endedMinigame = false;
             fishTimer = 0f;
+            failTimer = 10f;
             fishPosition = UnityEngine.Random.value;
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
         }
 
         Fish();
         Hook();
+        ProgressCheck();
     }
 
     void Hook()
@@ -78,5 +92,45 @@ public class FishingMinigame : MonoBehaviour
 
         fishPosition = Mathf.SmoothDamp(fishPosition, fishDestination, ref fishSpeed, smoothMotion);
         fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
+    }
+
+    private void ProgressCheck()
+    {
+        Vector3 ls = progressBarContainer.localScale;
+        ls.y = hookProgress;
+        progressBarContainer.localScale = ls;
+
+        float min = hookPosition - hookSize / 2;
+        float max = hookPosition + hookSize / 2;
+
+        if (min < fishPosition && fishPosition < max) {
+            hookProgress += hookPower * Time.deltaTime;
+        } else {
+            hookProgress -= hookProgressDegradation * Time.deltaTime;
+
+            failTimer -= Time.deltaTime;
+
+            if (failTimer <= 0f) Lose();
+        }
+
+        if (hookProgress >= 1f) Win();
+        
+        hookProgress = Mathf.Clamp(hookProgress, 0f, 1f);
+    }
+
+    private void Win()
+    {
+        Debug.Log("YOU WIN! HOLY FUCKING CUCK FUCK");
+        failTimer = 10f;
+        pause = true;
+        fishing.SetActive(false);
+    }
+
+    private void Lose()
+    {
+        Debug.Log("GET FUCKED NERD");
+        failTimer = 10f;
+        pause = true;
+        fishing.SetActive(false);
     }
 }

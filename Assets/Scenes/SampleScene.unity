@@ -1224,6 +1224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa04cb48984398469c2d5aeeed06d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endedMinigame: 0
+  fishPool: {fileID: 167355871}
   fishing: {fileID: 1759993646}
   topPivot: {fileID: 769000361}
   bottomPivot: {fileID: 386893812}
@@ -1236,7 +1238,8 @@ MonoBehaviour:
   hookPullPower: 0.005
   hookGravityPower: 0.0025
   hookProgressDegradation: 1
-  hookSpriteRenderer: {fileID: 1189843584}
+  progressBarContainer: {fileID: 241720854}
+  failTimer: 10
 --- !u!1 &2030100856
 GameObject:
   m_ObjectHideFlags: 0
