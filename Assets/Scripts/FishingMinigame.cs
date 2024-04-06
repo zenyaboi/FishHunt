@@ -38,7 +38,7 @@ public class FishingMinigame : MonoBehaviour
     #region Progress Bar variables
     [SerializeField] Transform progressBarContainer;
 
-    bool pause = false;
+    public bool pause = false;
 
     [SerializeField] float failTimer = 10f;
     #endregion

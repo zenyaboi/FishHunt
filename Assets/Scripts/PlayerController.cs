@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public FishingMinigame fishing;
+    
     public Rigidbody2D rb;
     public float moveSpeed = 7f;
 
@@ -54,18 +56,25 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
+        if (fishing.pause) {
+            isFishing = false;
+        }
+        
         isOverlapping();
 
         fishingMinigame.SetActive(isFishing);
     }
-
+    
     private void isOverlapping() 
     {
         // checking if the fish's collider is colliding with the player's colliding
         // I don't fucking know why it's like this.
         // To be honest, I don't what the fuck I'm doing at all. I hate myself.
         // And also, need to make the fish gameobject a prefab because it will break if it is not a prefab.
+        if (fishCollider == null) return;
+
         if (fishCollider.IsTouching(playerCollider)) {
+            Debug.Log("estou tocando");
             if (!isFishing) {
                 if (Input.GetKeyDown(KeyCode.Space)) {
                     //Debug.Log("Fuck");
