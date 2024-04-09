@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class FishingMinigame : MonoBehaviour
 {
-    public GameObject fishPool;
+    public GameObject[] fishPool;
 
     #region Fish variables
     public GameObject fishing;
@@ -43,15 +43,21 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] float failTimer = 10f;
     #endregion
 
+    void Start()
+    {
+        fishPool = GameObject.FindGameObjectsWithTag("Fish");
+    }
+
     private void Update() 
     {
-        if (pause) return;
+        //if (pause) return;
 
         if (!fishing.activeSelf) {
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
             fishTimer = 0f;
             failTimer = 10f;
+            pause = false;
             fishPosition = UnityEngine.Random.value;
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
         }
@@ -123,6 +129,7 @@ public class FishingMinigame : MonoBehaviour
         failTimer = 10f;
         pause = true;
         fishing.SetActive(false);
+        StartCoroutine(hasWon());
     }
 
     private void Lose()
@@ -131,5 +138,12 @@ public class FishingMinigame : MonoBehaviour
         failTimer = 10f;
         pause = true;
         fishing.SetActive(false);
+        StartCoroutine(hasWon());
+    }
+
+    IEnumerator hasWon()
+    {
+        yield return new WaitForSeconds(0.5f);
+        pause = false;
     }
 }
