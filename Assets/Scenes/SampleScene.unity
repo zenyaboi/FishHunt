@@ -199,16 +199,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98845401}
   m_CullTransparentMesh: 1
---- !u!1 &167355871 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
-  m_PrefabInstance: {fileID: 668219683268841253}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &167355872 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 668219683397200581, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
-  m_PrefabInstance: {fileID: 668219683268841253}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &195053762
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +237,7 @@ MonoBehaviour:
   forceToApply: {x: 0, y: 0}
   forceDamping: 1.2
   isFishing: 0
-  fishCollider: {fileID: 167355872}
+  fishCollider: {fileID: 0}
   playerCollider: {fileID: 0}
   fishingMinigame: {fileID: 1759993646}
 --- !u!212 &195053764
@@ -1189,7 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa04cb48984398469c2d5aeeed06d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPool: {fileID: 167355871}
+  fishPool: []
   fishing: {fileID: 1759993646}
   topPivot: {fileID: 769000361}
   bottomPivot: {fileID: 386893812}

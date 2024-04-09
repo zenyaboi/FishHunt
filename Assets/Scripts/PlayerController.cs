@@ -83,4 +83,11 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Fish") {
+            Debug.Log("aqui");
+            fishCollider = other.gameObject.GetComponent<BoxCollider2D>();
+        }
+    }
 }
