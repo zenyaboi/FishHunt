@@ -70,23 +70,31 @@ public class PlayerController : MonoBehaviour
         // checking if the fish's collider is colliding with the player's colliding
         // I don't fucking know why it's like this.
         // To be honest, I don't what the fuck I'm doing at all. I hate myself.
-        // And also, need to make the fish gameobject a prefab because it will break if it is not a prefab.
+        // And also, need to make the fish gameobject a prefab because it will break if it is not a prefab. (This was a foreshadow and I didn't know)
         if (fishCollider == null) return;
 
         if (fishCollider.IsTouching(playerCollider)) {
-            Debug.Log("estou tocando");
+            //Debug.Log("estou tocando");
             if (!isFishing) {
                 if (Input.GetKeyDown(KeyCode.Space)) {
-                    //Debug.Log("Fuck");
                     isFishing = !isFishing;
                 }
             }
         }
     }
-
+    
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Fish") {
-            Debug.Log("aqui");
+            // So... making the fish pools as a prefab also broke everything
+            // In case I forget why this exists:
+            // We are checking if the player is overlapping the gameobject on the function isOverlapping()
+            // On the function, we use the IsTouching, which is from Collider2D, to check if the player is colliding with the fish pool
+            // But, that will only work if the gameobject is referenced inside the editor
+            // If there's MORE THAN ONE FISH POOL the player can't fish again since it can't find the Collider2D of the fish
+            // Now, this here "fixes" the problem
+            // We are checking if we are trigerring any gameobject with the tag "Fish"
+            // If so, we are assining the collider of the gameobject we triggered to the fishCollider variable (which is used on isOverlapping).
+            // Debug.Log("aqui");
             fishCollider = other.gameObject.GetComponent<BoxCollider2D>();
         }
     }

@@ -45,13 +45,14 @@ public class FishingMinigame : MonoBehaviour
 
     void Start()
     {
+        // Another problem by making the fish pools a prefab.
+        // I kinda forgot why I use this, but it's important
+        // I need to add these comments when I do the code, not a day later
         fishPool = GameObject.FindGameObjectsWithTag("Fish");
     }
 
     private void Update() 
     {
-        //if (pause) return;
-
         if (!fishing.activeSelf) {
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
@@ -143,6 +144,8 @@ public class FishingMinigame : MonoBehaviour
 
     IEnumerator hasWon()
     {
+        // Created this IEnumerator just in case the game breaks by not letting the player fish again
+        // So we are waiting half of a second to make the pause false to restart the minigame
         yield return new WaitForSeconds(0.5f);
         pause = false;
     }
