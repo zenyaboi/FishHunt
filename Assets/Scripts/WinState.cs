@@ -22,7 +22,13 @@ public class WinState : MonoBehaviour
             activateUI.SetActive(true);
             playerController.hasWon = true;
 
-            if (Input.GetKey(KeyCode.Space)) SceneManager.LoadScene(0);
+            StartCoroutine(waitInput());
         }
+    }
+
+    IEnumerator waitInput() 
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (Input.GetKey(KeyCode.Space)) SceneManager.LoadScene(0);
     }
 }
