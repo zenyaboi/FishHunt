@@ -12,7 +12,7 @@ public class WinState : MonoBehaviour
     void Start()
     {
         activateUI.SetActive(false);
-        playerController.isFishing = false;
+        playerController.hasWon = false;
     }
 
     void Update()
@@ -20,7 +20,7 @@ public class WinState : MonoBehaviour
         // Find a way to find the amount of fish in the scene without making it manual because fuck me
         if (fishingMinigame.fishCount >= 4) {
             activateUI.SetActive(true);
-            playerController.isFishing = true;
+            playerController.hasWon = true;
 
             if (Input.GetKey(KeyCode.Space)) SceneManager.LoadScene(0);
         }

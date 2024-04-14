@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     // variable for checking if the player is fishing
     public bool isFishing = false;
+    public bool hasWon = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         // Checking if the player is not fishing
-        if (!isFishing) {
+        if (!isFishing || !hasWon) {
             // getting the player's input value
             Vector2 playerInput = new Vector2(horizontal, vertical).normalized;
 
