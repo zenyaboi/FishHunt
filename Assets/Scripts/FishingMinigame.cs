@@ -9,6 +9,8 @@ public class FishingMinigame : MonoBehaviour
 {
     public GameObject[] fishPool;
 
+    public int fishCount;
+
     #region Fish variables
     public GameObject fishing;
 
@@ -53,11 +55,14 @@ public class FishingMinigame : MonoBehaviour
 
     private void Update() 
     {
+        if (pause) return;
+
         if (!fishing.activeSelf) {
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
             fishTimer = 0f;
             failTimer = 10f;
+            hookProgress = 0f;
             pause = false;
             fishPosition = UnityEngine.Random.value;
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
@@ -127,8 +132,8 @@ public class FishingMinigame : MonoBehaviour
     private void Win()
     {
         Debug.Log("YOU WIN! HOLY FUCKING CUCK FUCK");
-        failTimer = 10f;
         pause = true;
+        failTimer = 10f;
         fishing.SetActive(false);
         StartCoroutine(hasWon());
     }
@@ -136,17 +141,25 @@ public class FishingMinigame : MonoBehaviour
     private void Lose()
     {
         Debug.Log("GET FUCKED NERD");
-        failTimer = 10f;
         pause = true;
+        failTimer = 10f;
         fishing.SetActive(false);
-        StartCoroutine(hasWon());
+        StartCoroutine(hasLost());
     }
 
     IEnumerator hasWon()
     {
         // Created this IEnumerator just in case the game breaks by not letting the player fish again
         // So we are waiting half of a second to make the pause false to restart the minigame
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
+        fishCount += 1;
+        pause = false;
+    }
+    IEnumerator hasLost()
+    {
+        // Created this IEnumerator just in case the game breaks by not letting the player fish again
+        // So we are waiting half of a second to make the pause false to restart the minigame
+        yield return new WaitForSeconds(0.1f);
         pause = false;
     }
 }
