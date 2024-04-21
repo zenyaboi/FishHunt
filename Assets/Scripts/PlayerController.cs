@@ -40,30 +40,32 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        // Checking if the player is not fishing
-        if (!isFishing || !hasWon) {
-            // Assining animator's float with movement variables
-            animator.SetFloat("Horizontal", horizontal);
-            animator.SetFloat("Vertical", vertical);
-            animator.SetFloat("Speed", moveSpeed);
-
-            // getting the player's input value
-            Vector2 playerInput = new Vector2(horizontal, vertical).normalized;
-
-            // applying force to the player movement
-            Vector2 moveForce = playerInput * moveSpeed;
-
-            // in case the player gets hit, the players gets knocked back affecting its position
-            moveForce += forceToApply;
-            forceToApply /= forceDamping;
-            if (Mathf.Abs(forceToApply.x) <= 0.01f && Mathf.Abs(forceToApply.y) <= 0.01f)
-                forceToApply = Vector2.zero;
-
-            // applying the movement force to rigidbody's velocity
-            rb.velocity = moveForce;
-        } else {
+        // Checking if the player is fishing
+        if (isFishing || hasWon) {
+            horizontal = 0;
+            vertical = 0;
             rb.velocity = Vector2.zero;
         }
+
+        // Assining animator's float with movement variables
+        animator.SetFloat("Horizontal", horizontal);
+        animator.SetFloat("Vertical", vertical);
+        animator.SetFloat("Speed", moveSpeed);
+
+        // getting the player's input value
+        Vector2 playerInput = new Vector2(horizontal, vertical).normalized;
+
+        // applying force to the player movement
+        Vector2 moveForce = playerInput * moveSpeed;
+
+        // in case the player gets hit, the players gets knocked back affecting its position
+        moveForce += forceToApply;
+        forceToApply /= forceDamping;
+        if (Mathf.Abs(forceToApply.x) <= 0.01f && Mathf.Abs(forceToApply.y) <= 0.01f)
+            forceToApply = Vector2.zero;
+
+        // applying the movement force to rigidbody's velocity
+        rb.velocity = moveForce;
 
         if (fishing.pause) {
             isFishing = false;

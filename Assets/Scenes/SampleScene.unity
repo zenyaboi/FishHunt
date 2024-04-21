@@ -1782,7 +1782,7 @@ MonoBehaviour:
   smoothMotion: 1
   hook: {fileID: 1189843583}
   hookSize: 0.1
-  hookPower: 2
+  hookPower: 3
   hookPullPower: 0.005
   hookGravityPower: 0.0025
   hookProgressDegradation: 1
