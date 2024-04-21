@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (fishing.pause) {
             isFishing = false;
+            isOverlap = false;
         }
         
         isOverlapping();
