@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public FishingMinigame fishing;
     
     public Rigidbody2D rb;
+    public Animator animator;
     public float moveSpeed = 7f;
 
     // this is for knockback for the player
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
     {
         // getting the rigidbody2D component from gameobject
         rb = GetComponent<Rigidbody2D>();
+        // getting the animator component from gameobject
+        animator = GetComponent<Animator>();
         // getting the box collider 2d component from gameobject
         playerCollider = GetComponent<BoxCollider2D>();
     }
@@ -39,6 +42,11 @@ public class PlayerController : MonoBehaviour
 
         // Checking if the player is not fishing
         if (!isFishing || !hasWon) {
+            // Assining animator's float with movement variables
+            animator.SetFloat("Horizontal", horizontal);
+            animator.SetFloat("Vertical", vertical);
+            animator.SetFloat("Speed", moveSpeed);
+
             // getting the player's input value
             Vector2 playerInput = new Vector2(horizontal, vertical).normalized;
 
