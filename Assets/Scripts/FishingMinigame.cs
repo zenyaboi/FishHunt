@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,7 +41,7 @@ public class FishingMinigame : MonoBehaviour
 
     public bool pause = false;
 
-    [SerializeField] float failTimer = 10f;
+    [SerializeField] float failTimer = 15f;
     #endregion
 
     void Start()
@@ -53,7 +52,7 @@ public class FishingMinigame : MonoBehaviour
         fishPool = GameObject.FindGameObjectsWithTag("Fish");
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
         if (pause) return;
 
@@ -61,8 +60,9 @@ public class FishingMinigame : MonoBehaviour
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
             fishTimer = 0f;
-            failTimer = 10f;
+            failTimer = 15f;
             hookProgress = 0f;
+            hookPosition = 0f;
             pause = false;
             fishPosition = UnityEngine.Random.value;
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
@@ -76,9 +76,9 @@ public class FishingMinigame : MonoBehaviour
     void Hook()
     {
         if (Input.GetKey(KeyCode.Space)) 
-            hookPullVelocity += hookPullPower * Time.deltaTime;
+            hookPullVelocity += hookPullPower * Time.fixedDeltaTime;
 
-        hookPullVelocity -= hookGravityPower * Time.deltaTime;
+        hookPullVelocity -= hookGravityPower * Time.fixedDeltaTime;
 
         hookPosition += hookPullVelocity;
 
@@ -94,7 +94,7 @@ public class FishingMinigame : MonoBehaviour
 
     void Fish() 
     {
-        fishTimer -= Time.deltaTime;
+        fishTimer -= Time.fixedDeltaTime;
 
         if (fishTimer <= 0f) {
             fishTimer = UnityEngine.Random.value * timerMultiplicator;
@@ -115,11 +115,11 @@ public class FishingMinigame : MonoBehaviour
         float max = hookPosition + hookSize / 2;
 
         if (min < fishPosition && fishPosition < max) {
-            hookProgress += hookPower * Time.deltaTime;
+            hookProgress += hookPower * Time.fixedDeltaTime;
         } else {
-            hookProgress -= hookProgressDegradation * Time.deltaTime;
+            hookProgress -= hookProgressDegradation * Time.fixedDeltaTime;
 
-            failTimer -= Time.deltaTime;
+            failTimer -= Time.fixedDeltaTime;
 
             if (failTimer <= 0f) Lose();
         }
@@ -133,7 +133,7 @@ public class FishingMinigame : MonoBehaviour
     {
         Debug.Log("YOU WIN! HOLY FUCKING CUCK FUCK");
         pause = true;
-        failTimer = 10f;
+        failTimer = 15f;
         fishing.SetActive(false);
         StartCoroutine(hasWon());
     }
@@ -142,7 +142,7 @@ public class FishingMinigame : MonoBehaviour
     {
         Debug.Log("GET FUCKED NERD");
         pause = true;
-        failTimer = 10f;
+        failTimer = 15f;
         fishing.SetActive(false);
         StartCoroutine(hasLost());
     }

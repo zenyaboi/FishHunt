@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
     // variable for checking if the player is fishing
     public bool isFishing = false;
     public bool hasWon = false;
+    public bool isOverlap = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
 
     public GameObject fishingMinigame;
+    public GameObject icons;
 
     void Start()
     {
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
         isOverlapping();
 
         fishingMinigame.SetActive(isFishing);
+        icons.SetActive(isOverlap);
     }
     
     private void isOverlapping() 
@@ -86,11 +89,14 @@ public class PlayerController : MonoBehaviour
 
         if (fishCollider.IsTouching(playerCollider)) {
             //Debug.Log("estou tocando");
+            isOverlap = true;
             if (!isFishing) {
                 if (Input.GetKeyDown(KeyCode.Space)) {
                     isFishing = !isFishing;
                 }
             }
+        } else {
+            isOverlap = false;
         }
     }
     
