@@ -18,7 +18,7 @@ public class WinState : MonoBehaviour
     void Update()
     {
         // Find a way to find the amount of fish in the scene without making it manual because fuck me
-        if (fishingMinigame.fishCount >= 4) {
+        if (fishingMinigame.fishCount >= 15) {
             activateUI.SetActive(true);
             playerController.hasWon = true;
 

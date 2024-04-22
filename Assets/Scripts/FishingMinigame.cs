@@ -41,7 +41,7 @@ public class FishingMinigame : MonoBehaviour
 
     public bool pause = false;
 
-    [SerializeField] float failTimer = 15f;
+    [SerializeField] float failTimer = 999f;
     #endregion
 
     void Start()
@@ -60,7 +60,7 @@ public class FishingMinigame : MonoBehaviour
             // Change later the random value of the fish
             // Debug.Log("to desativado bro");
             fishTimer = 0f;
-            failTimer = 15f;
+            failTimer = 999f;
             hookProgress = 0f;
             hookPosition = 0f;
             pause = false;
@@ -133,7 +133,7 @@ public class FishingMinigame : MonoBehaviour
     {
         Debug.Log("YOU WIN! HOLY FUCKING CUCK FUCK");
         pause = true;
-        failTimer = 15f;
+        failTimer = 999f;
         fishing.SetActive(false);
         StartCoroutine(hasWon());
     }
@@ -142,7 +142,7 @@ public class FishingMinigame : MonoBehaviour
     {
         Debug.Log("GET FUCKED NERD");
         pause = true;
-        failTimer = 15f;
+        failTimer = 999f;
         fishing.SetActive(false);
         StartCoroutine(hasLost());
     }
