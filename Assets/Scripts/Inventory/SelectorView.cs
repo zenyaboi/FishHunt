@@ -7,6 +7,7 @@ public class SelectorView : MonoBehaviour
 {
     private RectTransform _rectTransform;
     [SerializeField] private float _speed = 10f;
+    [SerializeField] private GameObject _selected;
 
     private void Start()
     {
@@ -16,14 +17,18 @@ public class SelectorView : MonoBehaviour
 
     private void Update() 
     {
-        var selected = EventSystem.current.currentSelectedGameObject;
+        // Making sure we the selected variable is never null, so we are always with something selected
+        var selectedGameObject = EventSystem.current.currentSelectedGameObject;
+        _selected = (selectedGameObject == null) ? _selected : selectedGameObject;
+        
+        EventSystem.current.SetSelectedGameObject(_selected);
 
-        if (selected == null) return;
+        if (_selected == null) return;
 
-        transform.position = Vector3.Lerp(transform.position, selected.transform.position, _speed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, _selected.transform.position, _speed * Time.deltaTime);
 
         // Getting the selected gameobject RectTransform
-        var otherRect = selected.GetComponent<RectTransform>();
+        var otherRect = _selected.GetComponent<RectTransform>();
 
         // Scaling the selector according the size of the slot
         _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, otherRect.rect.size.x);
