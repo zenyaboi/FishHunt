@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ItemData : MonoBehaviour
+[CreateAssetMenu(menuName = "Inventory/ItemData")]
+public class ItemData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string Name => _name;
+    public int Age => _age;
+    public Image Sprite => _sprite;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private string _name;
+    [SerializeField] private int _age;
+    [SerializeField] private Image _sprite;
 }

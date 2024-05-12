@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+  _selected: {fileID: 0}
 --- !u!1 &87068448
 GameObject:
   m_ObjectHideFlags: 0
