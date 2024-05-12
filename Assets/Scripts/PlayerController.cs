@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     // variable for checking if the player is fishing
     public bool isFishing = false;
     public bool hasWon = false;
+    public bool isInvOpen = false;
     public bool isOverlap = false;
 
     public Collider2D fishCollider;
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject fishingMinigame;
     public GameObject icons;
+
+    public GameObject inventory;
 
     void Start()
     {
@@ -38,12 +41,32 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Movement();
+        isOverlapping();
+
+        if (fishing.pause) {
+            isFishing = false;
+            isOverlap = false;
+        }
+
+        // Opening/Closing inventory
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            isInvOpen = !isInvOpen;
+        }
+
+        fishingMinigame.SetActive(isFishing);
+        icons.SetActive(isOverlap);
+        inventory.SetActive(isInvOpen);
+    }
+
+    private void Movement() 
+    {
         // input variables
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
         // Checking if the player is fishing
-        if (isFishing || hasWon) {
+        if (isFishing || hasWon || isInvOpen) {
             horizontal = 0;
             vertical = 0;
             rb.velocity = Vector2.zero;
@@ -68,16 +91,6 @@ public class PlayerController : MonoBehaviour
 
         // applying the movement force to rigidbody's velocity
         rb.velocity = moveForce;
-
-        if (fishing.pause) {
-            isFishing = false;
-            isOverlap = false;
-        }
-        
-        isOverlapping();
-
-        fishingMinigame.SetActive(isFishing);
-        icons.SetActive(isOverlap);
     }
     
     private void isOverlapping() 
@@ -98,6 +111,8 @@ public class PlayerController : MonoBehaviour
             }
         } else {
             isOverlap = false;
+            // Making sure our variable that gets the fish collider is null when not overlapping a fish.
+            fishCollider = null;
         }
     }
     
