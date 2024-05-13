@@ -19,4 +19,15 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
 
         var spawnedSprite = Instantiate<Image>(_itemData.Sprite, transform.position, Quaternion.identity, transform);
     }
+
+    public void OnCursorEnter() 
+    {
+        // display item info
+        InventoryManager.instance.DisplayItemInfo(_itemData.Name, _itemData.GetItemDescription(), transform.position);
+    }
+
+    public void OnCursorExit() 
+    {
+        InventoryManager.instance.DestroyItemInfo();
+    }
 }
