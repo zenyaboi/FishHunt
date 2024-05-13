@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour
+public class ItemSlot : MonoBehaviour, ISelectHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private ItemData _itemData;
+
+    public void OnSelect(BaseEventData eventData)
     {
-        
+        Debug.Log("Selected");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        if (_itemData == null) return;
+
+        var spawnedSprite = Instantiate<Image>(_itemData.Sprite, transform.position, Quaternion.identity, transform);
     }
 }
