@@ -3,31 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 
 public class ItemSlot : MonoBehaviour, ISelectHandler
 {
-    [SerializeField] private ItemData _itemData;
+    public ItemData itemData;
+
+    private Image spawnedSprite;
 
     public void OnSelect(BaseEventData eventData)
     {
         Debug.Log("Selected");
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        if (_itemData == null) return;
+        if (itemData == null) return;
 
-        var spawnedSprite = Instantiate<Image>(_itemData.Sprite, transform.position, Quaternion.identity, transform);
+        spawnedSprite = Instantiate<Image>(itemData.Sprite, transform.position, Quaternion.identity, transform);
+    }
+
+    private void OnDisable()
+    {
+        if (spawnedSprite != null) {
+            Destroy(spawnedSprite);
+        }
     }
 
     public void OnCursorEnter() 
     {
         // display item info
-        InventoryManager.instance.DisplayItemInfo(_itemData.Name, _itemData.GetItemDescription(), transform.position);
+        if (itemData == null) return;
+        
+        InventoryManager.instance.DisplayItemInfo(itemData.Name, itemData.GetItemDescription(), transform.position);
     }
 
     public void OnCursorExit() 
     {
         InventoryManager.instance.DestroyItemInfo();
+    }
+
+    public bool IsEmpty()
+    {
+        return itemData == null;
     }
 }
