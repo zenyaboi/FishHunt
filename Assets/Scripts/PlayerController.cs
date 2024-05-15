@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 forceToApply;
     public float forceDamping = 1.2f;
 
-    // variable for checking if the player is fishing
+    // variable for checking if the player is doing anything because FUck me
     public bool isFishing = false;
     public bool hasWon = false;
     public bool isInvOpen = false;
@@ -95,9 +95,9 @@ public class PlayerController : MonoBehaviour
     
     private void isOverlapping() 
     {
-        // checking if the fish's collider is colliding with the player's colliding
+        // checking if the fish's collider is colliding with the player's collider
         // I don't fucking know why it's like this.
-        // To be honest, I don't what the fuck I'm doing at all. I hate myself.
+        // To be honest, I don't know what the fuck I'm doing at all. I hate myself.
         // And also, need to make the fish gameobject a prefab because it will break if it is not a prefab. (This was a foreshadow and I didn't know)
         if (fishCollider == null) return;
 
@@ -116,7 +116,8 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         if (other.gameObject.tag == "Fish") {
             // So... making the fish pools as a prefab also broke everything
             // In case I forget why this exists:

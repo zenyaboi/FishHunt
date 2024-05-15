@@ -25,6 +25,7 @@ public class FishActivate : MonoBehaviour
         // And it works, don't ask. it looks dumb.
         if (fishingMinigame.pause) {
             if (myCollider.IsTouching(playerCollider)) {
+                // I hate this
                 if (fishingMinigame.won) {
                     EventBus.Instance.PickUpItem(_itemData);
                 }
