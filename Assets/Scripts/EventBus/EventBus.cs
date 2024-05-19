@@ -8,6 +8,7 @@ public class EventBus : MonoBehaviour
     public static EventBus Instance { get; private set; }
 
     public event Action<ItemData> onPickUpItem;
+    public event Action<ItemData> onItemSold;
 
     private void Awake() 
     {
@@ -19,4 +20,8 @@ public class EventBus : MonoBehaviour
         onPickUpItem?.Invoke(itemData);
     }
 
+    public void SellItem(ItemData item)
+    {
+        onItemSold?.Invoke(item);
+    }
 }

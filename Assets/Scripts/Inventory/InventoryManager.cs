@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -19,6 +20,23 @@ public class InventoryManager : MonoBehaviour
     private GameObject currentItemInfo = null;
 
     [SerializeField] private List<ItemSlot> _slots;
+    [SerializeField] private List<Button> _btnIgnore;
+    public List<ItemSlot> slots => _slots;
+
+    public bool[] _isFull;
+
+    private void Update()
+    {
+        if (inv.gameObject.activeSelf) {
+            foreach (var button in _btnIgnore) {
+                button.interactable = false;
+            }
+        } else {
+            foreach (var button in _btnIgnore) {
+                button.interactable = true;
+            }
+        }
+    }
 
     private void OnEnable()
     {

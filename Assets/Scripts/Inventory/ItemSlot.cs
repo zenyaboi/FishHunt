@@ -8,6 +8,9 @@ using System;
 public class ItemSlot : MonoBehaviour, ISelectHandler
 {
     public ItemData itemData;
+    public InventoryManager inventory;
+
+    public int i;
 
     private Image spawnedSprite;
 
@@ -28,6 +31,14 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
         if (spawnedSprite != null) {
             Destroy(spawnedSprite);
         }
+    }
+
+    public void Update()
+    {
+        //Debug.Log(transform.childCount);
+
+        if (transform.childCount > 1)
+            inventory._isFull[i] = true;
     }
 
     public void OnCursorEnter() 

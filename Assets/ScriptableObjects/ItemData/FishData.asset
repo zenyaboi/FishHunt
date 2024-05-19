@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Fish
   _age: 5
+  _price: 5
   _sprite: {fileID: 6510492014216249000, guid: 0098f2e6abde3a048a448dda3ed0be9d, type: 3}
   _description: A fish.

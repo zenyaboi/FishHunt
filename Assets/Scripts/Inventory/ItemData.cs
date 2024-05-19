@@ -8,11 +8,13 @@ public class ItemData : ScriptableObject
 {
     public string Name => _name;
     public int Age => _age;
+    public int Price => _price;
     public Image Sprite => _sprite;
     public string Description => _description;
 
     [SerializeField] private string _name = "";
     [SerializeField] private int _age = 0;
+    [SerializeField] private int _price = 0;
     [SerializeField] private Image _sprite;
     [SerializeField] private string _description = "";
 
