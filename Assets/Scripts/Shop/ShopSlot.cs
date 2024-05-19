@@ -28,7 +28,10 @@ public class ShopSlot : MonoBehaviour
 
     void Update()
     {
-        itemAmount.text = "Amount: " + _itemAmount.ToString();
+        // For now, this won't be used
+        // But it's good to have it here in case we use it
+        // If not, just delete it
+        //itemAmount.text = "Amount: " + _itemAmount.ToString();
     }
 
     public void Buy() 
@@ -36,6 +39,7 @@ public class ShopSlot : MonoBehaviour
         for (int i = 0; i < inventory.slots.Count; i++) {
             if (inventory._isFull[i] == false && moneyCounter.money >= itemData.Price) {
                 moneyCounter.money -= itemData.Price;
+                // We are using the same event that we use for when we succesfully finish the fishing minigame
                 EventBus.Instance.PickUpItem(itemData);
             }
         }
@@ -43,6 +47,22 @@ public class ShopSlot : MonoBehaviour
 
     public void Sell()
     {
+        for (int i = 0; i < inventory.slots.Count; i++) {
+            if (itemData == inventory.slots[i].itemData) {
+                // Debugging to see if the slot is being selected corretcly
+                // If at some point it logs "null", it will be needed to look at what is causing this
+                Debug.Log(inventory.slots[i].itemData);
 
+                // TODO: Make a list of fish names to make a for loop to check if the name is in that list
+                // So when the player sells it, it gets the full price
+                // The price will be half of the original price if its another kind of item
+                if (inventory.slots[i].itemData.Name == "Fish")
+                    moneyCounter.money += itemData.Price;
+                else
+                    moneyCounter.money += itemData.Price / 2;
+
+                inventory.slots[i].itemData = null;
+            }
+        }
     }
 }

@@ -23,10 +23,13 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private List<Button> _btnIgnore;
     public List<ItemSlot> slots => _slots;
 
+    // This variable is here to check if the slots has an item or not
     public bool[] _isFull;
 
     private void Update()
     {
+        // We are checking if the inventory is active to make the selector not work if other kind of button
+        // It will only work with the slots on the inventory
         if (inv.gameObject.activeSelf) {
             foreach (var button in _btnIgnore) {
                 button.interactable = false;
@@ -59,6 +62,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    //TODO: Fix pop-up position
     public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos) 
     {
         if (currentItemInfo != null) Destroy(currentItemInfo.gameObject);
