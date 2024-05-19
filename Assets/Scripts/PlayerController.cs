@@ -20,12 +20,14 @@ public class PlayerController : MonoBehaviour
     public bool hasWon = false;
     public bool isInvOpen = false;
     public bool isOverlap = false;
+    public bool isShopOpen = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
 
     public GameObject fishingMinigame;
     public GameObject icons;
+    public GameObject shop;
 
     public GameObject inventory;
 
@@ -54,9 +56,15 @@ public class PlayerController : MonoBehaviour
             isInvOpen = !isInvOpen;
         }
 
+        if (Input.GetKeyDown(KeyCode.E)) {
+            isShopOpen = !isShopOpen;
+        }
+
+        // Later find a way to make so none of them overlap (just in case)
         fishingMinigame.SetActive(isFishing);
         icons.SetActive(isOverlap);
         inventory.SetActive(isInvOpen);
+        shop.SetActive(isShopOpen);
     }
 
     private void Movement() 
@@ -66,7 +74,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         // Checking if the player is fishing
-        if (isFishing || hasWon || isInvOpen) {
+        if (isFishing || hasWon || isInvOpen || isShopOpen) {
             horizontal = 0;
             vertical = 0;
             rb.velocity = Vector2.zero;
