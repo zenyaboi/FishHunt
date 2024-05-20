@@ -53,10 +53,10 @@ public class ShopSlot : MonoBehaviour
                 // If at some point it logs "null", it will be needed to look at what is causing this
                 Debug.Log(inventory.slots[i].itemData);
 
-                // TODO: Make a list of fish names to make a for loop to check if the name is in that list
+                // We are checking if the itemData type is equal to "Fish"
                 // So when the player sells it, it gets the full price
                 // The price will be half of the original price if its another kind of item
-                if (inventory.slots[i].itemData.Name == "Fish")
+                if (inventory.slots[i].itemData.Type == "Fish")
                     moneyCounter.money += itemData.Price;
                 else
                     moneyCounter.money += itemData.Price / 2;

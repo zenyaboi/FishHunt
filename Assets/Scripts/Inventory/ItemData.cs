@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class ItemData : ScriptableObject
 {
     public string Name => _name;
+    public string Type => _type;
     public int Age => _age;
     public int Price => _price;
     public Image Sprite => _sprite;
     public string Description => _description;
 
     [SerializeField] private string _name = "";
+    [SerializeField] private string _type = "";
     [SerializeField] private int _age = 0;
     [SerializeField] private int _price = 0;
     [SerializeField] private Image _sprite;
