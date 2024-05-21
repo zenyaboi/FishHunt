@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FishActivate : MonoBehaviour
 {
     public FishingMinigame fishingMinigame;
     public Collider2D playerCollider;
-    public Collider2D myCollider;
+
+    [SerializeField] private Collider2D myCollider;
+    [SerializeField] private ItemData _itemData;
     
     void Start()
     {
@@ -21,7 +24,13 @@ public class FishActivate : MonoBehaviour
         // So I just made this awful fucking if statement to check if the instance is colliding with the player to destroy itself.
         // And it works, don't ask. it looks dumb.
         if (fishingMinigame.pause) {
-            if (myCollider.IsTouching(playerCollider)) Destroy(this.gameObject);
+            if (myCollider.IsTouching(playerCollider)) {
+                // I hate this
+                if (fishingMinigame.won) {
+                    EventBus.Instance.PickUpItem(_itemData);
+                }
+                Destroy(this.gameObject);
+            }
         }
     }
 }

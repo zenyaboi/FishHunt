@@ -15,16 +15,24 @@ public class PlayerController : MonoBehaviour
     public Vector2 forceToApply;
     public float forceDamping = 1.2f;
 
-    // variable for checking if the player is fishing
+    // variable for checking if the player is doing anything because FUck me
+    // TODO: MAKE THIS BETTER FOR THE LOVE OF GOD
+    // I've been programming for 4 years now and I still don't know how to do good code
+    // Not surprising to be honest
     public bool isFishing = false;
     public bool hasWon = false;
+    public bool isInvOpen = false;
     public bool isOverlap = false;
+    public bool isShopOpen = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
 
     public GameObject fishingMinigame;
     public GameObject icons;
+    public GameObject shop;
+
+    public GameObject inventory;
 
     void Start()
     {
@@ -38,12 +46,37 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Movement();
+        isOverlapping();
+
+        if (fishing.pause) {
+            isFishing = false;
+            isOverlap = false;
+        }
+
+        // Opening/Closing inventory
+        if (Input.GetKeyDown(KeyCode.Tab) && !shop.activeSelf) {
+            isInvOpen = !isInvOpen;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !inventory.activeSelf) {
+            isShopOpen = !isShopOpen;
+        }
+
+        fishingMinigame.SetActive(isFishing);
+        icons.SetActive(isOverlap);
+        inventory.SetActive(isInvOpen);
+        shop.SetActive(isShopOpen);
+    }
+
+    private void Movement() 
+    {
         // input variables
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
         // Checking if the player is fishing
-        if (isFishing || hasWon) {
+        if (isFishing || hasWon || isInvOpen || isShopOpen) {
             horizontal = 0;
             vertical = 0;
             rb.velocity = Vector2.zero;
@@ -68,23 +101,13 @@ public class PlayerController : MonoBehaviour
 
         // applying the movement force to rigidbody's velocity
         rb.velocity = moveForce;
-
-        if (fishing.pause) {
-            isFishing = false;
-            isOverlap = false;
-        }
-        
-        isOverlapping();
-
-        fishingMinigame.SetActive(isFishing);
-        icons.SetActive(isOverlap);
     }
     
     private void isOverlapping() 
     {
-        // checking if the fish's collider is colliding with the player's colliding
+        // checking if the fish's collider is colliding with the player's collider
         // I don't fucking know why it's like this.
-        // To be honest, I don't what the fuck I'm doing at all. I hate myself.
+        // To be honest, I don't know what the fuck I'm doing at all. I hate myself.
         // And also, need to make the fish gameobject a prefab because it will break if it is not a prefab. (This was a foreshadow and I didn't know)
         if (fishCollider == null) return;
 
@@ -98,10 +121,13 @@ public class PlayerController : MonoBehaviour
             }
         } else {
             isOverlap = false;
+            // Making sure our variable that gets the fish collider is null when not overlapping a fish.
+            fishCollider = null;
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
         if (other.gameObject.tag == "Fish") {
             // So... making the fish pools as a prefab also broke everything
             // In case I forget why this exists:

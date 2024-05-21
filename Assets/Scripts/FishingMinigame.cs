@@ -40,9 +40,12 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] Transform progressBarContainer;
 
     public bool pause = false;
+    public bool won = false;
 
     [SerializeField] float failTimer = 999f;
     #endregion
+
+    public List<ItemData> fishes;
 
     void Start()
     {
@@ -64,6 +67,7 @@ public class FishingMinigame : MonoBehaviour
             hookProgress = 0f;
             hookPosition = 0f;
             pause = false;
+            won = false;
             fishPosition = UnityEngine.Random.value;
             fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
         }
@@ -133,8 +137,15 @@ public class FishingMinigame : MonoBehaviour
     {
         Debug.Log("YOU WIN! HOLY FUCKING CUCK FUCK");
         pause = true;
+        won = true;
         failTimer = 999f;
         fishing.SetActive(false);
+        // Randomizing the fish
+        int randomNum = UnityEngine.Random.Range(0, fishes.Count);
+        print(randomNum);
+        ItemData randFish = fishes[randomNum];
+        print(randFish);
+        EventBus.Instance.PickUpItem(randFish);
         StartCoroutine(hasWon());
     }
 
@@ -142,6 +153,7 @@ public class FishingMinigame : MonoBehaviour
     {
         Debug.Log("GET FUCKED NERD");
         pause = true;
+        won = false;
         failTimer = 999f;
         fishing.SetActive(false);
         StartCoroutine(hasLost());
@@ -154,6 +166,7 @@ public class FishingMinigame : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         fishCount += 1;
         pause = false;
+        won = false;
     }
     IEnumerator hasLost()
     {
@@ -161,5 +174,6 @@ public class FishingMinigame : MonoBehaviour
         // So we are waiting half of a second to make the pause false to restart the minigame
         yield return new WaitForSeconds(0.1f);
         pause = false;
+        won = false;
     }
 }
