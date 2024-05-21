@@ -41,6 +41,11 @@ public class ShopSlot : MonoBehaviour
                 moneyCounter.money -= itemData.Price;
                 // We are using the same event that we use for when we succesfully finish the fishing minigame
                 EventBus.Instance.PickUpItem(itemData);
+                // We need this break here so that when we press the Buy button we don't buy a bunch of the same item
+                // So, if we have 50 coins and the item costs 10... we will buy 5 of them and we don't want that
+                // The break will only be used in the Buy function and not on the Sell function
+                // Since we do want to sell every instance of the item if it's on the inventory
+                break;
             }
         }
     }
