@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
 
 public class ItemSlot : MonoBehaviour, ISelectHandler
 {
     public ItemData itemData;
+    public InventoryManager inventory;
 
-    private Image spawnedSprite;
+    public int i;
+
+    public Image spawnedSprite;
 
     public void OnSelect(BaseEventData eventData)
     {
@@ -18,9 +20,12 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
 
     private void OnEnable()
     {
+        // We are spawning the sprite prefab of the item on the slot
         if (itemData == null) return;
 
-        spawnedSprite = Instantiate<Image>(itemData.Sprite, transform.position, Quaternion.identity, transform);
+        // TODO: When we create this sprite, it keeps creating forever. Need to find a way to prevent this
+        if (spawnedSprite == null)
+            spawnedSprite = Instantiate<Image>(itemData.Sprite, transform.position, Quaternion.identity, transform);
     }
 
     private void OnDisable()
@@ -28,6 +33,14 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
         if (spawnedSprite != null) {
             Destroy(spawnedSprite);
         }
+    }
+
+    public void Update()
+    {
+        //Debug.Log(transform.childCount);
+
+        if (transform.childCount > 1)
+            inventory._isFull[i] = true;
     }
 
     public void OnCursorEnter() 

@@ -45,6 +45,8 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] float failTimer = 999f;
     #endregion
 
+    public List<ItemData> fishes;
+
     void Start()
     {
         // Another problem by making the fish pools a prefab.
@@ -138,6 +140,12 @@ public class FishingMinigame : MonoBehaviour
         won = true;
         failTimer = 999f;
         fishing.SetActive(false);
+        // Randomizing the fish
+        int randomNum = UnityEngine.Random.Range(0, fishes.Count);
+        print(randomNum);
+        ItemData randFish = fishes[randomNum];
+        print(randFish);
+        EventBus.Instance.PickUpItem(randFish);
         StartCoroutine(hasWon());
     }
 

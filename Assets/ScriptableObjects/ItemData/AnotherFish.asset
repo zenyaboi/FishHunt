@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AnotherFish
   m_EditorClassIdentifier: 
   _name: Other Fish Holy
+  _type: Fish
   _age: 24
-  _sprite: {fileID: 6510492014216249000, guid: 0098f2e6abde3a048a448dda3ed0be9d, type: 3}
+  _price: 10
+  _sprite: {fileID: 6510492014216249000, guid: ef5e27bc985815942bb54d11a6ebca40, type: 3}
   _description: Another fuish

@@ -16,16 +16,21 @@ public class PlayerController : MonoBehaviour
     public float forceDamping = 1.2f;
 
     // variable for checking if the player is doing anything because FUck me
+    // TODO: MAKE THIS BETTER FOR THE LOVE OF GOD
+    // I've been programming for 4 years now and I still don't know how to do good code
+    // Not surprising to be honest
     public bool isFishing = false;
     public bool hasWon = false;
     public bool isInvOpen = false;
     public bool isOverlap = false;
+    public bool isShopOpen = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
 
     public GameObject fishingMinigame;
     public GameObject icons;
+    public GameObject shop;
 
     public GameObject inventory;
 
@@ -50,13 +55,18 @@ public class PlayerController : MonoBehaviour
         }
 
         // Opening/Closing inventory
-        if (Input.GetKeyDown(KeyCode.Tab)) {
+        if (Input.GetKeyDown(KeyCode.Tab) && !shop.activeSelf) {
             isInvOpen = !isInvOpen;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && !inventory.activeSelf) {
+            isShopOpen = !isShopOpen;
         }
 
         fishingMinigame.SetActive(isFishing);
         icons.SetActive(isOverlap);
         inventory.SetActive(isInvOpen);
+        shop.SetActive(isShopOpen);
     }
 
     private void Movement() 
@@ -66,7 +76,7 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         // Checking if the player is fishing
-        if (isFishing || hasWon || isInvOpen) {
+        if (isFishing || hasWon || isInvOpen || isShopOpen) {
             horizontal = 0;
             vertical = 0;
             rb.velocity = Vector2.zero;

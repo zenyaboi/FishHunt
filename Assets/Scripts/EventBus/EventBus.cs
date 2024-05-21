@@ -18,5 +18,4 @@ public class EventBus : MonoBehaviour
     {
         onPickUpItem?.Invoke(itemData);
     }
-
 }
