@@ -14,16 +14,24 @@ public class ShopSlot : MonoBehaviour
     public TMP_Text itemAmount;
     public TMP_Text itemPrice;
 
-    public ItemData itemData;    
+    public ItemData itemData;
+    public UpgradeData upgradeData;    
     public int _itemAmount;
     public TMP_Text buyPriceText;
 
     void Start()
     {
-        itemName.text = itemData.Name;
-        //itemImage.sprite = itemData.sprite;
-        Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
-        buyPriceText.text = "Price: " + itemData.Price.ToString();
+        if (itemData != null) {
+            itemName.text = itemData.Name;
+            //itemImage.sprite = itemData.sprite;
+            Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            buyPriceText.text = "Price: " + itemData.Price.ToString();
+        } else if (upgradeData != null) {
+            itemName.text = upgradeData.Name;
+            //itemImage.sprite = itemData.sprite;
+            Instantiate<Image>(upgradeData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            buyPriceText.text = "Price: " + upgradeData.Price.ToString();
+        }
     }
 
     void Update()
