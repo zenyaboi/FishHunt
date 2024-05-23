@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     public bool isOverlap = false;
     public bool isShopOpen = false;
 
+    // Upgrade varialbes
+    public bool hasUpgradeI = false;
+    public bool hasUpgradeII = false;
+
     public Collider2D fishCollider;
     public Collider2D playerCollider;
 

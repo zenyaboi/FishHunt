@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fafd2f6ccad2e749aea11641edc4aec, type: 3}
-  m_Name: InventoryUpgrade
+  m_Name: InventoryUpgradeII
   m_EditorClassIdentifier: 
-  _name: Inventory Upgrade
-  _type: Upgrade 1
-  _price: 10
-  _sprite: {fileID: 6510492014216249000, guid: b59f5a1ec9010c744ad26cf59c3f702d, type: 3}
-  _description: More space :)
+  _name: Inventory Upgrade II
+  _type: Upgrade 2
+  _price: 20
+  _sprite: {fileID: 6510492014216249000, guid: b361b897c51ba26458eab325472d61be, type: 3}
+  _description: more space brtother
