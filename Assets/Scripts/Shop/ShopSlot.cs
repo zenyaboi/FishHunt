@@ -101,10 +101,6 @@ public class ShopSlot : MonoBehaviour
                         isUpgradeBought = true;
                     }
                 }
-                /*
-                moneyCounter.money -= upgradeData.Price;
-                isUpgradeBought = true;
-                */
             }
         }
     }
@@ -150,10 +146,6 @@ public class ShopSlot : MonoBehaviour
                         isUpgradeBought = false;
                     }
                 }
-                /*
-                moneyCounter.money += upgradeData.Price / 2;
-                isUpgradeBought = false;
-                */
             }
         }
     }
