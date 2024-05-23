@@ -33,7 +33,8 @@ public class InventoryManager : MonoBehaviour
     }
 
     // This variable is here to check if the slots has an item or not
-    public bool[] _isFull;
+    //public bool[] _isFull;
+    public List<bool> _isFull;
 
     private void Start() {
         SetMaxSlots(maxSlots);
@@ -67,14 +68,18 @@ public class InventoryManager : MonoBehaviour
                 Destroy(slots[i]);
             }
             int diff = slots.Count - maxSlots;
+            int diffFull = _isFull.Count - maxSlots;
             slots.RemoveRange(maxSlots, diff);
+            _isFull.RemoveRange(maxSlots, diffFull);
         } else if (maxSlots > slots.Count) {
             int diff = maxSlots - slots.Count;
+            int diffFull = maxSlots - _isFull.Count;
 
             for (int i = 0; i < diff; i++) {
                 GameObject itemSlotGameObj = Instantiate(itemSlotPrefab);
                 itemSlotGameObj.transform.SetParent(parent, false);
                 slots.Add(itemSlotGameObj.GetComponent<ItemSlot>());
+                _isFull.Add(!slots[i].IsEmpty());
                 itemSlotGameObj.GetComponent<ItemSlot>().i = i;
             }
         }

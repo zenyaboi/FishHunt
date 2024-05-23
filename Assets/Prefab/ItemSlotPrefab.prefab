@@ -272,8 +272,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
-  inventory: {fileID: 7194106663154466894, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
+  inventory: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
   i: 0
+  spawnedSprite: {fileID: 0}
 --- !u!114 &4936043137498050620
 MonoBehaviour:
   m_ObjectHideFlags: 0

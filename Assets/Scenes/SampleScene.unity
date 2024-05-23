@@ -6161,7 +6161,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1778580346}
     - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
+      propertyPath: maxSlots
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
       propertyPath: _slots.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
+      propertyPath: _isFull.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
