@@ -71,6 +71,12 @@ public class PlayerController : MonoBehaviour
         icons.SetActive(isOverlap);
         inventory.SetActive(isInvOpen);
         shop.SetActive(isShopOpen);
+
+        if (hasUpgradeI) {
+            InventoryManager.instance.MaxSlots = 9;
+        } else if (hasUpgradeII) {
+            InventoryManager.instance.MaxSlots = 18;
+        }
     }
 
     private void Movement() 
