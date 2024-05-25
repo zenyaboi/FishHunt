@@ -51,13 +51,20 @@ public class ShopSlot : MonoBehaviour
         // It's to prevent that we don't have both upgrades bought
         // I hate it... very much
         if (upgradeData != null) {
-            if (upgradeData.Type == "Inventory Upgrade 1") {
-                if (playerController.hasInvUpgradeII) {
-                    isUpgradeBought = false;
+            switch(upgradeData.Type) {
+                case "Inventory Upgrade 1":
+                {
+                    if (playerController.hasInvUpgradeII) {
+                        isUpgradeBought = false;
+                    }
+                    break;
                 }
-            } else if (upgradeData.Type == "Inventory Upgrade 2") {
-                if (playerController.hasInvUpgradeI) {
-                    isUpgradeBought = false;
+                case "Inventory Upgrade 2":
+                {
+                    if (playerController.hasInvUpgradeI) {
+                        isUpgradeBought = false;
+                    }
+                    break;
                 }
             }
         }
