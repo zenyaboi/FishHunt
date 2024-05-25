@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
             InventoryManager.instance.MaxSlots = 9;
         } else if (hasInvUpgradeII) {
             InventoryManager.instance.MaxSlots = 18;
+        } else if (hasSpdUpgradeI) {
+            InventoryManager.instance.MaxSlots = 4;
         } else {
             InventoryManager.instance.MaxSlots = 6;
         }

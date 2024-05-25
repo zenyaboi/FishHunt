@@ -54,14 +54,21 @@ public class ShopSlot : MonoBehaviour
             switch(upgradeData.Type) {
                 case "Inventory Upgrade 1":
                 {
-                    if (playerController.hasInvUpgradeII) {
+                    if (playerController.hasInvUpgradeII || playerController.hasSpdUpgradeI) {
                         isUpgradeBought = false;
                     }
                     break;
                 }
                 case "Inventory Upgrade 2":
                 {
-                    if (playerController.hasInvUpgradeI) {
+                    if (playerController.hasInvUpgradeI || playerController.hasSpdUpgradeI) {
+                        isUpgradeBought = false;
+                    }
+                    break;
+                }
+                case "Speed Upgrade 1":
+                {
+                    if (playerController.hasInvUpgradeI || playerController.hasInvUpgradeII) {
                         isUpgradeBought = false;
                     }
                     break;
@@ -86,15 +93,17 @@ public class ShopSlot : MonoBehaviour
                     break;
                 }
             }
-        } else if (upgradeData != null) {
+        } 
+        else if (upgradeData != null) {
             if (moneyCounter.money >= upgradeData.Price && !isUpgradeBought) {
                 switch(upgradeData.Type) 
                 {
                     case "Inventory Upgrade 1":
                     {
-                        if (!playerController.hasInvUpgradeI || !playerController.hasInvUpgradeII || playerController.hasInvUpgradeII) {
+                        if (!isUpgradeBought) {
                             playerController.hasInvUpgradeI = true;
                             playerController.hasInvUpgradeII = false;
+                            playerController.hasSpdUpgradeI = false;
 
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
@@ -103,10 +112,23 @@ public class ShopSlot : MonoBehaviour
                     }
                     case "Inventory Upgrade 2":
                     {
-                        if (!playerController.hasInvUpgradeI || !playerController.hasInvUpgradeII || playerController.hasInvUpgradeI) {
+                        if (!isUpgradeBought) {
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = true;
+                            playerController.hasSpdUpgradeI = false;
 
+                            moneyCounter.money -= upgradeData.Price;
+                            isUpgradeBought = true;
+                        }
+                        break;
+                    }
+                    case "Speed Upgrade 1":
+                    {
+                        if (!isUpgradeBought) {
+                            playerController.hasInvUpgradeI = false;
+                            playerController.hasInvUpgradeII = false;
+                            playerController.hasSpdUpgradeI = true;
+                            
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
                         }
@@ -138,15 +160,17 @@ public class ShopSlot : MonoBehaviour
                     inventory.slots[i].itemData = null;
                 }
             }
-        } else if (upgradeData != null) {
+        } 
+        else if (upgradeData != null) {
             if (isUpgradeBought) {
                 switch(upgradeData.Type) 
                 {
                     case "Inventory Upgrade 1":
                     {
-                        if (playerController.hasInvUpgradeI && !playerController.hasInvUpgradeII) {
+                        if (isUpgradeBought) {
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = false;
+                            playerController.hasSpdUpgradeI = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
                             isUpgradeBought = false;
@@ -156,9 +180,22 @@ public class ShopSlot : MonoBehaviour
                     }
                     case "Inventory Upgrade 2":
                     {
-                        if (playerController.hasInvUpgradeII && !playerController.hasInvUpgradeI) {
+                        if (isUpgradeBought) {
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = false;
+                            playerController.hasSpdUpgradeI = false;
+
+                            moneyCounter.money += upgradeData.Price / 2;
+                            isUpgradeBought = false;
+                        }
+                        break;
+                    }
+                    case "Speed Upgrade 1":
+                    {
+                        if (isUpgradeBought) {
+                            playerController.hasInvUpgradeI = false;
+                            playerController.hasInvUpgradeII = false;
+                            playerController.hasSpdUpgradeI = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
                             isUpgradeBought = false;
