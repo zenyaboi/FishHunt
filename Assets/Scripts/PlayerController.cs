@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     public bool isShopOpen = false;
 
     // Upgrade varialbes
-    public bool hasUpgradeI = false;
-    public bool hasUpgradeII = false;
+    public bool hasInvUpgradeI = false;
+    public bool hasInvUpgradeII = false;
+    public bool hasSpdUpgradeI = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
@@ -72,10 +73,13 @@ public class PlayerController : MonoBehaviour
         inventory.SetActive(isInvOpen);
         shop.SetActive(isShopOpen);
 
-        if (hasUpgradeI) {
+        // Upgrade checks
+        if (hasInvUpgradeI) {
             InventoryManager.instance.MaxSlots = 9;
-        } else if (hasUpgradeII) {
+        } else if (hasInvUpgradeII) {
             InventoryManager.instance.MaxSlots = 18;
+        } else {
+            InventoryManager.instance.MaxSlots = 6;
         }
     }
 

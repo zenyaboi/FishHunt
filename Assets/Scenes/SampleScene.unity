@@ -845,7 +845,7 @@ PrefabInstance:
     - target: {fileID: 7517948441176626849, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
       propertyPath: upgradeData
       value: 
-      objectReference: {fileID: 11400000, guid: da395ee0045e4c640b3e61e7e9acccb9, type: 2}
+      objectReference: {fileID: 11400000, guid: 2c931c6cc063d524fb24a966a3ae5453, type: 2}
     - target: {fileID: 7517948441176626849, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
       propertyPath: buyPriceText
       value: 
@@ -1219,8 +1219,9 @@ MonoBehaviour:
   isInvOpen: 0
   isOverlap: 0
   isShopOpen: 0
-  hasUpgradeI: 0
-  hasUpgradeII: 0
+  hasInvUpgradeI: 0
+  hasInvUpgradeII: 0
+  hasSpdUpgradeI: 0
   fishCollider: {fileID: 0}
   playerCollider: {fileID: 0}
   fishingMinigame: {fileID: 1759993646}
@@ -2860,6 +2861,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &662443237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7517948443015844857, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+  m_PrefabInstance: {fileID: 166334941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &709323973
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,6 +3185,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7517948442874117397, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
   m_PrefabInstance: {fileID: 7517948442587222062}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &833417653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7517948442400126419, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+  m_PrefabInstance: {fileID: 166334941}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &849906225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7720951485331568507, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
@@ -3519,8 +3542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000012161364, y: -39.010723}
-  m_SizeDelta: {x: 306.77, y: 491.6414}
+  m_AnchoredPosition: {x: 0.000012161364, y: -42.402966}
+  m_SizeDelta: {x: 306.77, y: 498.4259}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1098786056
 MonoBehaviour:
@@ -4476,7 +4499,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1967549402}
   m_Direction: 1
   m_Value: 1
-  m_Size: 0.8413042
+  m_Size: 0.8298525
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6573,7 +6596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
       propertyPath: _btnIgnore.Array.size
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
       propertyPath: _slots.Array.data[10]
@@ -6639,6 +6662,14 @@ PrefabInstance:
       propertyPath: _btnIgnore.Array.data[7]
       value: 
       objectReference: {fileID: 179713117}
+    - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
+      propertyPath: _btnIgnore.Array.data[8]
+      value: 
+      objectReference: {fileID: 833417653}
+    - target: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
+      propertyPath: _btnIgnore.Array.data[9]
+      value: 
+      objectReference: {fileID: 662443237}
     - target: {fileID: 7720951485331568507, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InventoryUpgradeII
   m_EditorClassIdentifier: 
   _name: Inventory Upgrade II
-  _type: Upgrade 2
+  _type: Inventory Upgrade 2
   _price: 20
   _sprite: {fileID: 6510492014216249000, guid: b361b897c51ba26458eab325472d61be, type: 3}
   _description: more space brtother

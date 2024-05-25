@@ -51,12 +51,12 @@ public class ShopSlot : MonoBehaviour
         // It's to prevent that we don't have both upgrades bought
         // I hate it... very much
         if (upgradeData != null) {
-            if (upgradeData.Type == "Upgrade 1") {
-                if (playerController.hasUpgradeII) {
+            if (upgradeData.Type == "Inventory Upgrade 1") {
+                if (playerController.hasInvUpgradeII) {
                     isUpgradeBought = false;
                 }
-            } else if (upgradeData.Type == "Upgrade 2") {
-                if (playerController.hasUpgradeI) {
+            } else if (upgradeData.Type == "Inventory Upgrade 2") {
+                if (playerController.hasInvUpgradeI) {
                     isUpgradeBought = false;
                 }
             }
@@ -81,24 +81,29 @@ public class ShopSlot : MonoBehaviour
             }
         } else if (upgradeData != null) {
             if (moneyCounter.money >= upgradeData.Price && !isUpgradeBought) {
-                if (upgradeData.Type == "Upgrade 1") {
-                    // I hate this
-                    // I don't how to make it better
-                    // But I think it works, I'm afraid to touch it
-                    if (!playerController.hasUpgradeI || !playerController.hasUpgradeII || playerController.hasUpgradeII) {
-                        playerController.hasUpgradeI = true;
-                        playerController.hasUpgradeII = false;
+                switch(upgradeData.Type) 
+                {
+                    case "Inventory Upgrade 1":
+                    {
+                        if (!playerController.hasInvUpgradeI || !playerController.hasInvUpgradeII || playerController.hasInvUpgradeII) {
+                            playerController.hasInvUpgradeI = true;
+                            playerController.hasInvUpgradeII = false;
 
-                        moneyCounter.money -= upgradeData.Price;
-                        isUpgradeBought = true;
+                            moneyCounter.money -= upgradeData.Price;
+                            isUpgradeBought = true;
+                        }
+                        break;
                     }
-                } else if (upgradeData.Type == "Upgrade 2") {
-                    if (!playerController.hasUpgradeI || !playerController.hasUpgradeII || playerController.hasUpgradeI) {
-                        playerController.hasUpgradeI = false;
-                        playerController.hasUpgradeII = true;
+                    case "Inventory Upgrade 2":
+                    {
+                        if (!playerController.hasInvUpgradeI || !playerController.hasInvUpgradeII || playerController.hasInvUpgradeI) {
+                            playerController.hasInvUpgradeI = false;
+                            playerController.hasInvUpgradeII = true;
 
-                        moneyCounter.money -= upgradeData.Price;
-                        isUpgradeBought = true;
+                            moneyCounter.money -= upgradeData.Price;
+                            isUpgradeBought = true;
+                        }
+                        break;
                     }
                 }
             }
@@ -128,22 +133,30 @@ public class ShopSlot : MonoBehaviour
             }
         } else if (upgradeData != null) {
             if (isUpgradeBought) {
-                if (upgradeData.Type == "Upgrade 1") {
-                    // I also hate this
-                    if (playerController.hasUpgradeI && !playerController.hasUpgradeII) {
-                        playerController.hasUpgradeI = false;
-                        playerController.hasUpgradeII = false;
+                switch(upgradeData.Type) 
+                {
+                    case "Inventory Upgrade 1":
+                    {
+                        if (playerController.hasInvUpgradeI && !playerController.hasInvUpgradeII) {
+                            playerController.hasInvUpgradeI = false;
+                            playerController.hasInvUpgradeII = false;
 
-                        moneyCounter.money += upgradeData.Price / 2;
-                        isUpgradeBought = false;
+                            moneyCounter.money += upgradeData.Price / 2;
+                            isUpgradeBought = false;
+                        }
+
+                        break;
                     }
-                } else if (upgradeData.Type == "Upgrade 2") {
-                    if (playerController.hasUpgradeII && !playerController.hasUpgradeI) {
-                        playerController.hasUpgradeI = false;
-                        playerController.hasUpgradeII = false;
+                    case "Inventory Upgrade 2":
+                    {
+                        if (playerController.hasInvUpgradeII && !playerController.hasInvUpgradeI) {
+                            playerController.hasInvUpgradeI = false;
+                            playerController.hasInvUpgradeII = false;
 
-                        moneyCounter.money += upgradeData.Price / 2;
-                        isUpgradeBought = false;
+                            moneyCounter.money += upgradeData.Price / 2;
+                            isUpgradeBought = false;
+                        }
+                        break;
                     }
                 }
             }
