@@ -9,11 +9,35 @@ public class FishActivate : MonoBehaviour
     public Collider2D playerCollider;
 
     [SerializeField] private Collider2D myCollider;
+    [SerializeField] private SpriteRenderer mySpriteRenderer;
     [SerializeField] private ItemData _itemData;
+
+    [SerializeField] private List<Sprite> _sprites;
     
     void Start()
     {
         myCollider = GetComponent<BoxCollider2D>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+
+        int randomNum = Random.Range(0, _sprites.Count);
+        print(randomNum);
+        switch(randomNum) {
+            case 0:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+            case 1:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+            case 2:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+        }
     }
 
     void Update()
