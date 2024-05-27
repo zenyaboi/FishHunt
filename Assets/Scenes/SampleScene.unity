@@ -1208,6 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3764ebfe5aa3247813dca8d31351a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baitCounter: {fileID: 357165190}
   fishing: {fileID: 1965284516}
   rb: {fileID: 0}
   animator: {fileID: 0}
@@ -2496,7 +2497,7 @@ GameObject:
   - component: {fileID: 357165186}
   - component: {fileID: 357165189}
   - component: {fileID: 357165188}
-  - component: {fileID: 357165187}
+  - component: {fileID: 357165190}
   m_Layer: 5
   m_Name: Bait Counter
   m_TagString: Untagged
@@ -2524,20 +2525,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -69}
   m_SizeDelta: {x: 200, y: 39.6544}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &357165187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357165185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186b17e6138e5524fb1a402accaff7e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  money: 0
 --- !u!114 &357165188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2635,6 +2622,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357165185}
   m_CullTransparentMesh: 1
+--- !u!114 &357165190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357165185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9453ec21eeebba4dabb80f00104ec3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  bait: 3
 --- !u!1 &386893811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5959,6 +5960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaa04cb48984398469c2d5aeeed06d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baitCounter: {fileID: 357165190}
   fishPool: []
   fishCount: 0
   fishing: {fileID: 1759993646}
@@ -6338,7 +6340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137803828}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
