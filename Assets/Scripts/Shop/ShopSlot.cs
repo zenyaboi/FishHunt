@@ -9,6 +9,7 @@ public class ShopSlot : MonoBehaviour
     [SerializeField] private MoneyCounter moneyCounter;
     [SerializeField] private InventoryManager inventory;
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private BaitCounter baitCounter;
 
     public GameObject itemImage;
     public TMP_Text itemName;
@@ -83,13 +84,20 @@ public class ShopSlot : MonoBehaviour
         if (itemData != null) {
             for (int i = 0; i < inventory.slots.Count; i++) {
                 if (inventory._isFull[i] == false && moneyCounter.money >= itemData.Price) {
-                    moneyCounter.money -= itemData.Price;
-                    // We are using the same event that we use for when we succesfully finish the fishing minigame
-                    EventBus.Instance.PickUpItem(itemData);
-                    // We need this break here so that when we press the Buy button we don't buy a bunch of the same item
-                    // So, if we have 50 coins and the item costs 10... we will buy 5 of them and we don't want that
-                    // The break will only be used in the Buy function and not on the Sell function
-                    // Since we do want to sell every instance of the item if it's on the inventory
+                    if (itemData.Type == "Bait") {
+                        if (baitCounter.bait < baitCounter.maxBait) {
+                            baitCounter.bait++;
+                            moneyCounter.money -= itemData.Price;
+                        }
+                    } else {
+                        moneyCounter.money -= itemData.Price;
+                        // We are using the same event that we use for when we succesfully finish the fishing minigame
+                        EventBus.Instance.PickUpItem(itemData);
+                        // We need this break here so that when we press the Buy button we don't buy a bunch of the same item
+                        // So, if we have 50 coins and the item costs 10... we will buy 5 of them and we don't want that
+                        // The break will only be used in the Buy function and not on the Sell function
+                        // Since we do want to sell every instance of the item if it's on the inventory
+                    }
                     break;
                 }
             }
@@ -143,21 +151,28 @@ public class ShopSlot : MonoBehaviour
     {
         // Checking if it's an item or data so that we can properly sell it
         if (itemData != null) {
-            for (int i = 0; i < inventory.slots.Count; i++) {
-                if (itemData == inventory.slots[i].itemData) {
-                    // Debugging to see if the slot is being selected corretcly
-                    // If at some point it logs "null", it will be needed to look at what is causing this
-                    Debug.Log(inventory.slots[i].itemData);
+            if (itemData.Type == "Bait") {
+                if (baitCounter.bait > 0) {
+                    baitCounter.bait--;
+                    moneyCounter.money += itemData.Price / 2;
+                }
+            } else {
+                for (int i = 0; i < inventory.slots.Count; i++) {
+                    if (itemData == inventory.slots[i].itemData) {
+                        // Debugging to see if the slot is being selected corretcly
+                        // If at some point it logs "null", it will be needed to look at what is causing this
+                        Debug.Log(inventory.slots[i].itemData);
 
-                    // We are checking if the itemData type is equal to "Fish"
-                    // So when the player sells it, it gets the full price
-                    // The price will be half of the original price if its another kind of item
-                    if (inventory.slots[i].itemData.Type == "Fish")
-                        moneyCounter.money += itemData.Price;
-                    else
-                        moneyCounter.money += itemData.Price / 2;
+                        // We are checking if the itemData type is equal to "Fish"
+                        // So when the player sells it, it gets the full price
+                        // The price will be half of the original price if its another kind of item
+                        if (inventory.slots[i].itemData.Type == "Fish")
+                            moneyCounter.money += itemData.Price;
+                        else
+                            moneyCounter.money += itemData.Price / 2;
 
-                    inventory.slots[i].itemData = null;
+                        inventory.slots[i].itemData = null;
+                    }
                 }
             }
         } 
