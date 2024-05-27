@@ -20,7 +20,7 @@ public class FishActivate : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         int randomNum = Random.Range(0, _sprites.Count);
-        print(randomNum);
+        //print(randomNum);
         switch(randomNum) {
             case 0:
             {

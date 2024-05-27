@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class FishingMinigame : MonoBehaviour
 {
+    [SerializeField] private BaitCounter baitCounter;
+
     public GameObject[] fishPool;
 
     public int fishCount;
@@ -133,6 +135,16 @@ public class FishingMinigame : MonoBehaviour
         hookProgress = Mathf.Clamp(hookProgress, 0f, 1f);
     }
 
+    private void randomFish() 
+    {
+        // Randomizing the fish
+        int randomNum = UnityEngine.Random.Range(0, fishes.Count);
+        print(randomNum);
+        ItemData randFish = fishes[randomNum];
+        print(randFish);
+        EventBus.Instance.PickUpItem(randFish);
+    }
+
     private void Win()
     {
         Debug.Log("YOU WIN! HOLY FUCKING CUCK FUCK");
@@ -140,12 +152,8 @@ public class FishingMinigame : MonoBehaviour
         won = true;
         failTimer = 999f;
         fishing.SetActive(false);
-        // Randomizing the fish
-        int randomNum = UnityEngine.Random.Range(0, fishes.Count);
-        print(randomNum);
-        ItemData randFish = fishes[randomNum];
-        print(randFish);
-        EventBus.Instance.PickUpItem(randFish);
+        randomFish();
+        baitCounter.bait--;
         StartCoroutine(hasWon());
     }
 
@@ -156,6 +164,7 @@ public class FishingMinigame : MonoBehaviour
         won = false;
         failTimer = 999f;
         fishing.SetActive(false);
+        baitCounter.bait--;
         StartCoroutine(hasLost());
     }
 
