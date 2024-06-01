@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private BaitCounter baitCounter;
+
     public FishingMinigame fishing;
     
     public Rigidbody2D rb;
@@ -131,7 +133,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("estou tocando");
             isOverlap = true;
             if (!isFishing) {
-                if (Input.GetKeyDown(KeyCode.Space)) {
+                if (Input.GetKeyDown(KeyCode.Space) && baitCounter.bait > 0) {
                     isFishing = !isFishing;
                 }
             }

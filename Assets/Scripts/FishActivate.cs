@@ -9,11 +9,38 @@ public class FishActivate : MonoBehaviour
     public Collider2D playerCollider;
 
     [SerializeField] private Collider2D myCollider;
+    [SerializeField] private SpriteRenderer mySpriteRenderer;
     [SerializeField] private ItemData _itemData;
+
+    [SerializeField] private List<Sprite> _sprites;
     
     void Start()
     {
+        float randomScale = Random.Range(1.5f, 3f);
+        transform.localScale = new Vector3(randomScale, randomScale, randomScale);
+
         myCollider = GetComponent<BoxCollider2D>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+
+        int randomNum = Random.Range(0, _sprites.Count);
+        //print(randomNum);
+        switch(randomNum) {
+            case 0:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+            case 1:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+            case 2:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+        }
     }
 
     void Update()
@@ -31,6 +58,13 @@ public class FishActivate : MonoBehaviour
                 }
                 Destroy(this.gameObject);
             }
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Dock" || other.gameObject.tag == "Fish") {
+            Debug.Log("holy shit spider-man");
+            Destroy(this.gameObject);
         }
     }
 }
