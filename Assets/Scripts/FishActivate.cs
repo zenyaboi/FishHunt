@@ -16,6 +16,9 @@ public class FishActivate : MonoBehaviour
     
     void Start()
     {
+        float randomScale = Random.Range(1.5f, 3f);
+        transform.localScale = new Vector3(randomScale, randomScale, randomScale);
+
         myCollider = GetComponent<BoxCollider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -55,6 +58,13 @@ public class FishActivate : MonoBehaviour
                 }
                 Destroy(this.gameObject);
             }
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Dock" || other.gameObject.tag == "Fish") {
+            Debug.Log("holy shit spider-man");
+            Destroy(this.gameObject);
         }
     }
 }
