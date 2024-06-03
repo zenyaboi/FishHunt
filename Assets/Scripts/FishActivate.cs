@@ -13,6 +13,7 @@ public class FishActivate : MonoBehaviour
     [SerializeField] private ItemData _itemData;
 
     [SerializeField] private List<Sprite> _sprites;
+    [SerializeField] private List<ItemData> _fishDatas;
     
     void Start()
     {
@@ -22,25 +23,10 @@ public class FishActivate : MonoBehaviour
         myCollider = GetComponent<BoxCollider2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
-        int randomNum = Random.Range(0, _sprites.Count);
-        //print(randomNum);
-        switch(randomNum) {
-            case 0:
-            {
-                mySpriteRenderer.sprite = _sprites[randomNum];
-                break;
-            }
-            case 1:
-            {
-                mySpriteRenderer.sprite = _sprites[randomNum];
-                break;
-            }
-            case 2:
-            {
-                mySpriteRenderer.sprite = _sprites[randomNum];
-                break;
-            }
-        }
+        RandomFish();
+
+        ItemData newItem = Object.Instantiate(_itemData);
+        Debug.Log(newItem);
     }
 
     void Update()
@@ -66,5 +52,45 @@ public class FishActivate : MonoBehaviour
             Debug.Log("holy shit spider-man");
             Destroy(this.gameObject);
         }
+    }
+
+    private void RandomFish() {
+        #region random sprite
+        int randomNum = Random.Range(0, _sprites.Count);
+        //print(randomNum);
+        switch(randomNum) {
+            case 0:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+            case 1:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+            case 2:
+            {
+                mySpriteRenderer.sprite = _sprites[randomNum];
+                break;
+            }
+        }
+        #endregion
+
+        #region random item data
+        int randomFish = Random.Range(0, _fishDatas.Count);
+        switch(randomFish) {
+            case 0:
+            {
+                _itemData = _fishDatas[randomFish];
+                break;
+            }
+            case 1:
+            {
+                _itemData = _fishDatas[randomFish];
+                break;
+            }
+        }
+        #endregion
     }
 }
