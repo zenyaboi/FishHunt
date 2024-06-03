@@ -14,6 +14,8 @@ public class FishActivate : MonoBehaviour
 
     [SerializeField] private List<Sprite> _sprites;
     [SerializeField] private List<ItemData> _fishDatas;
+
+    public ItemData fish;
     
     void Start()
     {
@@ -37,7 +39,7 @@ public class FishActivate : MonoBehaviour
             if (myCollider.IsTouching(playerCollider)) {
                 // I hate this
                 if (fishingMinigame.won) {
-                    EventBus.Instance.PickUpItem(_itemData);
+                    EventBus.Instance.PickUpItem(fish);
                 }
                 Destroy(this.gameObject);
             }
@@ -93,10 +95,14 @@ public class FishActivate : MonoBehaviour
         // Creating a instance of itemData
         // We are doing this so we can randomize the age and price  
         ItemData newItem = Object.Instantiate(_itemData);
+        // Randomizing values
         newItem.Age = Random.Range(1, 10);
         newItem.Weight = Random.Range(1, 10);
         newItem.Price = (5f * newItem.Weight) / newItem.Age;
+        // Rounding the price so it has one decimal
         newItem.Price = System.Math.Round(newItem.Price, 1);
         Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
+        // ew.
+        fish = newItem;
     }
 }

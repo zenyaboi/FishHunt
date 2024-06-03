@@ -48,7 +48,7 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
         // display item info
         if (itemData == null) return;
         
-        InventoryManager.instance.DisplayItemInfo(itemData.Name, itemData.GetItemDescription(), transform.position);
+        InventoryManager.instance.DisplayItemInfo(itemData.Name, itemData.GetItemDescription(), itemData.Age.ToString(), transform.position);
     }
 
     public void OnCursorExit() 
