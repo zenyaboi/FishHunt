@@ -96,6 +96,7 @@ public class FishActivate : MonoBehaviour
         newItem.Age = Random.Range(1, 10);
         newItem.Weight = Random.Range(1, 10);
         newItem.Price = (5f * newItem.Weight) / newItem.Age;
+        newItem.Price = System.Math.Round(newItem.Price, 1);
         Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
     }
 }

@@ -17,7 +17,7 @@ public class ItemData : ScriptableObject
         get { return _age; }
         set { _age = value; }
     }
-    public float Price
+    public double Price
     {
         get { return _price; }
         set { _price = value; }
@@ -35,7 +35,7 @@ public class ItemData : ScriptableObject
     [SerializeField] private string _type;
     [SerializeField] private int _age;
     [SerializeField] private float _weight;
-    [SerializeField] private float _price;
+    [SerializeField] private double _price;
     [SerializeField] private Image _sprite;
     [SerializeField] private string _description;
 

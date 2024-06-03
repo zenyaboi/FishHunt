@@ -133,3 +133,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bbe85fe602f48274bbed7d2be3e11815, type: 3}
   - {fileID: 21300000, guid: efff7a13595e5e2438e0a3bd08360170, type: 3}
   - {fileID: 21300000, guid: 6459b8b924e9048418d5b570e741798f, type: 3}
+  _fishDatas:
+  - {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+  - {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
