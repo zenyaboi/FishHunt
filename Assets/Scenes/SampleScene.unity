@@ -146,6 +146,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -205,6 +217,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -325,6 +341,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -384,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -948,6 +980,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1007,6 +1051,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -1322,6 +1370,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1381,6 +1441,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -2222,7 +2286,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &454282337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2505,6 +2569,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2564,6 +2640,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -2706,6 +2786,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3000,6 +3092,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -3059,6 +3163,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -3300,6 +3408,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3359,6 +3479,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -4148,6 +4272,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4207,6 +4343,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -4476,6 +4616,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4535,6 +4687,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -4985,6 +5141,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -5044,6 +5212,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -5114,6 +5286,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5173,6 +5357,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -5283,6 +5471,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -5343,6 +5543,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fish (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
 --- !u!4 &1865746527 stripped
@@ -5373,6 +5577,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5432,6 +5648,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -5678,7 +5898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2110609988
 Transform:
   m_ObjectHideFlags: 0
@@ -5804,6 +6024,18 @@ PrefabInstance:
       propertyPath: fishingMinigame
       value: 
       objectReference: {fileID: 1965284516}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5863,6 +6095,10 @@ PrefabInstance:
     - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_Name
       value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}

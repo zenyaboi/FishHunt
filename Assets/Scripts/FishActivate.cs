@@ -24,9 +24,6 @@ public class FishActivate : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
 
         RandomFish();
-
-        ItemData newItem = Object.Instantiate(_itemData);
-        Debug.Log(newItem);
     }
 
     void Update()
@@ -92,5 +89,13 @@ public class FishActivate : MonoBehaviour
             }
         }
         #endregion
+
+        // Creating a instance of itemData
+        // We are doing this so we can randomize the age and price  
+        ItemData newItem = Object.Instantiate(_itemData);
+        newItem.Age = Random.Range(1, 10);
+        newItem.Weight = Random.Range(1, 10);
+        newItem.Price = (5f * newItem.Weight) / newItem.Age;
+        Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
     }
 }
