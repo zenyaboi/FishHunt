@@ -15,7 +15,7 @@ public class FishActivate : MonoBehaviour
     [SerializeField] private List<Sprite> _sprites;
     [SerializeField] private List<ItemData> _fishDatas;
 
-    public ItemData fish;
+    public ItemData newItem;
     
     void Start()
     {
@@ -39,7 +39,7 @@ public class FishActivate : MonoBehaviour
             if (myCollider.IsTouching(playerCollider)) {
                 // I hate this
                 if (fishingMinigame.won) {
-                    EventBus.Instance.PickUpItem(fish);
+                    EventBus.Instance.PickUpItem(newItem);
                 }
                 Destroy(this.gameObject);
             }
@@ -54,47 +54,15 @@ public class FishActivate : MonoBehaviour
     }
 
     private void RandomFish() {
-        #region random sprite
         int randomNum = Random.Range(0, _sprites.Count);
-        //print(randomNum);
-        switch(randomNum) {
-            case 0:
-            {
-                mySpriteRenderer.sprite = _sprites[randomNum];
-                break;
-            }
-            case 1:
-            {
-                mySpriteRenderer.sprite = _sprites[randomNum];
-                break;
-            }
-            case 2:
-            {
-                mySpriteRenderer.sprite = _sprites[randomNum];
-                break;
-            }
-        }
-        #endregion
+        mySpriteRenderer.sprite = _sprites[randomNum];
 
-        #region random item data
         int randomFish = Random.Range(0, _fishDatas.Count);
-        switch(randomFish) {
-            case 0:
-            {
-                _itemData = _fishDatas[randomFish];
-                break;
-            }
-            case 1:
-            {
-                _itemData = _fishDatas[randomFish];
-                break;
-            }
-        }
-        #endregion
+        _itemData = _fishDatas[randomFish];
 
         // Creating a instance of itemData
         // We are doing this so we can randomize the age and price  
-        ItemData newItem = Object.Instantiate(_itemData);
+        newItem = Object.Instantiate(_itemData);
         // Randomizing values
         newItem.Age = Random.Range(1, 10);
         newItem.Weight = Random.Range(1, 10);
@@ -102,7 +70,5 @@ public class FishActivate : MonoBehaviour
         // Rounding the price so it has one decimal
         newItem.Price = System.Math.Round(newItem.Price, 1);
         Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
-        // ew.
-        fish = newItem;
     }
 }
