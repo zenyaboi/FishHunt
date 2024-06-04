@@ -11,7 +11,7 @@ public class ShopSlot : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private BaitCounter baitCounter;
 
-    public GameObject itemImage;
+    public Image itemImage;
     public TMP_Text itemName;
     public TMP_Text itemAmount;
     public TMP_Text itemPrice;
@@ -29,7 +29,7 @@ public class ShopSlot : MonoBehaviour
         // Checking if it's an item or upgrade to show proper stats (i.e. name, value)
         if (itemData != null) {
             itemName.text = itemData.Name;
-            //itemImage.sprite = itemData.sprite;
+            //itemImage.sprite = itemData.Sprite;
             Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
             buyPriceText.text = "Price: " + itemData.Price.ToString();
         } else if (upgradeData != null) {

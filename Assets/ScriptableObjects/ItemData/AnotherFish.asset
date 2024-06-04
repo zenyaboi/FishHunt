@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Other Fish Holy
   _type: Fish
+  _species: Anchova
   _age: 24
+  _weight: 0
   _price: 10
   _sprite: {fileID: 6510492014216249000, guid: ef5e27bc985815942bb54d11a6ebca40, type: 3}
+  _showSprite: {fileID: 0}
   _description: Another fuish

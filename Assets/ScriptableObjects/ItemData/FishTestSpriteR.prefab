@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3141948237384490108}
   - component: {fileID: 6510492014216249000}
   m_Layer: 5
-  m_Name: FishTestSprite
+  m_Name: FishTestSpriteR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 954a250a81bc21f449a34141b6e5d249, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6459b8b924e9048418d5b570e741798f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

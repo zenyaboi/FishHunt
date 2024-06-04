@@ -54,7 +54,7 @@ public class FishingMinigame : MonoBehaviour
         // Another problem by making the fish pools a prefab.
         // I kinda forgot why I use this, but it's important
         // I need to add these comments when I do the code, not a day later
-        fishPool = GameObject.FindGameObjectsWithTag("Fish");
+        //fishPool = GameObject.FindGameObjectsWithTag("Fish");
     }
 
     private void FixedUpdate() 

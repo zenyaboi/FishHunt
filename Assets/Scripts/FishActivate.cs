@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FishActivate : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class FishActivate : MonoBehaviour
     [SerializeField] private SpriteRenderer mySpriteRenderer;
     [SerializeField] private ItemData _itemData;
 
-    [SerializeField] private List<Sprite> _sprites;
+    [SerializeField] private List<Image> _sprites;
     [SerializeField] private List<ItemData> _fishDatas;
 
     public ItemData newItem;
@@ -55,7 +56,7 @@ public class FishActivate : MonoBehaviour
 
     private void RandomFish() {
         int randomNum = Random.Range(0, _sprites.Count);
-        mySpriteRenderer.sprite = _sprites[randomNum];
+        mySpriteRenderer.sprite = _sprites[randomNum].sprite;
 
         int randomFish = Random.Range(0, _fishDatas.Count);
         _itemData = _fishDatas[randomFish];
@@ -64,6 +65,7 @@ public class FishActivate : MonoBehaviour
         // We are doing this so we can randomize the age and price  
         newItem = Object.Instantiate(_itemData);
         // Randomizing values
+        newItem.Sprite = _sprites[randomNum];
         newItem.Age = Random.Range(1, 10);
         newItem.Weight = Random.Range(1, 10);
         newItem.Price = (5f * newItem.Weight) / newItem.Age;
