@@ -36,21 +36,18 @@ public class FishActivate : MonoBehaviour
         // And we kinda don't want that
         // So I just made this awful fucking if statement to check if the instance is colliding with the player to destroy itself.
         // And it works, don't ask. it looks dumb.
-        if (fishingMinigame.pause) {
-            if (myCollider.IsTouching(playerCollider)) {
-                // I hate this
-                if (fishingMinigame.won) {
-                    EventBus.Instance.PickUpItem(newItem);
-                }
-                Destroy(this.gameObject);
+        if (fishingMinigame.pause && myCollider.IsTouching(playerCollider)) {
+            if (fishingMinigame.won) {
+                EventBus.Instance.PickUpItem(newItem);
+                Destroy(gameObject);
             }
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Dock" || other.gameObject.tag == "Fish") {
             Debug.Log("holy shit spider-man");
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 

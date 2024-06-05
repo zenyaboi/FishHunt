@@ -5,6 +5,7 @@ using UnityEngine;
 public class FishSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject fishPrefab;
+    public List<GameObject> fishList;
     [SerializeField] private float currentTime;
     [SerializeField] private float spawnTime;
     private float minTime = 1f;
@@ -29,7 +30,8 @@ public class FishSpawner : MonoBehaviour
     void SpawnObject() {
         currentTime = 0;
         Vector2 randomSpawnPos = new Vector2(Random.Range(-37, 38), Random.Range(-5, -14));
-        Instantiate(fishPrefab, randomSpawnPos, Quaternion.identity);
+        GameObject fishInst = Instantiate(fishPrefab, randomSpawnPos, Quaternion.identity);
+        fishList.Add(fishInst);
     }
 
     void SetRandomTime() {

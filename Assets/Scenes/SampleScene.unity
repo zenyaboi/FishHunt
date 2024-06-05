@@ -2506,7 +2506,7 @@ GameObject:
   - component: {fileID: 454282337}
   m_Layer: 0
   m_Name: Fish Spawner
-  m_TagString: Untagged
+  m_TagString: Fish Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2523,7 +2523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4a112496deaab48ac1ef12b75f9db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+  fishPrefab: {fileID: 1109626378}
+  fishList: []
   currentTime: 0
   spawnTime: 0
 --- !u!4 &454282338
@@ -3886,6 +3887,11 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 1
+--- !u!1 &1109626378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 668219683397200634, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+  m_PrefabInstance: {fileID: 1889641970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1118726167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
@@ -6620,7 +6626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.69
+      value: 16.6
       objectReference: {fileID: 0}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_LocalPosition.z
