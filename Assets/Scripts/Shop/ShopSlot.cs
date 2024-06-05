@@ -158,20 +158,15 @@ public class ShopSlot : MonoBehaviour
                 }
             } else {
                 for (int i = 0; i < inventory.slots.Count; i++) {
-                    if (itemData == inventory.slots[i].itemData) {
-                        // Debugging to see if the slot is being selected corretcly
-                        // If at some point it logs "null", it will be needed to look at what is causing this
-                        Debug.Log(inventory.slots[i].itemData);
+                    if (inventory.slots[i].itemData == null) return;
 
-                        // We are checking if the itemData type is equal to "Fish"
-                        // So when the player sells it, it gets the full price
-                        // The price will be half of the original price if its another kind of item
-                        if (inventory.slots[i].itemData.Type == "Fish")
-                            moneyCounter.money += itemData.Price;
-                        else
-                            moneyCounter.money += itemData.Price / 2;
-
+                    // Need to change to a switch to check species
+                    if (inventory.slots[i].itemData.Type == "Fish") {
                         inventory.slots[i].itemData = null;
+                        moneyCounter.money += itemData.Price;
+                    } else {
+                        inventory.slots[i].itemData = null;
+                        moneyCounter.money += itemData.Price / 2;
                     }
                 }
             }

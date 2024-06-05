@@ -39,8 +39,8 @@ public class FishActivate : MonoBehaviour
         if (fishingMinigame.pause && myCollider.IsTouching(playerCollider)) {
             if (fishingMinigame.won) {
                 EventBus.Instance.PickUpItem(newItem);
-                Destroy(gameObject);
             }
+            Destroy(gameObject);
         }
     }
 
@@ -68,6 +68,6 @@ public class FishActivate : MonoBehaviour
         newItem.Price = (5f * newItem.Weight) / newItem.Age;
         // Rounding the price so it has one decimal
         newItem.Price = System.Math.Round(newItem.Price, 1);
-        Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
+        //Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
     }
 }
