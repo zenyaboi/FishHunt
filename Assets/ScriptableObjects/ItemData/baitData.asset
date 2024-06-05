@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: baitData
   m_EditorClassIdentifier: 
   _name: Bait
-  _type: Item
+  _type: Bait
   _species: 
   _age: 0
   _weight: 0
   _price: 3
-  _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _sprite: {fileID: 6510492014216249000, guid: aa219848dd45528408e1b68a42765f58, type: 3}
   _description: bait

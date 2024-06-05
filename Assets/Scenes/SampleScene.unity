@@ -4459,6 +4459,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1342562514}
     - target: {fileID: 7517948441176626849, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+      propertyPath: baitCounter
+      value: 
+      objectReference: {fileID: 357165190}
+    - target: {fileID: 7517948441176626849, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
       propertyPath: buyPriceText
       value: 
       objectReference: {fileID: 1342562513}
