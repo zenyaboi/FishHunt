@@ -17,6 +17,6 @@ MonoBehaviour:
   _species: Linguado
   _age: 0
   _weight: 0
-  _price: 0
+  _price: 15
   _sprite: {fileID: 6510492014216249000, guid: b7e705be08747e344a8a8c56f2d3193e, type: 3}
   _description: 
