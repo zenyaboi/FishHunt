@@ -154,12 +154,16 @@ public class PlayerController : MonoBehaviour
         // Upgrade checks
         if (hasInvUpgradeI) {
             InventoryManager.instance.MaxSlots = 9;
+            moveSpeed = 5f;
         } else if (hasInvUpgradeII) {
             InventoryManager.instance.MaxSlots = 18;
+            moveSpeed = 3f;
         } else if (hasSpdUpgradeI) {
             InventoryManager.instance.MaxSlots = 4;
+            moveSpeed = 9f;
         } else {
             InventoryManager.instance.MaxSlots = 6;
+            moveSpeed = 7f;
         }
     }
 }
