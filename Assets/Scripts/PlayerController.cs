@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public bool hasInvUpgradeI = false;
     public bool hasInvUpgradeII = false;
     public bool hasSpdUpgradeI = false;
+    public bool hasSpdUpgradeII = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
         inventory.SetActive(isInvOpen);
         shop.SetActive(isShopOpen);
 
-        UpdateInventorySlots();
+        UpgradeSystem();
     }
 
     private void Movement() 
@@ -150,7 +151,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateInventorySlots() {
+    private void UpgradeSystem() {
         // Upgrade checks
         if (hasInvUpgradeI) {
             InventoryManager.instance.MaxSlots = 9;
@@ -161,6 +162,9 @@ public class PlayerController : MonoBehaviour
         } else if (hasSpdUpgradeI) {
             InventoryManager.instance.MaxSlots = 4;
             moveSpeed = 9f;
+        } else if (hasSpdUpgradeII) { 
+            InventoryManager.instance.MaxSlots = 3;
+            moveSpeed = 12f;
         } else {
             InventoryManager.instance.MaxSlots = 6;
             moveSpeed = 7f;

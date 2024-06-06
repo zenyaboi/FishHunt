@@ -55,21 +55,28 @@ public class ShopSlot : MonoBehaviour
             switch(upgradeData.Type) {
                 case "Inventory Upgrade 1":
                 {
-                    if (playerController.hasInvUpgradeII || playerController.hasSpdUpgradeI) {
+                    if (playerController.hasInvUpgradeII || playerController.hasSpdUpgradeI || playerController.hasSpdUpgradeII) {
                         isUpgradeBought = false;
                     }
                     break;
                 }
                 case "Inventory Upgrade 2":
                 {
-                    if (playerController.hasInvUpgradeI || playerController.hasSpdUpgradeI) {
+                    if (playerController.hasInvUpgradeI || playerController.hasSpdUpgradeI || playerController.hasSpdUpgradeII) {
                         isUpgradeBought = false;
                     }
                     break;
                 }
                 case "Speed Upgrade 1":
                 {
-                    if (playerController.hasInvUpgradeI || playerController.hasInvUpgradeII) {
+                    if (playerController.hasInvUpgradeI || playerController.hasInvUpgradeII || playerController.hasSpdUpgradeII) {
+                        isUpgradeBought = false;
+                    }
+                    break;
+                }
+                case "Speed Upgrade 2":
+                {
+                    if (playerController.hasInvUpgradeI || playerController.hasInvUpgradeII || playerController.hasSpdUpgradeI) {
                         isUpgradeBought = false;
                     }
                     break;
@@ -101,8 +108,7 @@ public class ShopSlot : MonoBehaviour
                     break;
                 }
             }
-        } 
-        else if (upgradeData != null) {
+        } else if (upgradeData != null) {
             if (moneyCounter.money >= upgradeData.Price && !isUpgradeBought) {
                 switch(upgradeData.Type) 
                 {
@@ -112,6 +118,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeI = true;
                             playerController.hasInvUpgradeII = false;
                             playerController.hasSpdUpgradeI = false;
+                            playerController.hasSpdUpgradeII = false;
 
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
@@ -124,6 +131,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = true;
                             playerController.hasSpdUpgradeI = false;
+                            playerController.hasSpdUpgradeII = false;
 
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
@@ -136,6 +144,20 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = false;
                             playerController.hasSpdUpgradeI = true;
+                            playerController.hasSpdUpgradeII = false;
+                            
+                            moneyCounter.money -= upgradeData.Price;
+                            isUpgradeBought = true;
+                        }
+                        break;
+                    }
+                    case "Speed Upgrade 2":
+                    {
+                        if (!isUpgradeBought) {
+                            playerController.hasInvUpgradeI = false;
+                            playerController.hasInvUpgradeII = false;
+                            playerController.hasSpdUpgradeI = false;
+                            playerController.hasSpdUpgradeII = true;
                             
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
@@ -172,8 +194,7 @@ public class ShopSlot : MonoBehaviour
                     }
                 }
             }
-        } 
-        else if (upgradeData != null) {
+        } else if (upgradeData != null) {
             if (isUpgradeBought) {
                 switch(upgradeData.Type) 
                 {
@@ -183,6 +204,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = false;
                             playerController.hasSpdUpgradeI = false;
+                            playerController.hasSpdUpgradeII = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
                             isUpgradeBought = false;
@@ -196,6 +218,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = false;
                             playerController.hasSpdUpgradeI = false;
+                            playerController.hasSpdUpgradeII = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
                             isUpgradeBought = false;
@@ -208,6 +231,20 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeI = false;
                             playerController.hasInvUpgradeII = false;
                             playerController.hasSpdUpgradeI = false;
+                            playerController.hasSpdUpgradeII = false;
+
+                            moneyCounter.money += upgradeData.Price / 2;
+                            isUpgradeBought = false;
+                        }
+                        break;
+                    }
+                    case "Speed Upgrade 2":
+                    {
+                        if (isUpgradeBought) {
+                            playerController.hasInvUpgradeI = false;
+                            playerController.hasInvUpgradeII = false;
+                            playerController.hasSpdUpgradeI = false;
+                            playerController.hasSpdUpgradeII = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
                             isUpgradeBought = false;
