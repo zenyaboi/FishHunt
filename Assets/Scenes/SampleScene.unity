@@ -7095,6 +7095,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1965284516}
     - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 195053763}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: _fishDatas.Array.size
       value: 5
       objectReference: {fileID: 0}

@@ -215,12 +215,9 @@ public class ShopSlot : MonoBehaviour
                 }
             } else {
                 for (int i = 0; i < inventory.slots.Count; i++) {
-                    Debug.Log(inventory.slots[i] + "Slot: " + i);
                     if (inventory.slots[i].itemData == null) continue;
                     
                     if (itemData.Type == inventory.slots[i].itemData.Type) {
-                        Debug.Log(inventory.slots[i].itemData);
-
                         if (inventory.slots[i].itemData.Type == "Fish") {
                             if (itemData.Species == inventory.slots[i].itemData.Species) {
                                 moneyCounter.money += inventory.slots[i].itemData.Price;

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class FishActivate : MonoBehaviour
 {
     public FishingMinigame fishingMinigame;
+    public PlayerController playerController;
     public Collider2D playerCollider;
 
     [SerializeField] private Collider2D myCollider;
@@ -17,7 +18,7 @@ public class FishActivate : MonoBehaviour
     [SerializeField] private List<ItemData> _fishDatas;
 
     public float timerRandom;
-    
+
     public ItemData newItem;
     
     void Start()
@@ -49,8 +50,13 @@ public class FishActivate : MonoBehaviour
         }
 
         // Despawing the fish after a certain amount of seconds
-        if (this.gameObject.name == "Fish (2)(Clone)")
-            StartCoroutine(fishDespawn());
+        if (this.gameObject.name == "Fish (2)(Clone)") {
+            //fishDespawn();
+            if (!playerController.isFishing) 
+                StartCoroutine(fishDespawn());
+            else
+                StopAllCoroutines();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -86,7 +92,7 @@ public class FishActivate : MonoBehaviour
         newItem.Price = System.Math.Round(newItem.Price, 1);
         //Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
     }
-
+    
     IEnumerator fishDespawn() {
         yield return new WaitForSeconds(timerRandom);
         Debug.Log("despawnei");
