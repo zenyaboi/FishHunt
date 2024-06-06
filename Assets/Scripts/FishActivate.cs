@@ -45,19 +45,22 @@ public class FishActivate : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Dock" || other.gameObject.tag == "Fish") {
+        if (this.gameObject.tag == other.gameObject.tag) {
             Debug.Log("holy shit spider-man");
-            Destroy(gameObject);
+            Destroy(other.gameObject);
+        } else if (other.gameObject.tag == "Dock") {
+            Debug.Log("holy shit spider");
+            Destroy(other.gameObject);
         }
     }
 
     private void RandomFish() {
         int randomFish = Random.Range(0, _fishDatas.Count);
         _itemData = _fishDatas[randomFish];
-        Debug.Log(_fishDatas[randomFish]);
+        //Debug.Log(_fishDatas[randomFish]);
 
         // Creating a instance of itemData
-        // We are doing this so we can randomize the age and price  
+        // We are doing this so we can randomize the age and price and weight
         newItem = Object.Instantiate(_itemData);
         // Randomizing values
         int randomNum = Random.Range(0, _sprites.Count);

@@ -7,6 +7,7 @@ public class FishSpawner : MonoBehaviour
     [SerializeField] private PlayerController playerController;
 
     [SerializeField] private GameObject fishPrefab;
+    [SerializeField] private Transform parent;
     public List<GameObject> fishList;
     [SerializeField] private float currentTime;
     [SerializeField] private float spawnTime;
@@ -35,6 +36,7 @@ public class FishSpawner : MonoBehaviour
         currentTime = 0;
         Vector2 randomSpawnPos = new Vector2(Random.Range(-37, 38), Random.Range(-5, -14));
         GameObject fishInst = Instantiate(fishPrefab, randomSpawnPos, Quaternion.identity);
+        fishInst.transform.SetParent(parent, false);
         fishList.Add(fishInst);
     }
 
