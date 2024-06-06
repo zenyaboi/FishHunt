@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private BaitCounter baitCounter;
+    [SerializeField] private FishActivate fishActivate;
 
     public FishingMinigame fishing;
     
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public bool hasInvUpgradeII = false;
     public bool hasSpdUpgradeI = false;
     public bool hasSpdUpgradeII = false;
+    public bool hasBaitUpgrade = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
@@ -124,6 +126,8 @@ public class PlayerController : MonoBehaviour
         if (fishCollider.IsTouching(playerCollider)) {
             //Debug.Log("estou tocando");
             isOverlap = true;
+            if (fishActivate.newItem.Species == "Linguado" && !hasBaitUpgrade) return;
+
             if (!isFishing && Input.GetKeyDown(KeyCode.Space) && baitCounter.bait > 0) {
                 isFishing = !isFishing;
             }
@@ -147,6 +151,7 @@ public class PlayerController : MonoBehaviour
             // We are checking if we are trigerring any gameobject with the tag "Fish"
             // If so, we are assining the collider of the gameobject we triggered to the fishCollider variable (which is used on isOverlapping).
             // Debug.Log("aqui");
+            fishActivate = other.gameObject.GetComponent<FishActivate>();
             fishCollider = other.gameObject.GetComponent<BoxCollider2D>();
         }
     }

@@ -15,6 +15,8 @@ public class ShopSlot : MonoBehaviour
     public TMP_Text itemName;
     public TMP_Text itemAmount;
     public TMP_Text itemPrice;
+    public Image sprite;
+    public Image baitUpgradeSprite;
 
     public ItemData itemData;
     public UpgradeData upgradeData;    
@@ -30,13 +32,13 @@ public class ShopSlot : MonoBehaviour
         if (itemData != null) {
             itemName.text = itemData.Name;
             //itemImage.sprite = itemData.Sprite;
-            Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite = Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
             buyPriceText.text = "Price: " + itemData.Price.ToString();
         } else if (upgradeData != null) {
             itemName.text = upgradeData.Name;
             isUpgradeBought = false;
             //itemImage.sprite = itemData.sprite;
-            Instantiate<Image>(upgradeData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite = Instantiate<Image>(upgradeData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
             buyPriceText.text = "Price: " + upgradeData.Price.ToString();
         }
     }
@@ -83,6 +85,16 @@ public class ShopSlot : MonoBehaviour
                 }
             }
         }
+
+        // Changing the bait sprite when bait upgrade bought
+        if (itemData != null && baitUpgradeSprite != null) {
+            if (itemData.Type == "Bait") {
+                if (playerController.hasBaitUpgrade == true)
+                    sprite.sprite = baitUpgradeSprite.sprite;
+                else 
+                    sprite.sprite = itemData.Sprite.sprite;
+            }
+        }
     }
 
     public void Buy() 
@@ -112,6 +124,17 @@ public class ShopSlot : MonoBehaviour
             if (moneyCounter.money >= upgradeData.Price && !isUpgradeBought) {
                 switch(upgradeData.Type) 
                 {
+                    case "Bait Upgrade":
+                    {
+                        if (!isUpgradeBought) {
+                            playerController.hasBaitUpgrade = true;
+
+                            moneyCounter.money -= upgradeData.Price;
+                            isUpgradeBought = true;
+                        }
+
+                        break;
+                    }
                     case "Inventory Upgrade 1":
                     {
                         if (!isUpgradeBought) {
@@ -123,6 +146,7 @@ public class ShopSlot : MonoBehaviour
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
                         }
+
                         break;
                     }
                     case "Inventory Upgrade 2":
@@ -136,6 +160,7 @@ public class ShopSlot : MonoBehaviour
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
                         }
+
                         break;
                     }
                     case "Speed Upgrade 1":
@@ -149,6 +174,7 @@ public class ShopSlot : MonoBehaviour
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
                         }
+
                         break;
                     }
                     case "Speed Upgrade 2":
@@ -162,6 +188,7 @@ public class ShopSlot : MonoBehaviour
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
                         }
+
                         break;
                     }
                 }
@@ -198,6 +225,17 @@ public class ShopSlot : MonoBehaviour
             if (isUpgradeBought) {
                 switch(upgradeData.Type) 
                 {
+                    case "Bait Upgrade":
+                    {
+                        if (isUpgradeBought) {
+                            playerController.hasBaitUpgrade = true;
+
+                            moneyCounter.money += upgradeData.Price / 2;
+                            isUpgradeBought = false;
+                        }
+
+                        break;
+                    }
                     case "Inventory Upgrade 1":
                     {
                         if (isUpgradeBought) {
