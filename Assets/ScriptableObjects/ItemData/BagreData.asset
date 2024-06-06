@@ -17,6 +17,6 @@ MonoBehaviour:
   _species: Bagre
   _age: 0
   _weight: 0
-  _price: 0
+  _price: 10
   _sprite: {fileID: 6510492014216249000, guid: bd045eea6082ef144aade6e24c816b3a, type: 3}
   _description: 

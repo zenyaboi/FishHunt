@@ -33,12 +33,14 @@ public class ShopSlot : MonoBehaviour
             itemName.text = itemData.Name;
             //itemImage.sprite = itemData.Sprite;
             sprite = Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite.transform.localScale = new Vector3(.7f, .7f, .7f);
             buyPriceText.text = "Price: " + itemData.Price.ToString();
         } else if (upgradeData != null) {
             itemName.text = upgradeData.Name;
             isUpgradeBought = false;
             //itemImage.sprite = itemData.sprite;
             sprite = Instantiate<Image>(upgradeData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite.transform.localScale = new Vector3(.7f, .7f, .7f);
             buyPriceText.text = "Price: " + upgradeData.Price.ToString();
         }
     }
@@ -125,9 +127,15 @@ public class ShopSlot : MonoBehaviour
                 switch(upgradeData.Type) 
                 {
                     case "Bait Upgrade":
-                    {
+                    {                        
                         if (!isUpgradeBought) {
                             playerController.hasBaitUpgrade = true;
+                            baitCounter.maxBait = 15;
+                            if (baitCounter.bait < baitCounter.maxBait) {
+                                int amountLeftToMax = baitCounter.maxBait - baitCounter.bait;
+                                //Debug.Log(amountLeftToMax);
+                                baitCounter.bait += amountLeftToMax;
+                            }
 
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
@@ -207,17 +215,18 @@ public class ShopSlot : MonoBehaviour
                 }
             } else {
                 for (int i = 0; i < inventory.slots.Count; i++) {
-                    if (inventory.slots[i].itemData == null) return;
-
-                    // Need to change to a switch to check species
-                    if (inventory.slots[i].itemData.Type == "Fish") {
-                        if (itemData.Species == inventory.slots[i].itemData.Species) {
-                            moneyCounter.money += inventory.slots[i].itemData.Price;
+                    if (inventory.slots[i].itemData == null) continue;
+                    
+                    if (itemData.Type == inventory.slots[i].itemData.Type) {
+                        if (inventory.slots[i].itemData.Type == "Fish") {
+                            if (itemData.Species == inventory.slots[i].itemData.Species) {
+                                moneyCounter.money += inventory.slots[i].itemData.Price;
+                                inventory.slots[i].itemData = null;
+                            }
+                        } else {
+                            moneyCounter.money += inventory.slots[i].itemData.Price / 2;
                             inventory.slots[i].itemData = null;
                         }
-                    } else {
-                        moneyCounter.money += inventory.slots[i].itemData.Price / 2;
-                        inventory.slots[i].itemData = null;
                     }
                 }
             }
@@ -228,7 +237,11 @@ public class ShopSlot : MonoBehaviour
                     case "Bait Upgrade":
                     {
                         if (isUpgradeBought) {
-                            playerController.hasBaitUpgrade = true;
+                            playerController.hasBaitUpgrade = false;
+                            baitCounter.maxBait = 5;
+                            if (baitCounter.bait > baitCounter.maxBait) {
+                                baitCounter.bait = baitCounter.maxBait;
+                            }
 
                             moneyCounter.money += upgradeData.Price / 2;
                             isUpgradeBought = false;
