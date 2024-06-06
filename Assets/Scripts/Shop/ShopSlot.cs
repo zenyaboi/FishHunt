@@ -33,12 +33,14 @@ public class ShopSlot : MonoBehaviour
             itemName.text = itemData.Name;
             //itemImage.sprite = itemData.Sprite;
             sprite = Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite.transform.localScale = new Vector3(.7f, .7f, .7f);
             buyPriceText.text = "Price: " + itemData.Price.ToString();
         } else if (upgradeData != null) {
             itemName.text = upgradeData.Name;
             isUpgradeBought = false;
             //itemImage.sprite = itemData.sprite;
             sprite = Instantiate<Image>(upgradeData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite.transform.localScale = new Vector3(.7f, .7f, .7f);
             buyPriceText.text = "Price: " + upgradeData.Price.ToString();
         }
     }
@@ -125,9 +127,15 @@ public class ShopSlot : MonoBehaviour
                 switch(upgradeData.Type) 
                 {
                     case "Bait Upgrade":
-                    {
+                    {                        
                         if (!isUpgradeBought) {
                             playerController.hasBaitUpgrade = true;
+                            baitCounter.maxBait = 15;
+                            if (baitCounter.bait < baitCounter.maxBait) {
+                                int amountLeftToMax = baitCounter.maxBait - baitCounter.bait;
+                                //Debug.Log(amountLeftToMax);
+                                baitCounter.bait += amountLeftToMax;
+                            }
 
                             moneyCounter.money -= upgradeData.Price;
                             isUpgradeBought = true;
@@ -228,7 +236,11 @@ public class ShopSlot : MonoBehaviour
                     case "Bait Upgrade":
                     {
                         if (isUpgradeBought) {
-                            playerController.hasBaitUpgrade = true;
+                            playerController.hasBaitUpgrade = false;
+                            baitCounter.maxBait = 5;
+                            if (baitCounter.bait > baitCounter.maxBait) {
+                                baitCounter.bait = baitCounter.maxBait;
+                            }
 
                             moneyCounter.money += upgradeData.Price / 2;
                             isUpgradeBought = false;
