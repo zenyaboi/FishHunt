@@ -16,10 +16,15 @@ public class FishActivate : MonoBehaviour
     [SerializeField] private List<Image> _sprites;
     [SerializeField] private List<ItemData> _fishDatas;
 
+    public float timerRandom;
+    
     public ItemData newItem;
     
     void Start()
     {
+        timerRandom = Random.Range(30f, 60f);
+        //Debug.Log(timerRandom);
+
         float randomScale = Random.Range(1.5f, 3f);
         transform.localScale = new Vector3(randomScale, randomScale, randomScale);
 
@@ -42,6 +47,10 @@ public class FishActivate : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        // Despawing the fish after a certain amount of seconds
+        if (this.gameObject.name == "Fish (2)(Clone)")
+            StartCoroutine(fishDespawn());
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -76,5 +85,11 @@ public class FishActivate : MonoBehaviour
         // Rounding the price so it has one decimal
         newItem.Price = System.Math.Round(newItem.Price, 1);
         //Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
+    }
+
+    IEnumerator fishDespawn() {
+        yield return new WaitForSeconds(timerRandom);
+        Debug.Log("despawnei");
+        Destroy(this.gameObject);
     }
 }

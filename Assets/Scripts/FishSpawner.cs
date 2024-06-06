@@ -30,6 +30,12 @@ public class FishSpawner : MonoBehaviour
                 SetRandomTime();
             }
         }
+
+        for (int i = 0; i < fishList.Count; i++) {
+            if (fishList[i] == null) {
+                fishList.RemoveAt(i);
+            }
+        }
     }
 
     void SpawnObject() {
