@@ -215,17 +215,21 @@ public class ShopSlot : MonoBehaviour
                 }
             } else {
                 for (int i = 0; i < inventory.slots.Count; i++) {
-                    if (inventory.slots[i].itemData == null) return;
+                    Debug.Log(inventory.slots[i] + "Slot: " + i);
+                    if (inventory.slots[i].itemData == null) continue;
+                    
+                    if (itemData.Type == inventory.slots[i].itemData.Type) {
+                        Debug.Log(inventory.slots[i].itemData);
 
-                    // Need to change to a switch to check species
-                    if (inventory.slots[i].itemData.Type == "Fish") {
-                        if (itemData.Species == inventory.slots[i].itemData.Species) {
-                            moneyCounter.money += inventory.slots[i].itemData.Price;
+                        if (inventory.slots[i].itemData.Type == "Fish") {
+                            if (itemData.Species == inventory.slots[i].itemData.Species) {
+                                moneyCounter.money += inventory.slots[i].itemData.Price;
+                                inventory.slots[i].itemData = null;
+                            }
+                        } else {
+                            moneyCounter.money += inventory.slots[i].itemData.Price / 2;
                             inventory.slots[i].itemData = null;
                         }
-                    } else {
-                        moneyCounter.money += inventory.slots[i].itemData.Price / 2;
-                        inventory.slots[i].itemData = null;
                     }
                 }
             }
