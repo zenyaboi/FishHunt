@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eee32f920d538d4b892c513c859b083, type: 3}
-  m_Name: BaitData
+  m_Name: BagreData
   m_EditorClassIdentifier: 
-  _name: Bait
-  _type: Bait
-  _species: 
+  _name: Bagre
+  _type: Fish
+  _species: Bagre
   _age: 0
   _weight: 0
-  _price: 3
-  _sprite: {fileID: 6510492014216249000, guid: aa219848dd45528408e1b68a42765f58, type: 3}
-  _description: bait
+  _price: 0
+  _sprite: {fileID: 6510492014216249000, guid: bd045eea6082ef144aade6e24c816b3a, type: 3}
+  _description: 

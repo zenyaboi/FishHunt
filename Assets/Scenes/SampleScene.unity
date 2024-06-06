@@ -599,6 +599,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7517948442874117395, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7517948443015844857, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -6646,7 +6650,7 @@ PrefabInstance:
       objectReference: {fileID: 1965284516}
     - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: _fishDatas.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: _fishDatas.Array.data[0]
@@ -6656,6 +6660,18 @@ PrefabInstance:
       propertyPath: _fishDatas.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: d7a4f6fd22f0d124c916816eb5a67fff, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: cbbb51a32ff2af14492e314d4d01d6d1, type: 2}
+    - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
+      propertyPath: _fishDatas.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: a1c78856b1c8fa741bbef8aee55ebeb4, type: 2}
     - target: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -7723,6 +7739,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7517948441176626851, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7517948441176626853, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
       propertyPath: m_Name
       value: Slot
@@ -7758,6 +7778,22 @@ PrefabInstance:
     - target: {fileID: 7517948442400126419, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517948442874117395, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517948442874117395, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517948442874117395, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517948442874117395, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7517948443015844857, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

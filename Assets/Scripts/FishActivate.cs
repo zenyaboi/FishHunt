@@ -52,17 +52,21 @@ public class FishActivate : MonoBehaviour
     }
 
     private void RandomFish() {
-        int randomNum = Random.Range(0, _sprites.Count);
-        mySpriteRenderer.sprite = _sprites[randomNum].sprite;
-
         int randomFish = Random.Range(0, _fishDatas.Count);
         _itemData = _fishDatas[randomFish];
+        Debug.Log(_fishDatas[randomFish]);
 
         // Creating a instance of itemData
         // We are doing this so we can randomize the age and price  
         newItem = Object.Instantiate(_itemData);
         // Randomizing values
-        newItem.Sprite = _sprites[randomNum];
+        int randomNum = Random.Range(0, _sprites.Count);
+        if (_itemData.Species == "Anchova") {
+            mySpriteRenderer.sprite = _sprites[randomNum].sprite;
+            newItem.Sprite = _sprites[randomNum];
+        } else {
+            mySpriteRenderer.sprite = newItem.Sprite.sprite;
+        }
         newItem.Age = Random.Range(1, 10);
         newItem.Weight = Random.Range(1, 10);
         newItem.Price = (5f * newItem.Weight) / newItem.Age;
