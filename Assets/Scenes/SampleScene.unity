@@ -2534,7 +2534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4a112496deaab48ac1ef12b75f9db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishActivate: {fileID: 2118690420}
   fishPrefab: {fileID: 1109626378}
   fishList: []
   currentTime: 0
@@ -3547,7 +3546,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 852993829}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e1e1af8eaa7d3a4b93c4754197fe240, type: 3}
   m_Name: 
@@ -7316,17 +7315,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 668219683397200583, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
   m_PrefabInstance: {fileID: 1889641970}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2118690420 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
-  m_PrefabInstance: {fileID: 1889641970}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1109626378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a29a2f0fe7b57549adada34fe406233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2131357712 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7517948442400126419, guid: 67ff8daa04dda3d41a043378a0eb2292, type: 3}
