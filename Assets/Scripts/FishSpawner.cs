@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FishSpawner : MonoBehaviour
 {
+    [SerializeField] private PlayerController playerController;
+
     [SerializeField] private GameObject fishPrefab;
     public List<GameObject> fishList;
     [SerializeField] private float currentTime;
@@ -19,11 +21,13 @@ public class FishSpawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        currentTime += Time.deltaTime;
+        if (!playerController.hasWon) {
+            currentTime += Time.deltaTime;
 
-        if (currentTime >= spawnTime) {
-            SpawnObject();
-            SetRandomTime();
+            if (currentTime >= spawnTime) {
+                SpawnObject();
+                SetRandomTime();
+            }
         }
     }
 
