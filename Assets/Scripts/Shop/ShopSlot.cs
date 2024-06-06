@@ -162,11 +162,11 @@ public class ShopSlot : MonoBehaviour
 
                     // Need to change to a switch to check species
                     if (inventory.slots[i].itemData.Type == "Fish") {
+                        moneyCounter.money += inventory.slots[i].itemData.Price;
                         inventory.slots[i].itemData = null;
-                        moneyCounter.money += itemData.Price;
                     } else {
+                        moneyCounter.money += inventory.slots[i].itemData.Price / 2;
                         inventory.slots[i].itemData = null;
-                        moneyCounter.money += itemData.Price / 2;
                     }
                 }
             }
