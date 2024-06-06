@@ -33,12 +33,14 @@ public class ShopSlot : MonoBehaviour
             itemName.text = itemData.Name;
             //itemImage.sprite = itemData.Sprite;
             sprite = Instantiate<Image>(itemData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite.transform.localScale = new Vector3(.7f, .7f, .7f);
             buyPriceText.text = "Price: " + itemData.Price.ToString();
         } else if (upgradeData != null) {
             itemName.text = upgradeData.Name;
             isUpgradeBought = false;
             //itemImage.sprite = itemData.sprite;
             sprite = Instantiate<Image>(upgradeData.Sprite, itemImage.transform.position, Quaternion.identity, transform);
+            sprite.transform.localScale = new Vector3(.7f, .7f, .7f);
             buyPriceText.text = "Price: " + upgradeData.Price.ToString();
         }
     }
