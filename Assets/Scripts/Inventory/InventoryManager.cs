@@ -106,7 +106,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     //TODO: Fix pop-up position
-    public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos) 
+    public void DisplayItemInfo(string itemName, string itemDescription, string itemAge, Vector2 buttonPos) 
     {
         if (currentItemInfo != null) Destroy(currentItemInfo.gameObject);
 
@@ -114,7 +114,7 @@ public class InventoryManager : MonoBehaviour
         buttonPos.y -= 100;
 
         currentItemInfo = Instantiate(itemInfoPrefab, buttonPos, Quaternion.identity, inv);
-        currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
+        currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription, itemAge);
     }
 
     public void DestroyItemInfo()

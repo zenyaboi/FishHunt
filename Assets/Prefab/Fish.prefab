@@ -130,6 +130,10 @@ MonoBehaviour:
   mySpriteRenderer: {fileID: 0}
   _itemData: {fileID: 0}
   _sprites:
-  - {fileID: 21300000, guid: bbe85fe602f48274bbed7d2be3e11815, type: 3}
-  - {fileID: 21300000, guid: efff7a13595e5e2438e0a3bd08360170, type: 3}
-  - {fileID: 21300000, guid: 6459b8b924e9048418d5b570e741798f, type: 3}
+  - {fileID: 6510492014216249000, guid: ef5e27bc985815942bb54d11a6ebca40, type: 3}
+  - {fileID: 6510492014216249000, guid: 87e9eccae6588fe46b8ea9a75bdce241, type: 3}
+  - {fileID: 6510492014216249000, guid: b57cd57702ca90447aa05fe4b845cf06, type: 3}
+  _fishDatas:
+  - {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+  - {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
+  newItem: {fileID: 0}

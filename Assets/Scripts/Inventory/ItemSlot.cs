@@ -24,7 +24,7 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
         if (itemData == null) return;
 
         // TODO: When we create this sprite, it keeps creating forever. Need to find a way to prevent this
-        if (spawnedSprite == null)
+        if (spawnedSprite == null) 
             spawnedSprite = Instantiate<Image>(itemData.Sprite, transform.position, Quaternion.identity, transform);
     }
 
@@ -48,7 +48,7 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
         // display item info
         if (itemData == null) return;
         
-        InventoryManager.instance.DisplayItemInfo(itemData.Name, itemData.GetItemDescription(), transform.position);
+        InventoryManager.instance.DisplayItemInfo(itemData.Name, itemData.GetItemDescription(), itemData.Age.ToString(), transform.position);
     }
 
     public void OnCursorExit() 

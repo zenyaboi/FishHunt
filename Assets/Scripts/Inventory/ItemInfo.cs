@@ -7,10 +7,12 @@ public class ItemInfo : MonoBehaviour
 {
     public TMP_Text itemName;
     public TMP_Text itemDescription;
+    public TMP_Text itemAge;
 
-    public void SetUp(string name, string description) 
+    public void SetUp(string name, string description, string age) 
     {
         itemName.text = name;
         itemDescription.text = description;
+        itemAge.text = age;
     }
 }

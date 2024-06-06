@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fish
   - Dock
+  - FishingMinigame
+  - Fish Spawner
   layers:
   - Default
   - TransparentFX

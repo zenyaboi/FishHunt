@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eee32f920d538d4b892c513c859b083, type: 3}
-  m_Name: baitData
+  m_Name: BaitData
   m_EditorClassIdentifier: 
   _name: Bait
-  _type: Item
+  _type: Bait
+  _species: 
   _age: 0
+  _weight: 0
   _price: 3
   _sprite: {fileID: 6510492014216249000, guid: aa219848dd45528408e1b68a42765f58, type: 3}
   _description: bait

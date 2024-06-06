@@ -75,16 +75,7 @@ public class PlayerController : MonoBehaviour
         inventory.SetActive(isInvOpen);
         shop.SetActive(isShopOpen);
 
-        // Upgrade checks
-        if (hasInvUpgradeI) {
-            InventoryManager.instance.MaxSlots = 9;
-        } else if (hasInvUpgradeII) {
-            InventoryManager.instance.MaxSlots = 18;
-        } else if (hasSpdUpgradeI) {
-            InventoryManager.instance.MaxSlots = 4;
-        } else {
-            InventoryManager.instance.MaxSlots = 6;
-        }
+        UpdateInventorySlots();
     }
 
     private void Movement() 
@@ -132,10 +123,8 @@ public class PlayerController : MonoBehaviour
         if (fishCollider.IsTouching(playerCollider)) {
             //Debug.Log("estou tocando");
             isOverlap = true;
-            if (!isFishing) {
-                if (Input.GetKeyDown(KeyCode.Space) && baitCounter.bait > 0) {
-                    isFishing = !isFishing;
-                }
+            if (!isFishing && Input.GetKeyDown(KeyCode.Space) && baitCounter.bait > 0) {
+                isFishing = !isFishing;
             }
         } else {
             isOverlap = false;
@@ -158,6 +147,19 @@ public class PlayerController : MonoBehaviour
             // If so, we are assining the collider of the gameobject we triggered to the fishCollider variable (which is used on isOverlapping).
             // Debug.Log("aqui");
             fishCollider = other.gameObject.GetComponent<BoxCollider2D>();
+        }
+    }
+
+    private void UpdateInventorySlots() {
+        // Upgrade checks
+        if (hasInvUpgradeI) {
+            InventoryManager.instance.MaxSlots = 9;
+        } else if (hasInvUpgradeII) {
+            InventoryManager.instance.MaxSlots = 18;
+        } else if (hasSpdUpgradeI) {
+            InventoryManager.instance.MaxSlots = 4;
+        } else {
+            InventoryManager.instance.MaxSlots = 6;
         }
     }
 }
