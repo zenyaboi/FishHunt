@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewFishingMinigame : MonoBehaviour
 {
@@ -13,14 +14,21 @@ public class NewFishingMinigame : MonoBehaviour
     #endregion
     public Transform fish;
 
+    #region progress bar variables
+    public Slider hookSlider, progressBarSlider;
+
     public float timer;
-    public float maxTimer = 6f;
+    public float maxTimer = 5f;
+    #endregion
 
     public bool canMoveHook = true;
 
     void Start()
     {
         canMoveHook = true;
+        timer = maxTimer;
+        hookSlider.maxValue = timer;
+        hookSlider.value = timer;
     }
 
     void Update()
@@ -34,27 +42,32 @@ public class NewFishingMinigame : MonoBehaviour
 
     void Timer()
     {
+        // if the player is holding the space bar, the timer will start working
+        if (Input.GetKey(KeyCode.Space) && canMoveHook && hookPower != 0) {
+            timer -= Time.deltaTime;
+        } else {
+            if (timer >= 0 && timer <= maxTimer)
+                timer += Time.deltaTime;
+        }
+
         // if the timer is less or equal to zero, set it to zero always
         if (timer < 0) {
             timer = 0;
         }
 
-        // checking if the timer is more or equal to the max timer
-        if (timer >= maxTimer) {
+        // checking if the timer is equal to 0
+        if (timer == 0) {
             //StartCoroutine(cooldown());
             canMoveHook = false;
-            timer -= Time.deltaTime;
-        } else if (timer == 0) {
+            timer += Time.deltaTime;
+        }
+
+        if (timer >= maxTimer) {
             canMoveHook = true;
         }
 
-        // if the player is holding the space bar, the timer will start working
-        if (Input.GetKey(KeyCode.Space) && canMoveHook && hookPower != 0) {
-            timer += Time.deltaTime;
-        } else {
-            if (timer > 0)
-                timer -= Time.deltaTime;
-        }
+        // Hook Bar
+        hookSlider.value = timer;
     }
 
     void Hook()
