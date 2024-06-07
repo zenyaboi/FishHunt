@@ -14,37 +14,52 @@ public class NewFishingMinigame : MonoBehaviour
     public Transform fish;
 
     public float timer;
-    public float maxTimer = 5f;
+    public float maxTimer = 6f;
+
+    public bool canMoveHook = true;
 
     void Start()
     {
-        
+        canMoveHook = true;
     }
 
     void Update()
     {
+        // making the hook follow the fish
         hook.position = fish.position;
 
-        if (Input.GetKey(KeyCode.Space)) {
-            timer += Time.deltaTime;
-        } else {
-            timer -= Time.deltaTime;
-        }
+        Timer();
+        Hook();
+    }
 
-        if (timer <= 0) {
+    void Timer()
+    {
+        // if the timer is less or equal to zero, set it to zero always
+        if (timer < 0) {
             timer = 0;
         }
 
+        // checking if the timer is more or equal to the max timer
         if (timer >= maxTimer) {
-            StartCoroutine(cooldown());
+            //StartCoroutine(cooldown());
+            canMoveHook = false;
+            timer -= Time.deltaTime;
+        } else if (timer == 0) {
+            canMoveHook = true;
         }
 
-        Hook();
+        // if the player is holding the space bar, the timer will start working
+        if (Input.GetKey(KeyCode.Space) && canMoveHook && hookPower != 0) {
+            timer += Time.deltaTime;
+        } else {
+            if (timer > 0)
+                timer -= Time.deltaTime;
+        }
     }
 
     void Hook()
     {
-        if (timer < maxTimer) {
+        if (canMoveHook) {
             if (Input.GetKey(KeyCode.Space)) {
                 if (hookPower <= hookMax) {
                     hookPower += hookPull * Time.deltaTime;
@@ -59,8 +74,10 @@ public class NewFishingMinigame : MonoBehaviour
         }
     }
 
+    /*
     IEnumerator cooldown() {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         timer = 0f;
     }
+    */
 }
