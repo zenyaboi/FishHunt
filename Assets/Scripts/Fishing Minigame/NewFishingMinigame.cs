@@ -22,14 +22,44 @@ public class NewFishingMinigame : MonoBehaviour
     #endregion
 
     public bool canMoveHook = true;
+    public bool isInGreen = false;
+    public bool isInRed = false;
+
+    public float progress = 5f;
+    public float progressMax = 10f;
+    public float progressMin = 0f;
 
     void Start()
     {
+        // Setting booleans
         canMoveHook = true;
+        isInGreen = false;
+        isInRed = false;
+        // TODO: LATER CHANGE THE VALUES FOR VARIABLES FOR UPGRADES
+        // Setting timer
+        timer = maxTimer;
+        // Setting hook slider values
+        hookSlider.maxValue = timer;
+        hookSlider.value = timer;
+        // Setting progress slider values
+        progress = 5f;
+        progressMax = 10f;
+        progressBarSlider.maxValue = progressMax;
+        progressBarSlider.value = timer;
+
+    }
+
+    /*
+    void OnEnable()
+    {
+        canMoveHook = true;
+        isInGreen = false;
+        isInRed = false;
         timer = maxTimer;
         hookSlider.maxValue = timer;
         hookSlider.value = timer;
     }
+    */
 
     void Update()
     {
@@ -38,6 +68,7 @@ public class NewFishingMinigame : MonoBehaviour
 
         Timer();
         Hook();
+        ProgressBar();
     }
 
     void Timer()
@@ -62,6 +93,7 @@ public class NewFishingMinigame : MonoBehaviour
             timer += Time.deltaTime;
         }
 
+        // Checking if the timer is more or equal to max timer
         if (timer >= maxTimer) {
             canMoveHook = true;
         }
@@ -85,6 +117,31 @@ public class NewFishingMinigame : MonoBehaviour
                     hookPower = 0;
             }
         }
+    }
+
+    void ProgressBar() 
+    {
+        if (isInGreen && progress < progressMax) {
+            progress += Time.deltaTime;
+            if (progress > progressMax) {
+                progress = progressMax;
+            }
+        } else if (isInRed && progress > progressMin) {
+            progress -= Time.deltaTime;
+            if (progress < progressMin) {
+                progress = progressMin;
+            }
+        } else {
+            if (progress < 5f && progress != 5f) {
+                progress += Time.deltaTime;
+
+            } else if (progress > 5f && progress != 5f) {
+                progress -= Time.deltaTime;
+            }
+        }
+
+        // Progress bar
+        progressBarSlider.value = progress;
     }
 
     /*
