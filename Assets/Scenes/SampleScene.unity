@@ -1393,17 +1393,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hook: {fileID: 209643425}
   hookPower: 5
-  hookPull: 0.5
+  hookMult: 1.5
   hookMax: 250
   fish: {fileID: 1470954561}
   hookSlider: {fileID: 252242566}
   progressBarSlider: {fileID: 465104701}
   timer: 0
   maxTimer: 5
+  timerMult: 1
   canMoveHook: 1
   isInGreen: 0
   isInRed: 0
   progress: 0
+  progressMult: 1
   progressMax: 10
   progressMin: 0
 --- !u!1001 &238443827
