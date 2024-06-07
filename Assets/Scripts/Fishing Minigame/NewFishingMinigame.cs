@@ -97,7 +97,7 @@ public class NewFishingMinigame : MonoBehaviour
         if (timer == 0) {
             //StartCoroutine(cooldown());
             canMoveHook = false;
-            timer += Time.deltaTime;
+            timer += (Time.deltaTime * timerMult);
         }
 
         // Checking if the timer is more or equal to max timer
