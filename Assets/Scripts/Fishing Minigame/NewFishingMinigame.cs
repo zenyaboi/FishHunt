@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class NewFishingMinigame : MonoBehaviour
 {
+    [SerializeField] private Transform fish, spawnPoint;
+    [SerializeField] private GameObject fishing;
+    [SerializeField] BaitCounter baitCounter;
+
+    public int fishCount;
+
     #region Hook variables
     public Transform hook;
     public float hookPower, hookMult, hookMax;
@@ -21,10 +27,6 @@ public class NewFishingMinigame : MonoBehaviour
 
     public bool isInGreen, isInRed;
     #endregion
-
-    public Transform fish, spawnPoint;
-
-    [SerializeField] private GameObject fishing;
 
     public bool pause, won;
 
@@ -63,7 +65,7 @@ public class NewFishingMinigame : MonoBehaviour
         // TODO: LATER CHANGE THE VALUES FOR VARIABLES FOR UPGRADES
         // Setting timer values
         maxTimer = 5f;
-        timerMult = 1.25f;
+        timerMult = 0.5f;
         timer = maxTimer;
         // Setting hook slider values
         hookPower = 5f;
@@ -90,12 +92,21 @@ public class NewFishingMinigame : MonoBehaviour
             // If the player spams too much, the bar decreases faster
             spamCooldownTimer += Time.deltaTime;
             if (spamCooldownTimer > 0f && spamCooldownTimer < 0.1f) {
-                timer -= (Time.deltaTime * (timerMult * 2f));
+                if (timerMult < 1f)
+                    timer -= (Time.deltaTime / (timerMult));
+                else
+                    timer -= (Time.deltaTime * (timerMult * 2f));
             } else if (spamCooldownTimer > 0.1f && spamCooldownTimer < 0.2f) {
                 Debug.Log("fuck");
-                timer -= (Time.deltaTime * timerMult);
+                if (timerMult < 1f)
+                    timer -= (Time.deltaTime * (timerMult * 1.25f));
+                else
+                    timer -= (Time.deltaTime * timerMult);
             } else {
-                timer -= (Time.deltaTime / timerMult);
+                if (timerMult < 1f)
+                    timer -= (Time.deltaTime * timerMult);
+                else
+                    timer -= (Time.deltaTime / timerMult);
             }
         } else {
             spamCooldownTimer = 0;
@@ -155,13 +166,16 @@ public class NewFishingMinigame : MonoBehaviour
         // Checking if the hook is in the green area and the progress value is less than progress max value
         if (isInGreen && progress < progressMax) {
             // add 1 per second
-            progress += (Time.deltaTime * progressMult);
+            progress += (Time.deltaTime / progressMult);
             // checking if progress value is more than progress max value
             if (progress > progressMax) {
                 // if true, set progress value to max value
                 progress = progressMax;
                 pause = true;
                 won = true;
+                fishCount++;
+                baitCounter.bait--;
+                StartCoroutine(hasWon());
             }
         // Checking if the hook is in the red area and the progress value is more than progress min value
         } else if (isInRed && progress > progressMin) {
@@ -173,6 +187,8 @@ public class NewFishingMinigame : MonoBehaviour
                 progress = progressMin;
                 pause = true;
                 won = false;
+                baitCounter.bait--;
+                StartCoroutine(hasLost());
             }
         } else {
             // checking if progress is not and less than 5
@@ -186,5 +202,22 @@ public class NewFishingMinigame : MonoBehaviour
 
         // Progress bar
         progressBarSlider.value = progress;
+    }
+
+    IEnumerator hasWon()
+    {
+        // Created this IEnumerator just in case the game breaks by not letting the player fish again
+        // So we are waiting half of a second to make the pause false to restart the minigame
+        yield return new WaitForSeconds(0.1f);
+        pause = false;
+        won = false;
+    }
+    IEnumerator hasLost()
+    {
+        // Created this IEnumerator just in case the game breaks by not letting the player fish again
+        // So we are waiting half of a second to make the pause false to restart the minigame
+        yield return new WaitForSeconds(0.1f);
+        pause = false;
+        won = false;
     }
 }

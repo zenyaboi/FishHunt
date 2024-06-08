@@ -1392,6 +1392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151b45aff10ec5f4d9f0d361be7d8131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fish: {fileID: 1470954561}
+  spawnPoint: {fileID: 1876321711}
+  fishing: {fileID: 230370284}
+  baitCounter: {fileID: 357165190}
+  fishCount: 0
   hook: {fileID: 209643425}
   hookPower: 5
   hookMult: 1.5
@@ -1409,9 +1414,6 @@ MonoBehaviour:
   spamCooldownTimer: 0
   isInGreen: 0
   isInRed: 0
-  fish: {fileID: 1470954561}
-  spawnPoint: {fileID: 1876321711}
-  fishing: {fileID: 230370284}
   pause: 0
   won: 0
 --- !u!1001 &238443827
@@ -3294,7 +3296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &454282337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5120,7 +5122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1e1af8eaa7d3a4b93c4754197fe240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishingMinigame: {fileID: 1965284516}
+  fishingMinigame: {fileID: 237953514}
   playerController: {fileID: 195053763}
   moneyCounter: {fileID: 307403783}
   finalTime: {fileID: 2062852266}
@@ -8837,11 +8839,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1759993646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6900494807331408380, guid: 2d95311405cecea4d8b875a078eff6a2, type: 3}
-  m_PrefabInstance: {fileID: 6900494809078552274}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1778580346 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7720951484130264624, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
@@ -9245,7 +9242,7 @@ PrefabInstance:
     - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: fishingMinigame
       value: 
-      objectReference: {fileID: 1965284516}
+      objectReference: {fileID: 237953514}
     - target: {fileID: 668219683397200582, guid: faf9fa9734d92304fa4cb7c4734d163d, type: 3}
       propertyPath: playerController
       value: 
@@ -9420,17 +9417,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6900494807654599281, guid: 2d95311405cecea4d8b875a078eff6a2, type: 3}
   m_PrefabInstance: {fileID: 6900494809078552274}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1965284516 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6900494807654599286, guid: 2d95311405cecea4d8b875a078eff6a2, type: 3}
-  m_PrefabInstance: {fileID: 6900494809078552274}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa04cb48984398469c2d5aeeed06d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1967549401
 GameObject:
   m_ObjectHideFlags: 0
@@ -10761,7 +10747,7 @@ PrefabInstance:
     - target: {fileID: 8583774292881657169, guid: 4d0af8828f6f9b14f98447302cdd6c95, type: 3}
       propertyPath: fishing
       value: 
-      objectReference: {fileID: 1965284516}
+      objectReference: {fileID: 237953514}
     - target: {fileID: 8583774292881657169, guid: 4d0af8828f6f9b14f98447302cdd6c95, type: 3}
       propertyPath: inventory
       value: 
@@ -10773,7 +10759,7 @@ PrefabInstance:
     - target: {fileID: 8583774292881657169, guid: 4d0af8828f6f9b14f98447302cdd6c95, type: 3}
       propertyPath: fishingMinigame
       value: 
-      objectReference: {fileID: 1759993646}
+      objectReference: {fileID: 230370284}
     - target: {fileID: 8583774292881657175, guid: 4d0af8828f6f9b14f98447302cdd6c95, type: 3}
       propertyPath: m_RootOrder
       value: 1

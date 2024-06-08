@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class WinState : MonoBehaviour
 {
-    public FishingMinigame fishingMinigame;
+    public NewFishingMinigame fishingMinigame;
     public PlayerController playerController;
     public MoneyCounter moneyCounter;
 
