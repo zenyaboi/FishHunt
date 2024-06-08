@@ -32,6 +32,9 @@ public class NewFishingMinigame : MonoBehaviour
 
     void Start()
     {
+        timerMult = 0.5f;
+        hookMult = 10.5f;
+        progressMult = 1f;
         Setup();
     }
 
@@ -65,11 +68,9 @@ public class NewFishingMinigame : MonoBehaviour
         // TODO: LATER CHANGE THE VALUES FOR VARIABLES FOR UPGRADES
         // Setting timer values
         maxTimer = 5f;
-        timerMult = 0.5f;
         timer = maxTimer;
         // Setting hook slider values
-        hookPower = 5f;
-        hookMult = 1.5f;
+        hookPower = 0f;
         hookMax = 250f;
         hookSlider.maxValue = timer;
         hookSlider.value = timer;
@@ -92,24 +93,36 @@ public class NewFishingMinigame : MonoBehaviour
             // If the player spams too much, the bar decreases faster
             spamCooldownTimer += Time.deltaTime;
             if (spamCooldownTimer > 0f && spamCooldownTimer < 0.1f) {
+                Debug.Log("fast");
+                timer -= (Time.deltaTime * (timerMult));
+            } else if (spamCooldownTimer > 0.1f) {
+                Debug.Log("sl0w");
+                timer -= (Time.deltaTime * (timerMult / 2f));
+            }
+
+            /*
+            if (spamCooldownTimer > 0f && spamCooldownTimer < 0.1f) {
+                Debug.Log("fucky wiggy");
                 if (timerMult < 1f)
                     timer -= (Time.deltaTime / (timerMult));
                 else
-                    timer -= (Time.deltaTime * (timerMult * 2f));
+                    timer -= (Time.deltaTime * (timerMult * 1.25f));
             } else if (spamCooldownTimer > 0.1f && spamCooldownTimer < 0.2f) {
                 Debug.Log("fuck");
                 if (timerMult < 1f)
-                    timer -= (Time.deltaTime * (timerMult * 1.25f));
+                    timer -= (Time.deltaTime / (timerMult * 1.10f));
                 else
-                    timer -= (Time.deltaTime * timerMult);
-            } else {
+                    timer -= (Time.deltaTime * (timerMult * 1.10f));
+            } else if (spamCooldownTimer > 0.2f) {
+                Debug.Log("shit");
                 if (timerMult < 1f)
                     timer -= (Time.deltaTime * timerMult);
                 else
                     timer -= (Time.deltaTime / timerMult);
             }
+            */
         } else {
-            spamCooldownTimer = 0;
+            spamCooldownTimer = 0f;
             if (timer >= 0 && timer <= maxTimer)
                 timer += (Time.deltaTime * timerMult);
         }
@@ -144,7 +157,7 @@ public class NewFishingMinigame : MonoBehaviour
                 // if hook power is less or equal to hook max
                 if (hookPower <= hookMax) {
                     // increase the hook power per second multiplied by hook mult
-                    hookPower += hookMult * Time.deltaTime;
+                    hookPower += (hookMult * Time.deltaTime);
                 }
                 // changing the fish's y rigidbody velocity to hook power
                 fish.GetComponent<Rigidbody2D>().velocity = new Vector2(0, hookPower);
@@ -166,7 +179,7 @@ public class NewFishingMinigame : MonoBehaviour
         // Checking if the hook is in the green area and the progress value is less than progress max value
         if (isInGreen && progress < progressMax) {
             // add 1 per second
-            progress += (Time.deltaTime / progressMult);
+            progress += (Time.deltaTime * progressMult);
             // checking if progress value is more than progress max value
             if (progress > progressMax) {
                 // if true, set progress value to max value
@@ -193,10 +206,10 @@ public class NewFishingMinigame : MonoBehaviour
         } else {
             // checking if progress is not and less than 5
             if (progress < 5f && progress != 5f) {
-                progress += (Time.deltaTime / (progressMult / 2));
+                progress += (Time.deltaTime * (progressMult / 2));
                 // checking if progress is not and more than 5
             } else if (progress > 5f && progress != 5f) {
-                progress -= (Time.deltaTime / (progressMult / 2));
+                progress -= (Time.deltaTime * (progressMult / 2));
             }
         }
 
