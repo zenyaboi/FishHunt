@@ -99,28 +99,6 @@ public class NewFishingMinigame : MonoBehaviour
                 Debug.Log("sl0w");
                 timer -= (Time.deltaTime * (timerMult / 2f));
             }
-
-            /*
-            if (spamCooldownTimer > 0f && spamCooldownTimer < 0.1f) {
-                Debug.Log("fucky wiggy");
-                if (timerMult < 1f)
-                    timer -= (Time.deltaTime / (timerMult));
-                else
-                    timer -= (Time.deltaTime * (timerMult * 1.25f));
-            } else if (spamCooldownTimer > 0.1f && spamCooldownTimer < 0.2f) {
-                Debug.Log("fuck");
-                if (timerMult < 1f)
-                    timer -= (Time.deltaTime / (timerMult * 1.10f));
-                else
-                    timer -= (Time.deltaTime * (timerMult * 1.10f));
-            } else if (spamCooldownTimer > 0.2f) {
-                Debug.Log("shit");
-                if (timerMult < 1f)
-                    timer -= (Time.deltaTime * timerMult);
-                else
-                    timer -= (Time.deltaTime / timerMult);
-            }
-            */
         } else {
             spamCooldownTimer = 0f;
             if (timer >= 0 && timer <= maxTimer)
