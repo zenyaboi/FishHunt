@@ -36,6 +36,10 @@ public class WinState : MonoBehaviour
         }
         */
 
+        if (playerController.hasWon) {
+            activateUI.SetActive(true);
+        }
+
         if (Input.GetKeyDown(KeyCode.H)) {
             activateUI.SetActive(true);
             playerController.hasWon = true;

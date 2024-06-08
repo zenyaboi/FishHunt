@@ -8,6 +8,7 @@ public class MoneyCounter : MonoBehaviour
     [SerializeField] private TMP_Text text;
 
     public double money = 0f;
+    public double totalMoneyWon = 0f;
 
     void Start()
     {

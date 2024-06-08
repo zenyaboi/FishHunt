@@ -154,6 +154,17 @@ public class ShopSlot : MonoBehaviour
             if (moneyCounter.money >= upgradeData.Price && !isUpgradeBought) {
                 switch(upgradeData.Type) 
                 {
+                    case "Boat":
+                    {
+                        if (!isUpgradeBought) {
+                            playerController.hasWon = true;
+
+                            moneyCounter.money -= upgradeData.Price;
+                            isUpgradeBought = true;
+                        }
+
+                        break;
+                    }
                     case "Bait Upgrade":
                     {                        
                         if (!isUpgradeBought) {
@@ -259,6 +270,7 @@ public class ShopSlot : MonoBehaviour
                 if (baitCounter.bait > 0) {
                     baitCounter.bait--;
                     moneyCounter.money += itemData.Price / 2;
+                    moneyCounter.totalMoneyWon += itemData.Price / 2;
                 }
             } else {
                 for (int i = 0; i < inventory.slots.Count; i++) {
@@ -268,10 +280,12 @@ public class ShopSlot : MonoBehaviour
                         if (inventory.slots[i].itemData.Type == "Fish") {
                             if (itemData.Species == inventory.slots[i].itemData.Species) {
                                 moneyCounter.money += inventory.slots[i].itemData.Price;
+                                moneyCounter.totalMoneyWon += inventory.slots[i].itemData.Price;
                                 inventory.slots[i].itemData = null;
                             }
                         } else {
                             moneyCounter.money += inventory.slots[i].itemData.Price / 2;
+                            moneyCounter.totalMoneyWon += inventory.slots[i].itemData.Price / 2;
                             inventory.slots[i].itemData = null;
                         }
                     }
@@ -291,6 +305,7 @@ public class ShopSlot : MonoBehaviour
                             }
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
 
@@ -302,6 +317,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeI = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
 
@@ -313,6 +329,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeII = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
                         break;
@@ -323,6 +340,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasInvUpgradeIII = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
                         break;
@@ -333,6 +351,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasSpdUpgradeI = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
                         break;
@@ -343,6 +362,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasSpdUpgradeII = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
                         break;
@@ -353,6 +373,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasRodUpgradeI = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
                         break;
@@ -363,6 +384,7 @@ public class ShopSlot : MonoBehaviour
                             playerController.hasRodUpgradeII = false;
 
                             moneyCounter.money += upgradeData.Price / 2;
+                            moneyCounter.totalMoneyWon += upgradeData.Price / 2;
                             isUpgradeBought = false;
                         }
                         break;

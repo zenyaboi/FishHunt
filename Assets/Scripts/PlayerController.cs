@@ -76,6 +76,13 @@ public class PlayerController : MonoBehaviour
             isShopOpen = !isShopOpen;
         }
 
+        if (hasWon) {
+            isFishing = false;
+            isOverlap = false;
+            isInvOpen = false;
+            isShopOpen = false;
+        }
+
         fishingMinigame.SetActive(isFishing);
         icons.SetActive(isOverlap);
         inventory.SetActive(isInvOpen);
