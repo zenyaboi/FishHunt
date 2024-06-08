@@ -12,6 +12,7 @@ TagManager:
   - GreenArea
   - RedArea
   - WhiteArea
+  - Collision
   layers:
   - Default
   - TransparentFX

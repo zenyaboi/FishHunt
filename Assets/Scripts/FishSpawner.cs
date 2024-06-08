@@ -40,7 +40,7 @@ public class FishSpawner : MonoBehaviour
 
     void SpawnObject() {
         currentTime = 0;
-        Vector2 randomSpawnPos = new Vector2(Random.Range(-37, 38), Random.Range(-5, -14));
+        Vector3 randomSpawnPos = new Vector3(Random.Range(-21, 23), Random.Range(-18, 5), -2.24f);
         GameObject fishInst = Instantiate(fishPrefab, randomSpawnPos, Quaternion.identity);
         fishInst.transform.SetParent(parent, false);
         fishList.Add(fishInst);

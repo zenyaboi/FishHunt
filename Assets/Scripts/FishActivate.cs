@@ -63,7 +63,7 @@ public class FishActivate : MonoBehaviour
         if (this.gameObject.tag == other.gameObject.tag) {
             Debug.Log("holy shit spider-man");
             Destroy(other.gameObject);
-        } else if (other.gameObject.tag == "Dock") {
+        } else if (other.gameObject.tag == "Dock" || other.gameObject.tag == "Collision") {
             Debug.Log("holy shit spider");
             Destroy(this.gameObject);
         }
