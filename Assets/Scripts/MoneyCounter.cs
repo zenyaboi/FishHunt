@@ -21,6 +21,6 @@ public class MoneyCounter : MonoBehaviour
             money++;
         }
 
-        text.text = "Money: " + money.ToString();
+        text.text = money.ToString();
     }
 }

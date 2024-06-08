@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eee32f920d538d4b892c513c859b083, type: 3}
-  m_Name: AnchovaData
+  m_Name: AnchovaRData
   m_EditorClassIdentifier: 
-  _name: Anchova
+  _name: Anchova Rosa
   _type: Fish
-  _species: Anchova
+  _species: Anchova Rosa
   _age: 24
   _weight: 0
-  _price: 5
-  _sprite: {fileID: 6510492014216249000, guid: ef5e27bc985815942bb54d11a6ebca40, type: 3}
+  _price: 10
+  _sprite: {fileID: 6510492014216249000, guid: 87e9eccae6588fe46b8ea9a75bdce241, type: 3}
   _description: Another fuish

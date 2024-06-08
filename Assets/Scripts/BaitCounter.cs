@@ -17,6 +17,6 @@ public class BaitCounter : MonoBehaviour
 
     void Update()
     {
-        text.text = "Bait: " + bait.ToString();
+        text.text = bait.ToString();
     }
 }
