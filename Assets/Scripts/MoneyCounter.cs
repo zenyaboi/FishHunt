@@ -7,7 +7,7 @@ public class MoneyCounter : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
 
-    public int money = 0;
+    public double money = 0f;
 
     void Start()
     {
@@ -21,6 +21,6 @@ public class MoneyCounter : MonoBehaviour
             money++;
         }
 
-        text.text = "Money: " + money.ToString();
+        text.text = money.ToString();
     }
 }

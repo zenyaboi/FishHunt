@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public FishingMinigame fishing;
+    [SerializeField] private BaitCounter baitCounter;
+    [SerializeField] private FishActivate fishActivate;
+
+    public NewFishingMinigame fishing;
     
     public Rigidbody2D rb;
     public Animator animator;
@@ -24,6 +27,16 @@ public class PlayerController : MonoBehaviour
     public bool isInvOpen = false;
     public bool isOverlap = false;
     public bool isShopOpen = false;
+
+    // Upgrade varialbes
+    public bool hasInvUpgradeI = false;
+    public bool hasInvUpgradeII = false;
+    public bool hasInvUpgradeIII = false;
+    public bool hasSpdUpgradeI = false;
+    public bool hasSpdUpgradeII = false;
+    public bool hasBaitUpgrade = false;
+    public bool hasRodUpgradeI = false;
+    public bool hasRodUpgradeII = false;
 
     public Collider2D fishCollider;
     public Collider2D playerCollider;
@@ -67,6 +80,8 @@ public class PlayerController : MonoBehaviour
         icons.SetActive(isOverlap);
         inventory.SetActive(isInvOpen);
         shop.SetActive(isShopOpen);
+
+        UpgradeSystem();
     }
 
     private void Movement() 
@@ -112,12 +127,15 @@ public class PlayerController : MonoBehaviour
         if (fishCollider == null) return;
 
         if (fishCollider.IsTouching(playerCollider)) {
-            //Debug.Log("estou tocando");
             isOverlap = true;
-            if (!isFishing) {
-                if (Input.GetKeyDown(KeyCode.Space)) {
-                    isFishing = !isFishing;
-                }
+
+            if (fishActivate.newItem.Species == "Linguado") {
+                if (!hasRodUpgradeI && !hasRodUpgradeII) 
+                    return;
+            }
+
+            if (!isFishing && Input.GetKeyDown(KeyCode.Space) && baitCounter.bait > 0) {
+                isFishing = !isFishing;
             }
         } else {
             isOverlap = false;
@@ -138,8 +156,46 @@ public class PlayerController : MonoBehaviour
             // Now, this here "fixes" the problem
             // We are checking if we are trigerring any gameobject with the tag "Fish"
             // If so, we are assining the collider of the gameobject we triggered to the fishCollider variable (which is used on isOverlapping).
-            // Debug.Log("aqui");
+            fishActivate = other.gameObject.GetComponent<FishActivate>();
             fishCollider = other.gameObject.GetComponent<BoxCollider2D>();
+        }
+    }
+
+    private void UpgradeSystem() {
+        // Upgrade checks
+        if (hasInvUpgradeI) {
+            InventoryManager.instance.MaxSlots = 9;
+            moveSpeed = 5f;
+        } else if (hasInvUpgradeII) {
+            InventoryManager.instance.MaxSlots = 12;
+            moveSpeed = 3.7f;
+        } else if (hasInvUpgradeIII) {
+            InventoryManager.instance.MaxSlots = 18;
+            moveSpeed = 2.4f;
+        } else if (hasSpdUpgradeI) {
+            InventoryManager.instance.MaxSlots = 4;
+            moveSpeed = 9f;
+        } else if (hasSpdUpgradeII) { 
+            InventoryManager.instance.MaxSlots = 3;
+            moveSpeed = 12f;
+        } else {
+            InventoryManager.instance.MaxSlots = 6;
+            moveSpeed = 7f;
+        }
+
+        // Fishing Rod Upgrade Check
+        if (hasRodUpgradeI) {
+            fishing.hookMult = 90f;
+            fishing.timerMult = 2f;
+            fishing.progressMult = 2f;
+        } else if (hasRodUpgradeII) {
+            fishing.hookMult = 105f;
+            fishing.timerMult = 3.5f;
+            fishing.progressMult = 4f;
+        } else {
+            fishing.hookMult = 10.5f;
+            fishing.timerMult = 1.25f;
+            fishing.progressMult = 1f;
         }
     }
 }

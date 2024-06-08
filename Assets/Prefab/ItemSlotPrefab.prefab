@@ -272,8 +272,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 0}
-  inventory: {fileID: 7194106663154466894, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
+  inventory: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
   i: 0
+  spawnedSprite: {fileID: 0}
+  imagePrefab: {fileID: 2685329692098123272, guid: ed30b814720904a42a0fc6ba3c6eeaca, type: 3}
+  parent: {fileID: 2259877359800506218, guid: 3e008ea3c01df5f4786683034956c322, type: 3}
 --- !u!114 &4936043137498050620
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,15 +16,28 @@ public class InventoryManager : MonoBehaviour
     #endregion
 
     public Transform inv;
-    public GameObject itemInfoPrefab;
-    private GameObject currentItemInfo = null;
+
+    [SerializeField] private Transform parent;
+    [SerializeField] private GameObject itemSlotPrefab;
+    [SerializeField] private GameObject itemInfoPrefab;
+    [SerializeField] private GameObject currentItemInfo = null;
 
     [SerializeField] private List<ItemSlot> _slots;
     [SerializeField] private List<Button> _btnIgnore;
     public List<ItemSlot> slots => _slots;
 
+    [SerializeField] private int maxSlots;
+    public int MaxSlots {
+        get { return maxSlots; }
+        set { SetMaxSlots(value); }
+    }
+
     // This variable is here to check if the slots has an item or not
-    public bool[] _isFull;
+    public List<bool> _isFull;
+
+    private void Start() {
+        SetMaxSlots(maxSlots);
+    }
 
     private void Update()
     {
@@ -37,6 +50,35 @@ public class InventoryManager : MonoBehaviour
         } else {
             foreach (var button in _btnIgnore) {
                 button.interactable = true;
+            }
+        }
+    }
+
+    private void SetMaxSlots(int value)
+    {
+        if (value <= 0) {
+            maxSlots = 1;
+        } else {
+            maxSlots = value;
+        }
+
+        if (maxSlots < slots.Count) {
+            for (int i = maxSlots; i < slots.Count; i++) {
+                Destroy(slots[i].transform.gameObject);
+            }
+            int diff = slots.Count - maxSlots;
+            int diffFull = _isFull.Count - maxSlots;
+            slots.RemoveRange(maxSlots, diff);
+            _isFull.RemoveRange(maxSlots, diffFull);
+        } else if (maxSlots > slots.Count) {
+            int diff = maxSlots - slots.Count;
+
+            for (int i = 0; i < diff; i++) {
+                GameObject itemSlotGameObj = Instantiate(itemSlotPrefab);
+                itemSlotGameObj.transform.SetParent(parent, false);
+                slots.Add(itemSlotGameObj.GetComponent<ItemSlot>());
+                _isFull.Add(!slots[i].IsEmpty());
+                itemSlotGameObj.GetComponent<ItemSlot>().i = i;
             }
         }
     }
@@ -63,7 +105,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     //TODO: Fix pop-up position
-    public void DisplayItemInfo(string itemName, string itemDescription, Vector2 buttonPos) 
+    public void DisplayItemInfo(string itemName, string itemDescription, string itemAge, Vector2 buttonPos) 
     {
         if (currentItemInfo != null) Destroy(currentItemInfo.gameObject);
 
@@ -71,7 +113,7 @@ public class InventoryManager : MonoBehaviour
         buttonPos.y -= 100;
 
         currentItemInfo = Instantiate(itemInfoPrefab, buttonPos, Quaternion.identity, inv);
-        currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription);
+        currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription, itemAge);
     }
 
     public void DestroyItemInfo()

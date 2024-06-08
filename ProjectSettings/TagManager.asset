@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fish
+  - Dock
+  - FishingMinigame
+  - Fish Spawner
+  - Pivot
+  - GreenArea
+  - RedArea
+  - WhiteArea
   layers:
   - Default
   - TransparentFX

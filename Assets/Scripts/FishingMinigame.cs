@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class FishingMinigame : MonoBehaviour
 {
+    [SerializeField] private BaitCounter baitCounter;
+
     public GameObject[] fishPool;
 
     public int fishCount;
@@ -52,7 +54,7 @@ public class FishingMinigame : MonoBehaviour
         // Another problem by making the fish pools a prefab.
         // I kinda forgot why I use this, but it's important
         // I need to add these comments when I do the code, not a day later
-        fishPool = GameObject.FindGameObjectsWithTag("Fish");
+        //fishPool = GameObject.FindGameObjectsWithTag("Fish");
     }
 
     private void FixedUpdate() 
@@ -140,12 +142,7 @@ public class FishingMinigame : MonoBehaviour
         won = true;
         failTimer = 999f;
         fishing.SetActive(false);
-        // Randomizing the fish
-        int randomNum = UnityEngine.Random.Range(0, fishes.Count);
-        print(randomNum);
-        ItemData randFish = fishes[randomNum];
-        print(randFish);
-        EventBus.Instance.PickUpItem(randFish);
+        baitCounter.bait--;
         StartCoroutine(hasWon());
     }
 
@@ -156,6 +153,7 @@ public class FishingMinigame : MonoBehaviour
         won = false;
         failTimer = 999f;
         fishing.SetActive(false);
+        baitCounter.bait--;
         StartCoroutine(hasLost());
     }
 

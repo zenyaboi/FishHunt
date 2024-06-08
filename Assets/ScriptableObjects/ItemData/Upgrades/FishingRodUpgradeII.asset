@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eee32f920d538d4b892c513c859b083, type: 3}
-  m_Name: AnotherFish
+  m_Script: {fileID: 11500000, guid: 2fafd2f6ccad2e749aea11641edc4aec, type: 3}
+  m_Name: FishingRodUpgradeII
   m_EditorClassIdentifier: 
-  _name: Other Fish Holy
-  _type: Fish
-  _age: 24
-  _price: 10
-  _sprite: {fileID: 6510492014216249000, guid: ef5e27bc985815942bb54d11a6ebca40, type: 3}
-  _description: Another fuish
+  _name: Fishing Rod Upgrade II
+  _type: Fishing Rod Upgrade 2
+  _price: 20
+  _sprite: {fileID: 6510492014216249000, guid: f225a1e6816c3cf4883da0ae1b6e1abe, type: 3}
+  _description: 

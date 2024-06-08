@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 668219683397200580}
   - component: {fileID: 668219683397200581}
   - component: {fileID: 668219683397200582}
+  - component: {fileID: 7532560630216427879}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Fish
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 954a250a81bc21f449a34141b6e5d249, type: 3}
-  m_Color: {r: 0.06243326, g: 0.5518228, b: 0.5754717, a: 0.46666667}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,6 +125,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a29a2f0fe7b57549adada34fe406233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishingMinigame: {fileID: 0}
-  playerCollider: {fileID: 0}
+  fishingMinigame: {fileID: 6900494807654599286, guid: 2d95311405cecea4d8b875a078eff6a2, type: 3}
+  playerCollider: {fileID: 8583774292881657173, guid: 4d0af8828f6f9b14f98447302cdd6c95, type: 3}
   myCollider: {fileID: 0}
+  mySpriteRenderer: {fileID: 0}
+  _itemData: {fileID: 0}
+  _sprites:
+  - {fileID: 6510492014216249000, guid: ef5e27bc985815942bb54d11a6ebca40, type: 3}
+  - {fileID: 6510492014216249000, guid: 87e9eccae6588fe46b8ea9a75bdce241, type: 3}
+  - {fileID: 6510492014216249000, guid: b57cd57702ca90447aa05fe4b845cf06, type: 3}
+  _fishDatas:
+  - {fileID: 11400000, guid: 0b9e4c1ae8ad8e74eb15a2adb25a7776, type: 2}
+  - {fileID: 11400000, guid: 65e9c8bf8816fe349b0e13b19590d6b6, type: 2}
+  newItem: {fileID: 0}
+--- !u!50 &7532560630216427879
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668219683397200634}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

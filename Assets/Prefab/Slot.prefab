@@ -96,6 +96,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2e7d41fe673c5448d01fb5fb816633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyCounter: {fileID: 0}
+  inventory: {fileID: 0}
+  playerController: {fileID: 0}
+  baitCounter: {fileID: 0}
+  itemImage: {fileID: 0}
+  itemName: {fileID: 0}
+  itemAmount: {fileID: 0}
+  itemPrice: {fileID: 0}
+  itemData: {fileID: 0}
+  upgradeData: {fileID: 0}
+  _itemAmount: 0
+  buyPriceText: {fileID: 0}
+  isUpgradeBought: 0
 --- !u!1 &7517948441901487867
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
