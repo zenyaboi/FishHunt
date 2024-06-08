@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         if (fishCollider.IsTouching(playerCollider)) {
             isOverlap = true;
 
-            if (fishActivate.newItem.Species == "Linguado") {
+            if (fishActivate.newItem.Species == "Linguado" || fishActivate.newItem.Species == "Robalo") {
                 if (!hasRodUpgradeI && !hasRodUpgradeII) 
                     return;
             }
