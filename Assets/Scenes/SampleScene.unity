@@ -1401,13 +1401,16 @@ MonoBehaviour:
   timer: 0
   maxTimer: 5
   timerMult: 1
-  canMoveHook: 1
-  isInGreen: 0
-  isInRed: 0
   progress: 0
   progressMult: 1
   progressMax: 10
   progressMin: 0
+  spamCooldownTimer: 0
+  spamCooldownTime: 0
+  spamCooldownTimeMax: 0
+  canMoveHook: 1
+  isInGreen: 0
+  isInRed: 0
 --- !u!1001 &238443827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3288,7 +3291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &454282337
 MonoBehaviour:
   m_ObjectHideFlags: 0

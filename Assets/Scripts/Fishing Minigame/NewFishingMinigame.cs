@@ -20,16 +20,17 @@ public class NewFishingMinigame : MonoBehaviour
     public float timer;
     public float maxTimer = 5f;
     public float timerMult = 1f;
+    public float progress = 5f;
+    public float progressMult = 1f;
+    public float progressMax = 10f;
+    public float progressMin = 0f;
+
+    public float spamCooldownTimer;
     #endregion
 
     public bool canMoveHook = true;
     public bool isInGreen = false;
     public bool isInRed = false;
-
-    public float progress = 5f;
-    public float progressMult = 1f;
-    public float progressMax = 10f;
-    public float progressMin = 0f;
 
     void Start()
     {
@@ -53,7 +54,7 @@ public class NewFishingMinigame : MonoBehaviour
         progressMax = 10f;
         progressBarSlider.maxValue = progressMax;
         progressBarSlider.value = timer;
-
+        spamCooldownTimer = 0f;
     }
 
     /*
@@ -72,7 +73,7 @@ public class NewFishingMinigame : MonoBehaviour
     {
         // making the hook follow the fish
         hook.position = fish.position;
-
+        
         Timer();
         Hook();
         ProgressBar();
@@ -82,8 +83,20 @@ public class NewFishingMinigame : MonoBehaviour
     {
         // if the player is holding the space bar, the timer will start working
         if (Input.GetKey(KeyCode.Space) && canMoveHook && hookPower != 0) {
-            timer -= Time.deltaTime;
+            //timer -= (Time.deltaTime / timerMult);
+            // A shitty way to prevent spamming the space bar
+            // If the player spams too much, the bar decreases faster
+            spamCooldownTimer += Time.deltaTime;
+            if (spamCooldownTimer > 0f && spamCooldownTimer < 0.1f) {
+                timer -= (Time.deltaTime * (timerMult * 2f));
+            } else if (spamCooldownTimer > 0.1f && spamCooldownTimer < 0.2f) {
+                Debug.Log("fuck");
+                timer -= (Time.deltaTime * timerMult);
+            } else {
+                timer -= (Time.deltaTime / timerMult);
+            }
         } else {
+            spamCooldownTimer = 0;
             if (timer >= 0 && timer <= maxTimer)
                 timer += (Time.deltaTime * timerMult);
         }
@@ -168,11 +181,4 @@ public class NewFishingMinigame : MonoBehaviour
         // Progress bar
         progressBarSlider.value = progress;
     }
-
-    /*
-    IEnumerator cooldown() {
-        yield return new WaitForSeconds(2f);
-        timer = 0f;
-    }
-    */
 }
