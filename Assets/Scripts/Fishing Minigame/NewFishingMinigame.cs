@@ -8,36 +8,58 @@ public class NewFishingMinigame : MonoBehaviour
 {
     #region Hook variables
     public Transform hook;
-    public float hookPower = 5f;
-    public float hookMult = 1.5f;
-    public float hookMax = 250f;
+    public float hookPower, hookMult, hookMax;
+    public bool canMoveHook;
     #endregion
-    public Transform fish;
 
     #region progress bar variables
     public Slider hookSlider, progressBarSlider;
 
-    public float timer;
-    public float maxTimer = 5f;
-    public float timerMult = 1f;
-    public float progress = 5f;
-    public float progressMult = 1f;
-    public float progressMax = 10f;
-    public float progressMin = 0f;
-
+    public float timer, maxTimer, timerMult;
+    public float progress, progressMult, progressMax, progressMin;
     public float spamCooldownTimer;
+
+    public bool isInGreen, isInRed;
     #endregion
 
-    public bool canMoveHook = true;
-    public bool isInGreen = false;
-    public bool isInRed = false;
+    public Transform fish, spawnPoint;
+
+    [SerializeField] private GameObject fishing;
+
+    public bool pause, won;
 
     void Start()
+    {
+        Setup();
+    }
+
+    void Update()
+    {
+        if (won || pause) {
+            fishing.SetActive(false);
+            return;
+        }
+
+        if (!fishing.activeSelf) {
+            Setup();
+        }
+
+        // making the hook follow the fish
+        hook.position = fish.position;
+        
+        Timer();
+        Hook();
+        ProgressBar();
+    }
+
+    void Setup()
     {
         // Setting booleans
         canMoveHook = true;
         isInGreen = false;
         isInRed = false;
+        pause = false;
+        won = false;
         // TODO: LATER CHANGE THE VALUES FOR VARIABLES FOR UPGRADES
         // Setting timer values
         maxTimer = 5f;
@@ -55,35 +77,15 @@ public class NewFishingMinigame : MonoBehaviour
         progressBarSlider.maxValue = progressMax;
         progressBarSlider.value = timer;
         spamCooldownTimer = 0f;
-    }
-
-    /*
-    void OnEnable()
-    {
-        canMoveHook = true;
-        isInGreen = false;
-        isInRed = false;
-        timer = maxTimer;
-        hookSlider.maxValue = timer;
-        hookSlider.value = timer;
-    }
-    */
-
-    void Update()
-    {
-        // making the hook follow the fish
-        hook.position = fish.position;
-        
-        Timer();
-        Hook();
-        ProgressBar();
+        // Setting hook and fish position to spawn point
+        fish.position = spawnPoint.position;
+        hook.position = spawnPoint.position;
     }
 
     void Timer()
     {
         // if the player is holding the space bar, the timer will start working
         if (Input.GetKey(KeyCode.Space) && canMoveHook && hookPower != 0) {
-            //timer -= (Time.deltaTime / timerMult);
             // A shitty way to prevent spamming the space bar
             // If the player spams too much, the bar decreases faster
             spamCooldownTimer += Time.deltaTime;
@@ -158,6 +160,8 @@ public class NewFishingMinigame : MonoBehaviour
             if (progress > progressMax) {
                 // if true, set progress value to max value
                 progress = progressMax;
+                pause = true;
+                won = true;
             }
         // Checking if the hook is in the red area and the progress value is more than progress min value
         } else if (isInRed && progress > progressMin) {
@@ -167,6 +171,8 @@ public class NewFishingMinigame : MonoBehaviour
             if (progress < progressMin) {
                 // if true, set progress value to min value
                 progress = progressMin;
+                pause = true;
+                won = false;
             }
         } else {
             // checking if progress is not and less than 5
