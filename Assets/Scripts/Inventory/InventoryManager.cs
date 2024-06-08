@@ -64,7 +64,6 @@ public class InventoryManager : MonoBehaviour
 
         if (maxSlots < slots.Count) {
             for (int i = maxSlots; i < slots.Count; i++) {
-                Debug.Log(slots[i]);
                 Destroy(slots[i].transform.gameObject);
             }
             int diff = slots.Count - maxSlots;

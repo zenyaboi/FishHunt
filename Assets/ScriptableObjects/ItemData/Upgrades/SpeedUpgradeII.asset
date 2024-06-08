@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fafd2f6ccad2e749aea11641edc4aec, type: 3}
   m_Name: SpeedUpgradeII
   m_EditorClassIdentifier: 
-  _name: Speed Upgrade 2
+  _name: Speed Upgrade II
   _type: Speed Upgrade 2
   _price: 15
   _sprite: {fileID: 6510492014216249000, guid: 15c563b6b8ac5e34ba561840598c5391, type: 3}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fafd2f6ccad2e749aea11641edc4aec, type: 3}
   m_Name: FishingRodUpgrade
   m_EditorClassIdentifier: 
-  _name: Fishing Rod Upgrade 1
-  _type: Fishing Rod Upgrade I
+  _name: Fishing Rod Upgrade I
+  _type: Fishing Rod Upgrade 1
   _price: 10
   _sprite: {fileID: 6510492014216249000, guid: 5b4fc31cdb965a24285d38de5e4f7bfb, type: 3}
   _description: 
