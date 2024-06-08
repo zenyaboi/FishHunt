@@ -8,6 +8,10 @@ TagManager:
   - Dock
   - FishingMinigame
   - Fish Spawner
+  - Pivot
+  - GreenArea
+  - RedArea
+  - WhiteArea
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BaitCounter baitCounter;
     [SerializeField] private FishActivate fishActivate;
 
-    public FishingMinigame fishing;
+    public NewFishingMinigame fishing;
     
     public Rigidbody2D rb;
     public Animator animator;

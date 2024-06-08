@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class FishActivate : MonoBehaviour
 {
-    public FishingMinigame fishingMinigame;
+    public NewFishingMinigame fishingMinigame;
     public PlayerController playerController;
     public Collider2D playerCollider;
 
