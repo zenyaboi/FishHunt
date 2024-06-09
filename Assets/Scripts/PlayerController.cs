@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool isInvOpen = false;
     public bool isOverlap = false;
     public bool isShopOpen = false;
+    public bool canShop = false;
 
     // Upgrade varialbes
     public bool hasInvUpgradeI = false;
@@ -59,20 +60,23 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        icons.transform.position = this.transform.position;
+
         Movement();
         isOverlapping();
 
         if (fishing.pause) {
             isFishing = false;
             isOverlap = false;
+            canShop = false;
         }
 
         // Opening/Closing inventory
-        if (Input.GetKeyDown(KeyCode.Tab) && !shop.activeSelf) {
+        if (Input.GetKeyDown(KeyCode.E) && !shop.activeSelf) {
             isInvOpen = !isInvOpen;
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && !inventory.activeSelf) {
+        if (Input.GetKeyDown(KeyCode.Space) && !inventory.activeSelf && canShop) {
             isShopOpen = !isShopOpen;
         }
 
@@ -81,10 +85,15 @@ public class PlayerController : MonoBehaviour
             isOverlap = false;
             isInvOpen = false;
             isShopOpen = false;
+            canShop = false;
         }
 
         fishingMinigame.SetActive(isFishing);
-        icons.SetActive(isOverlap);
+        if (canShop) {
+            icons.SetActive(canShop);
+        } else {
+            icons.SetActive(isOverlap);
+        }
         inventory.SetActive(isInvOpen);
         shop.SetActive(isShopOpen);
 
@@ -165,6 +174,18 @@ public class PlayerController : MonoBehaviour
             // If so, we are assining the collider of the gameobject we triggered to the fishCollider variable (which is used on isOverlapping).
             fishActivate = other.gameObject.GetComponent<FishActivate>();
             fishCollider = other.gameObject.GetComponent<BoxCollider2D>();
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other) {
+        if (other.gameObject.tag == "Shop") {
+            canShop = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.tag == "Shop") {
+            canShop = false;
         }
     }
 
