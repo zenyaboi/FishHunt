@@ -18,9 +18,11 @@ public class MoneyCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.K)) {
             money++;
         }
+        */
 
         text.text = money.ToString();
     }

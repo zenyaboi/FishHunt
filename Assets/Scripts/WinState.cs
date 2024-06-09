@@ -40,10 +40,12 @@ public class WinState : MonoBehaviour
             activateUI.SetActive(true);
         }
 
+        /*
         if (Input.GetKeyDown(KeyCode.H)) {
             activateUI.SetActive(true);
             playerController.hasWon = true;
         }
+        */
 
         if (activateUI.activeSelf) {
             DisplayTime();
