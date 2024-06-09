@@ -8,6 +8,7 @@ public class SelectorView : MonoBehaviour
     private RectTransform _rectTransform;
     [SerializeField] private float _speed = 10f;
     [SerializeField] private GameObject _selected;
+    [SerializeField] private RectTransform _selectedPos;
 
     private void Start()
     {
@@ -23,7 +24,10 @@ public class SelectorView : MonoBehaviour
         
         EventSystem.current.SetSelectedGameObject(_selected);
 
-        if (_selected == null) return;
+        if (_selected == null) {
+            this._rectTransform.localPosition = _selectedPos.localPosition;
+            return;
+        }
 
         transform.position = Vector3.Lerp(transform.position, _selected.transform.position, _speed * Time.deltaTime);
 

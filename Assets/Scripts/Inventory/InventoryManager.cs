@@ -117,8 +117,7 @@ public class InventoryManager : MonoBehaviour
     {
         if (currentItemInfo != null) Destroy(currentItemInfo.gameObject);
 
-        buttonPos.x -= 150;
-        buttonPos.y -= 100;
+        buttonPos.x -= 155;
 
         currentItemInfo = Instantiate(itemInfoPrefab, buttonPos, Quaternion.identity, inv);
         currentItemInfo.GetComponent<ItemInfo>().SetUp(itemName, itemDescription, itemAge);

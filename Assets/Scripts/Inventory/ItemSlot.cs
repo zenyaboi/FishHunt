@@ -33,6 +33,8 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
         if (spawnedSprite != null) {
             Destroy(spawnedSprite);
         }
+
+        InventoryManager.instance.DestroyItemInfo();
     }
 
     public void OnCursorEnter() 
