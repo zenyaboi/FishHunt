@@ -132,7 +132,7 @@ public class ShopSlot : MonoBehaviour
         // Checking if it's an item or data so that we can properly buy it
         if (itemData != null) {
             if (itemData.Type == "Bait") {
-                if (baitCounter.bait < baitCounter.maxBait) {
+                if (baitCounter.bait < baitCounter.maxBait && moneyCounter.money >= itemData.Price) {
                     baitCounter.bait++;
                     moneyCounter.money -= itemData.Price;
                 }
