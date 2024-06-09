@@ -52,6 +52,14 @@ public class InventoryManager : MonoBehaviour
                 button.interactable = true;
             }
         }
+
+        for (int i = 0; i < _slots.Count; i++) {
+            if (_slots[i].IsEmpty()) {
+                _isFull[i] = false;
+            } else {
+                _isFull[i] = true;
+            }
+        }
     }
 
     private void SetMaxSlots(int value)

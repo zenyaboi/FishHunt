@@ -35,14 +35,6 @@ public class ItemSlot : MonoBehaviour, ISelectHandler
         }
     }
 
-    public void Update()
-    {
-        //Debug.Log(transform.childCount);
-
-        if (transform.childCount > 1)
-            inventory._isFull[i] = true;
-    }
-
     public void OnCursorEnter() 
     {
         // display item info
