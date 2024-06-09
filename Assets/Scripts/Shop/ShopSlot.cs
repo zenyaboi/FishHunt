@@ -131,14 +131,14 @@ public class ShopSlot : MonoBehaviour
     {
         // Checking if it's an item or data so that we can properly buy it
         if (itemData != null) {
-            for (int i = 0; i < inventory.slots.Count; i++) {
-                if (inventory._isFull[i] == false && moneyCounter.money >= itemData.Price) {
-                    if (itemData.Type == "Bait") {
-                        if (baitCounter.bait < baitCounter.maxBait) {
-                            baitCounter.bait++;
-                            moneyCounter.money -= itemData.Price;
-                        }
-                    } else {
+            if (itemData.Type == "Bait") {
+                if (baitCounter.bait < baitCounter.maxBait) {
+                    baitCounter.bait++;
+                    moneyCounter.money -= itemData.Price;
+                }
+            } else {
+                for (int i = 0; i < inventory.slots.Count; i++) {
+                    if (inventory._isFull[i] == false && moneyCounter.money >= itemData.Price) {
                         moneyCounter.money -= itemData.Price;
                         // We are using the same event that we use for when we succesfully finish the fishing minigame
                         EventBus.Instance.PickUpItem(itemData);
@@ -146,8 +146,8 @@ public class ShopSlot : MonoBehaviour
                         // So, if we have 50 coins and the item costs 10... we will buy 5 of them and we don't want that
                         // The break will only be used in the Buy function and not on the Sell function
                         // Since we do want to sell every instance of the item if it's on the inventory
+                        break;
                     }
-                    break;
                 }
             }
         } else if (upgradeData != null) {

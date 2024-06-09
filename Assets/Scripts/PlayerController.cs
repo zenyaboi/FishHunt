@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private BaitCounter baitCounter;
     [SerializeField] private FishActivate fishActivate;
     [SerializeField] private GameObject fishCaughtPopUp;
+    [SerializeField] private GameObject noBaitPopUp;
 
     public NewFishingMinigame fishing;
     
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (fishing.won) {
-            StartCoroutine(popUpCooldown());
+            StartCoroutine(popUpCooldown(fishCaughtPopUp));
         }
 
         fishingMinigame.SetActive(isFishing);
@@ -159,6 +160,8 @@ public class PlayerController : MonoBehaviour
 
             if (!isFishing && Input.GetKeyDown(KeyCode.Space) && baitCounter.bait > 0) {
                 isFishing = !isFishing;
+            } else if (!isFishing && Input.GetKeyDown(KeyCode.Space) && baitCounter.bait <= 0) {
+                StartCoroutine(popUpCooldown(noBaitPopUp));
             }
         } else {
             isOverlap = false;
@@ -234,9 +237,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator popUpCooldown() {
-        fishCaughtPopUp.SetActive(true);
+    IEnumerator popUpCooldown(GameObject go) {
+        go.SetActive(true);
         yield return new WaitForSeconds(3f);
-        fishCaughtPopUp.SetActive(false);
+        go.SetActive(false);
     }
 }

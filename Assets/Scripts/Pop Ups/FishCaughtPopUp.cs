@@ -9,13 +9,7 @@ public class FishCaughtPopUp : MonoBehaviour
     [SerializeField] private TMP_Text fishCaught;
     [SerializeField] private PlayerController playerController;
     [SerializeField] Image icon;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerController.lastFishCaught == null) return;
