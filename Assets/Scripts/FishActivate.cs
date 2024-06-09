@@ -45,6 +45,7 @@ public class FishActivate : MonoBehaviour
         if (fishingMinigame.pause && myCollider.IsTouching(playerCollider)) {
             if (fishingMinigame.won) {
                 EventBus.Instance.PickUpItem(newItem);
+                playerController.lastFishCaught = this.newItem;
             }
             Destroy(gameObject);
         }

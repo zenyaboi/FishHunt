@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private BaitCounter baitCounter;
     [SerializeField] private FishActivate fishActivate;
+    [SerializeField] private GameObject fishCaughtPopUp;
 
     public NewFishingMinigame fishing;
     
@@ -48,6 +49,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject inventory;
 
+    public ItemData lastFishCaught;
+
     void Start()
     {
         // getting the rigidbody2D component from gameobject
@@ -86,6 +89,10 @@ public class PlayerController : MonoBehaviour
             isInvOpen = false;
             isShopOpen = false;
             canShop = false;
+        }
+
+        if (fishing.won) {
+            StartCoroutine(popUpCooldown());
         }
 
         fishingMinigame.SetActive(isFishing);
@@ -225,5 +232,11 @@ public class PlayerController : MonoBehaviour
             fishing.timerMult = 1.25f;
             fishing.progressMult = 1f;
         }
+    }
+
+    IEnumerator popUpCooldown() {
+        fishCaughtPopUp.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        fishCaughtPopUp.SetActive(false);
     }
 }
