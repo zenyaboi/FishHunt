@@ -40,21 +40,23 @@ public class NewFishingMinigame : MonoBehaviour
 
     void Update()
     {
-        if (won || pause) {
-            fishing.SetActive(false);
-            return;
-        }
+        if (!PauseMenu.isPaused) {
+            if (won || pause) {
+                fishing.SetActive(false);
+                return;
+            }
 
-        if (!fishing.activeSelf) {
-            Setup();
-        }
+            if (!fishing.activeSelf) {
+                Setup();
+            }
 
-        // making the hook follow the fish
-        hook.position = fish.position;
-        
-        Timer();
-        Hook();
-        ProgressBar();
+            // making the hook follow the fish
+            hook.position = fish.position;
+            
+            Timer();
+            Hook();
+            ProgressBar();
+        }
     }
 
     void Setup()

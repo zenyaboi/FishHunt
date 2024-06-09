@@ -64,48 +64,50 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        icons.transform.position = this.transform.position;
+        if (!PauseMenu.isPaused) {
+            icons.transform.position = this.transform.position;
 
-        Movement();
-        isOverlapping();
+            Movement();
+            isOverlapping();
 
-        if (fishing.pause) {
-            isFishing = false;
-            isOverlap = false;
-            canShop = false;
+            if (fishing.pause) {
+                isFishing = false;
+                isOverlap = false;
+                canShop = false;
+            }
+
+            // Opening/Closing inventory
+            if (Input.GetKeyDown(KeyCode.E) && !shop.activeSelf) {
+                isInvOpen = !isInvOpen;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space) && !inventory.activeSelf && canShop) {
+                isShopOpen = !isShopOpen;
+            }
+
+            if (hasWon) {
+                isFishing = false;
+                isOverlap = false;
+                isInvOpen = false;
+                isShopOpen = false;
+                canShop = false;
+            }
+
+            if (fishing.won) {
+                StartCoroutine(popUpCooldown(fishCaughtPopUp));
+            }
+
+            fishingMinigame.SetActive(isFishing);
+            if (canShop) {
+                icons.SetActive(canShop);
+            } else {
+                icons.SetActive(isOverlap);
+            }
+            inventory.SetActive(isInvOpen);
+            shop.SetActive(isShopOpen);
+
+            UpgradeSystem();
         }
-
-        // Opening/Closing inventory
-        if (Input.GetKeyDown(KeyCode.E) && !shop.activeSelf) {
-            isInvOpen = !isInvOpen;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && !inventory.activeSelf && canShop) {
-            isShopOpen = !isShopOpen;
-        }
-
-        if (hasWon) {
-            isFishing = false;
-            isOverlap = false;
-            isInvOpen = false;
-            isShopOpen = false;
-            canShop = false;
-        }
-
-        if (fishing.won) {
-            StartCoroutine(popUpCooldown(fishCaughtPopUp));
-        }
-
-        fishingMinigame.SetActive(isFishing);
-        if (canShop) {
-            icons.SetActive(canShop);
-        } else {
-            icons.SetActive(isOverlap);
-        }
-        inventory.SetActive(isInvOpen);
-        shop.SetActive(isShopOpen);
-
-        UpgradeSystem();
     }
 
     private void Movement() 
