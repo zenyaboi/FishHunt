@@ -1839,6 +1839,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 0}
   moveSpeed: 7
+  playerInput: {x: 0, y: 0}
+  lastMove: {x: 0, y: 0}
   forceToApply: {x: 0, y: 0}
   forceDamping: 1.2
   isFishing: 0
@@ -1862,6 +1864,10 @@ MonoBehaviour:
   shop: {fileID: 1370177654}
   inventory: {fileID: 849906225}
   lastFishCaught: {fileID: 0}
+  animatorController:
+  - {fileID: 9100000, guid: 2def76a6010ef044ca7f8020d916c69a, type: 2}
+  - {fileID: 9100000, guid: 6dde5b16d3b4d994e96b6521f26d63e2, type: 2}
+  - {fileID: 9100000, guid: 02cc4f41e3a4b624a934902e4fef13d1, type: 2}
 --- !u!212 &195053764
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1903,7 +1909,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -118665404, guid: 52d51a5d2c5ca2a40b13cc081d79adf9, type: 3}
+  m_Sprite: {fileID: 760720860, guid: 91c9fb05103beda458f70ecaf1718299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1967,7 +1973,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.23, y: 0.25}
+    oldSize: {x: 0.23, y: 0.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1986,7 +1992,7 @@ Animator:
   m_GameObject: {fileID: 195053762}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2def76a6010ef044ca7f8020d916c69a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02cc4f41e3a4b624a934902e4fef13d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

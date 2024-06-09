@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public float moveSpeed = 7f;
+    public Vector2 playerInput;
+    public Vector2 lastMove;
 
     // this is for knockback for the player
     public Vector2 forceToApply;
@@ -52,6 +55,8 @@ public class PlayerController : MonoBehaviour
 
     public ItemData lastFishCaught;
 
+    public RuntimeAnimatorController[] animatorController;
+
     void Start()
     {
         // getting the rigidbody2D component from gameobject
@@ -60,6 +65,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         // getting the box collider 2d component from gameobject
         playerCollider = GetComponent<BoxCollider2D>();
+        animator.runtimeAnimatorController = animatorController[0];
+        this.transform.localScale = new Vector3(5f, 5f, 5f);
     }
 
     void Update()
@@ -116,6 +123,10 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
+        if ((horizontal == 0 && vertical == 0) && playerInput.x != 0 || playerInput.y != 0) {
+            lastMove = playerInput;
+        }
+
         // Checking if the player is fishing
         if (isFishing || hasWon || isInvOpen || isShopOpen) {
             horizontal = 0;
@@ -123,13 +134,15 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
-        // Assining animator's float with movement variables
-        animator.SetFloat("Horizontal", horizontal);
-        animator.SetFloat("Vertical", vertical);
-        animator.SetFloat("Speed", moveSpeed);
-
         // getting the player's input value
-        Vector2 playerInput = new Vector2(horizontal, vertical).normalized;
+        playerInput = new Vector2(horizontal, vertical).normalized;
+
+        // Assining animator's float with movement variables
+        animator.SetFloat("Horizontal", playerInput.x);
+        animator.SetFloat("Vertical", playerInput.y);
+        animator.SetFloat("Speed", playerInput.sqrMagnitude);
+        animator.SetFloat("AnimLastMoveX", lastMove.x);
+        animator.SetFloat("AnimLastMoveY", lastMove.y);
 
         // applying force to the player movement
         Vector2 moveForce = playerInput * moveSpeed;
@@ -205,21 +218,33 @@ public class PlayerController : MonoBehaviour
         // Upgrade checks
         if (hasInvUpgradeI) {
             InventoryManager.instance.MaxSlots = 9;
+            animator.runtimeAnimatorController = animatorController[2];
+            this.transform.localScale = new Vector3(5.5f, 5.5f, 5.5f);
             moveSpeed = 5f;
         } else if (hasInvUpgradeII) {
             InventoryManager.instance.MaxSlots = 12;
+            animator.runtimeAnimatorController = animatorController[2];
+            this.transform.localScale = new Vector3(6f, 6f, 6f);
             moveSpeed = 3.7f;
         } else if (hasInvUpgradeIII) {
             InventoryManager.instance.MaxSlots = 18;
+            animator.runtimeAnimatorController = animatorController[2];
+            this.transform.localScale = new Vector3(7f, 7f, 7f);
             moveSpeed = 2.4f;
         } else if (hasSpdUpgradeI) {
             InventoryManager.instance.MaxSlots = 4;
+            animator.runtimeAnimatorController = animatorController[1];
+            this.transform.localScale = new Vector3(4.5f, 4.5f, 4.5f);
             moveSpeed = 9f;
         } else if (hasSpdUpgradeII) { 
             InventoryManager.instance.MaxSlots = 3;
+            animator.runtimeAnimatorController = animatorController[1];
+            this.transform.localScale = new Vector3(4f, 4f, 4f);
             moveSpeed = 12f;
         } else {
             InventoryManager.instance.MaxSlots = 6;
+            animator.runtimeAnimatorController = animatorController[0];
+            this.transform.localScale = new Vector3(5f, 5f, 5f);
             moveSpeed = 7f;
         }
 
