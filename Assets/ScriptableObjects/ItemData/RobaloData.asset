@@ -19,4 +19,4 @@ MonoBehaviour:
   _weight: 0
   _price: 2
   _sprite: {fileID: 6510492014216249000, guid: a293f6deb2686f745b1c9300875b7ff2, type: 3}
-  _description: A fish.
+  _description: 

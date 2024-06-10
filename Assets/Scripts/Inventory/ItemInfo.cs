@@ -13,6 +13,6 @@ public class ItemInfo : MonoBehaviour
     {
         itemName.text = name;
         itemDescription.text = description;
-        itemAge.text = age;
+        itemAge.text = "Idade: " + age;
     }
 }
