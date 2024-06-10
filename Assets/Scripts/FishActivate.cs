@@ -81,7 +81,7 @@ public class FishActivate : MonoBehaviour
         mySpriteRenderer.sprite = newItem.Sprite.sprite;
         newItem.Age = Random.Range(1, 10);
         newItem.Weight = Random.Range(1, 10);
-        newItem.Price = ((newItem.Price * .3f) * newItem.Weight) / newItem.Age;
+        newItem.Price = ((newItem.Price * .5f) * newItem.Weight) / newItem.Age;
         // Rounding the price so it has one decimal
         newItem.Price = System.Math.Round(newItem.Price, 1);
         //Debug.Log("Fish Age: " + newItem.Age + ", Fish Weight: " + newItem.Weight + ", Fish Price: " + newItem.Price);
