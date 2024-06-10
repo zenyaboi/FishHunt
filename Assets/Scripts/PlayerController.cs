@@ -254,15 +254,15 @@ public class PlayerController : MonoBehaviour
         // Fishing Rod Upgrade Check
         if (hasRodUpgradeI) {
             fishing.hookMult = 90f;
-            fishing.timerMult = 2f;
+            fishing.timerMult = 3.75f;
             fishing.progressMult = 2f;
         } else if (hasRodUpgradeII) {
             fishing.hookMult = 105f;
-            fishing.timerMult = 3.5f;
+            fishing.timerMult = 6.25f;
             fishing.progressMult = 4f;
         } else {
             fishing.hookMult = 10.5f;
-            fishing.timerMult = 1.25f;
+            fishing.timerMult = 2.25f;
             fishing.progressMult = 1f;
         }
     }

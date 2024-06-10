@@ -96,7 +96,7 @@ public class NewFishingMinigame : MonoBehaviour
             spamCooldownTimer += Time.deltaTime;
             if (spamCooldownTimer > 0f && spamCooldownTimer < 0.1f) {
                 Debug.Log("fast");
-                timer -= (Time.deltaTime * (timerMult));
+                timer -= (Time.deltaTime * (timerMult * 1.45f));
             } else if (spamCooldownTimer > 0.1f) {
                 Debug.Log("sl0w");
                 timer -= (Time.deltaTime * (timerMult / 2f));
