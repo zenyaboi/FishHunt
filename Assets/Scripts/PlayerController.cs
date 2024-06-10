@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private FishActivate fishActivate;
     [SerializeField] private GameObject fishCaughtPopUp;
     [SerializeField] private GameObject noBaitPopUp;
+    [SerializeField] private GameObject wrongRod;
 
     public NewFishingMinigame fishing;
     
@@ -168,8 +169,11 @@ public class PlayerController : MonoBehaviour
             isOverlap = true;
 
             if (fishActivate.newItem.Species == "Linguado" || fishActivate.newItem.Species == "Robalo") {
-                if (!hasRodUpgradeI && !hasRodUpgradeII) 
+                if (!hasRodUpgradeI && !hasRodUpgradeII) {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                        StartCoroutine(popUpCooldown(wrongRod));
                     return;
+                }
             }
 
             if (!isFishing && Input.GetKeyDown(KeyCode.Space) && baitCounter.bait > 0) {

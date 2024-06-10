@@ -12,7 +12,7 @@ public class ItemInfo : MonoBehaviour
     public void SetUp(string name, string description, string age) 
     {
         itemName.text = name;
-        itemDescription.text = description;
+        itemDescription.text = "Peso: " + description;
         itemAge.text = "Idade: " + age;
     }
 }

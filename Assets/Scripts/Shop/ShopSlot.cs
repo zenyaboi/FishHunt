@@ -132,6 +132,12 @@ public class ShopSlot : MonoBehaviour
                     sprite.sprite = itemData.Sprite.sprite;
             }
         }
+
+        if (itemData != null) {
+            if (itemData.Type == "Bait") {
+                itemAmount.text = "Amount: " + baitCounter.bait.ToString();
+            }
+        }
     }
 
     public void Buy() 
