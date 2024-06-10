@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4936043137436837958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 4936043138168842546}
   - component: {fileID: 4936043137498050619}
   - component: {fileID: 4936043137498050620}
+  - component: {fileID: 6842580753258346732}
   m_Layer: 5
   m_Name: ItemSlotPrefab
   m_TagString: Untagged
@@ -198,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33962262, g: 0.2681214, b: 0.20986114, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -275,8 +276,6 @@ MonoBehaviour:
   inventory: {fileID: 7720951483477153739, guid: 06bd65e05c7b98246ba79536ba6ecb38, type: 3}
   i: 0
   spawnedSprite: {fileID: 0}
-  imagePrefab: {fileID: 2685329692098123272, guid: ed30b814720904a42a0fc6ba3c6eeaca, type: 3}
-  parent: {fileID: 2259877359800506218, guid: 3e008ea3c01df5f4786683034956c322, type: 3}
 --- !u!114 &4936043137498050620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,3 +321,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &6842580753258346732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4936043138168842544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.23584908, g: 0.18396634, b: 0.14573693, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
